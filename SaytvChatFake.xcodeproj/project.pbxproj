@@ -17,6 +17,7 @@
 		7B8FA349283D236B00C8F5A7 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 7B8FA348283D236B00C8F5A7 /* FirebaseMessaging */; };
 		7B8FA34C283D288700C8F5A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FA34B283D288700C8F5A7 /* LoginViewController.swift */; };
 		7B8FA34E283D289E00C8F5A7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FA34D283D289E00C8F5A7 /* ChatViewController.swift */; };
+		7B8FA350283D2CA100C8F5A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		7B8FA33F283D1E5900C8F5A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B8FA34B283D288700C8F5A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7B8FA34D283D289E00C8F5A7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		7B8FA330283D1E5800C8F5A7 /* SaytvChatFake */ = {
 			isa = PBXGroup;
 			children = (
+				7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */,
 				7B8FA34A283D282800C8F5A7 /* Controllers */,
 				7B8FA331283D1E5800C8F5A7 /* AppDelegate.swift */,
 				7B8FA333283D1E5800C8F5A7 /* SceneDelegate.swift */,
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B8FA33E283D1E5900C8F5A7 /* LaunchScreen.storyboard in Resources */,
+				7B8FA350283D2CA100C8F5A7 /* GoogleService-Info.plist in Resources */,
 				7B8FA33B283D1E5900C8F5A7 /* Assets.xcassets in Resources */,
 				7B8FA339283D1E5800C8F5A7 /* Main.storyboard in Resources */,
 			);
@@ -322,12 +326,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.saytv.app.SaytvChatFake;
+				PRODUCT_BUNDLE_IDENTIFIER = net.saytv.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -350,12 +355,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.saytv.app.SaytvChatFake;
+				PRODUCT_BUNDLE_IDENTIFIER = net.saytv.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
