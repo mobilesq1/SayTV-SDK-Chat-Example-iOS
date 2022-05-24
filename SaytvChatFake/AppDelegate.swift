@@ -8,13 +8,17 @@
 import UIKit
 import Firebase
 import FirebaseMessaging
+import SaytvChat
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    private let pushComponent = PushComponent()
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        pushComponent.configure()
         
         UNUserNotificationCenter.current().delegate = self
 
@@ -27,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         Messaging.messaging().delegate = self
+        pushComponent.configureMessaging()
         return true
     }
 
@@ -42,6 +47,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
 
+    func application(_ application: UIApplication,
+                     didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        debugPrint(userInfo)
+        if pushComponent.handlePush(response: userInfo) {
+            completionHandler(.noData)
+            return
+        }
+        
+        completionHandler(.newData)
+    }
 
 }
 

@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "f82c23a8a7ef8dc1a49a8bfc6a96883e79121864",
+        "version" : "5.5.0"
+      }
+    },
+    {
       "identity" : "boringssl-swiftpm",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/boringssl-SwiftPM.git",
@@ -23,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dgarciasquare1/firebase-ios-sdk.git",
       "state" : {
-        "revision" : "ccb2bccb82e62ad9e8a4e757a43ce6a04ceae1c9",
-        "version" : "8.14.0"
+        "branch" : "add-firebase-to-message",
+        "revision" : "f26bb2661ce4802150748486d0e06d32694cbf3a"
       }
     },
     {
@@ -97,6 +106,15 @@
       "state" : {
         "revision" : "46c1e6b5ac09d8f82c991061c659f67e573d425d",
         "version" : "2.1.0"
+      }
+    },
+    {
+      "identity" : "saytv_sdk_ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git",
+      "state" : {
+        "branch" : "release/v1.0.0",
+        "revision" : "42688f93e073a0e25a8c4292a6d1b76a25aa2460"
       }
     },
     {
