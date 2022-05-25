@@ -91,9 +91,9 @@ To login inside the SDK, you just need to add `SayTvSdk.login(digicelId:_, compl
 SayTvSdk.login(digicelId: digicelId) { result in
     switch result {
     case .success(let response):
-        self.resultTextView.text = "Success: \(response == true), User has login"
+        print(response)
     case .failure(let error):
-        self.resultTextView.text = "Failure: \(error.localizedDescription)"
+        print(error.localizedDescription)
     }
 }
 ```
