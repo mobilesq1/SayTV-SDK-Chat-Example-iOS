@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var digicelIdTextField: UITextField!
+    @IBOutlet weak var resultTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

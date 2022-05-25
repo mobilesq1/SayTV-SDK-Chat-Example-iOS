@@ -157,7 +157,7 @@
                                                     <constraint firstAttribute="height" constant="34" id="Vxn-a4-Han"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -193,6 +193,7 @@
                         <outlet property="avatarTextField" destination="MxS-48-h2M" id="5A4-R8-ZhQ"/>
                         <outlet property="digicelIdTextField" destination="Ew4-TO-oK9" id="dyY-UV-sEi"/>
                         <outlet property="emailTextField" destination="LKA-F5-Xj7" id="w2O-Uv-59e"/>
+                        <outlet property="resultTextView" destination="cr1-LH-c8N" id="PSg-UK-kF1"/>
                         <outlet property="usernameTextField" destination="CJb-i2-fz3" id="n5E-Au-2Jn"/>
                     </connections>
                 </viewController>
@@ -260,6 +261,7 @@
                     <navigationItem key="navigationItem" id="yUn-qc-eht"/>
                     <connections>
                         <outlet property="digicelIdTextField" destination="xy5-dR-cr1" id="4Ei-NW-dcL"/>
+                        <outlet property="resultTextView" destination="Tef-za-rTp" id="wWf-rE-NeO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kg8-lz-2A0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
