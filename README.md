@@ -41,17 +41,21 @@ You need to instantiate the class and use the next methods in the **AppDelegate.
 ```swift
 private let pushComponent = PushComponent()
 
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
-        pushComponent.configure()
+func application(_ application: UIApplication,
+                 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    FirebaseApp.configure()
+    pushComponent.configure()
+    ...
+}
 ```
 
 - After setting the delegate of the Messaging in the `applicationDidFinishLaunchingWithOptions`, add `.configureMessaging()` method to set up the SDK’s messaging
 
 ```swift
+...
 Messaging.messaging().delegate = self
 pushComponent.configureMessaging()
+...
 ```
 
 - At the beginning of the `applicationDidReceiveRemoteNotification`, add the .`handlePush(response:_)` to filter the messages that the SDK is going to handle
@@ -60,11 +64,12 @@ pushComponent.configureMessaging()
 func application(_ application: UIApplication,
                  didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                  fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        if pushComponent.handlePush(response: userInfo) {
-            completionHandler(.noData)
-            return
-        }
-        // your code...
+    if pushComponent.handlePush(response: userInfo) {
+        completionHandler(.noData)
+        return
+    }
+    // your code...
+}
 ```
 
 ## Register and Login
