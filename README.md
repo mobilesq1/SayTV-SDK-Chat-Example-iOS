@@ -58,8 +58,8 @@ pushComponent.configureMessaging()
 
 ```swift
 func application(_ application: UIApplication,
-                     didReceiveRemoteNotification userInfo: [AnyHashable : Any],
-                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+                 didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                 fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if pushComponent.handlePush(response: userInfo) {
             completionHandler(.noData)
             return
