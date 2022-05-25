@@ -106,19 +106,19 @@ class ChatViewController: UIViewController {
         let startTime = dateFormatter.date(from: "24/05/2022 10:05:00")
         let endTime = dateFormatter.date(from: "26/05/2022 18:00:00")
         let theme = ChatTheme(chatText: .red, 
-                            chatTextPlaceholder: .orange,
-                            chatTextBackground: .green, 
-                            hashtagText: .green,
-                            chatBackground: .darkGray, 
-                            eventBackground: .cyan,
-                            chatTextBorder: .blue)
+                              chatTextPlaceholder: .orange,
+                              chatTextBackground: .green, 
+                              hashtagText: .green,
+                              chatBackground: .darkGray, 
+                              eventBackground: .cyan,
+                              chatTextBorder: .blue)
         let _ = ChatComponent(view: containerView,
-                            name: name,
-                            image: image,
-                            startTime: startTime,
-                            endTime: endTime,
-                            chatId: chatId,
-                            theme: theme) { result in
+                              name: name,
+                              image: image,
+                              startTime: startTime,
+                              endTime: endTime,
+                              chatId: chatId,
+                              theme: theme) { result in
             switch result {
             case .success:
                 print("Chat Success")
