@@ -1,6 +1,12 @@
 # Saytv Chat Example iOS
 App that is going to use the Saytv Chat library.
 
+Table of contents 
+- [Instalation](#chat-sdk)
+- [Firebase](#firebase)
+- [Register and Login](#register-and-login)
+- [Chat](#chat)
+
 ## Chat SDK
 
 The Chat SDK is available on Swift Package Manager (SPM), to use it we are going to need to follow the next steps:
@@ -77,6 +83,7 @@ SayTvSdk.register(digicelId: 12,
     }
 }
 ```
+> You must be registered before try to use the login
 
 To login inside the SDK, you just need to add `SayTvSdk.login(digicelId:_, completion: _)` where the completion is going to have the service call response
 
@@ -92,6 +99,8 @@ SayTvSdk.login(digicelId: digicelId) { result in
 ```
 
 ## Chat
+> You must be registered or logged in before trying to use chat.
+
 You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `ChatComponent(`***view***`: _, name: _, image:_, startTime: _, endTime: _, `***chatId***`: _, theme: _, completion: _)`, where the ***view*** is the UIView that is configured in your screen, the others parameters are optional except for the ***chatId*** that you need to subscribe to the chat. The start time must be a date after or equal to now to work properly.
 
 ```swift 
