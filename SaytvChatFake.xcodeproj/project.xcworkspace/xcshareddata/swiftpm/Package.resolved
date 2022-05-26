@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dgarciasquare1/firebase-ios-sdk.git",
       "state" : {
-        "branch" : "add-firebase-to-message",
-        "revision" : "f26bb2661ce4802150748486d0e06d32694cbf3a"
+        "revision" : "f26bb2661ce4802150748486d0e06d32694cbf3a",
+        "version" : "8.15.0"
       }
     },
     {
@@ -113,8 +113,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git",
       "state" : {
-        "branch" : "release/v1.0.0",
-        "revision" : "3b8a3b72baa38b3ca26d9329eaab47f6530ea1d1"
+        "revision" : "563003eead4f26a1e0a9290f20d9cb7dcf6effb2",
+        "version" : "1.0.1"
       }
     },
     {
