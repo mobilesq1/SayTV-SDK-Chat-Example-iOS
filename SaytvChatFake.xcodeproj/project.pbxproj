@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B16F47F283F612400A6AA3D /* SaytvChat in Frameworks */ = {isa = PBXBuildFile; productRef = 7B16F47E283F612400A6AA3D /* SaytvChat */; };
 		7B8FA332283D1E5800C8F5A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FA331283D1E5800C8F5A7 /* AppDelegate.swift */; };
 		7B8FA334283D1E5800C8F5A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FA333283D1E5800C8F5A7 /* SceneDelegate.swift */; };
 		7B8FA336283D1E5800C8F5A7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FA335283D1E5800C8F5A7 /* RegisterViewController.swift */; };
@@ -19,6 +18,7 @@
 		7B8FA34C283D288700C8F5A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FA34B283D288700C8F5A7 /* LoginViewController.swift */; };
 		7B8FA34E283D289E00C8F5A7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FA34D283D289E00C8F5A7 /* ChatViewController.swift */; };
 		7B8FA350283D2CA100C8F5A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */; };
+		7BD006862844E76A0052E2B2 /* SaytvChat in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD006852844E76A0052E2B2 /* SaytvChat */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B16F47F283F612400A6AA3D /* SaytvChat in Frameworks */,
+				7BD006862844E76A0052E2B2 /* SaytvChat in Frameworks */,
 				7B8FA349283D236B00C8F5A7 /* FirebaseMessaging in Frameworks */,
 				7B8FA347283D236B00C8F5A7 /* FirebaseAnalytics in Frameworks */,
 			);
@@ -109,7 +109,7 @@
 			packageProductDependencies = (
 				7B8FA346283D236B00C8F5A7 /* FirebaseAnalytics */,
 				7B8FA348283D236B00C8F5A7 /* FirebaseMessaging */,
-				7B16F47E283F612400A6AA3D /* SaytvChat */,
+				7BD006852844E76A0052E2B2 /* SaytvChat */,
 			);
 			productName = SaytvChatFake;
 			productReference = 7B8FA32E283D1E5800C8F5A7 /* SaytvChatFake.app */;
@@ -141,7 +141,7 @@
 			mainGroup = 7B8FA325283D1E5800C8F5A7;
 			packageReferences = (
 				7B8FA345283D236B00C8F5A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				7B16F47D283F612400A6AA3D /* XCRemoteSwiftPackageReference "saytv_sdk_ios" */,
+				7BD006842844E76A0052E2B2 /* XCRemoteSwiftPackageReference "saytv_sdk_ios" */,
 			);
 			productRefGroup = 7B8FA32F283D1E5800C8F5A7 /* Products */;
 			projectDirPath = "";
@@ -397,14 +397,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7B16F47D283F612400A6AA3D /* XCRemoteSwiftPackageReference "saytv_sdk_ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		7B8FA345283D236B00C8F5A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dgarciasquare1/firebase-ios-sdk.git";
@@ -413,14 +405,17 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		7BD006842844E76A0052E2B2 /* XCRemoteSwiftPackageReference "saytv_sdk_ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7B16F47E283F612400A6AA3D /* SaytvChat */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7B16F47D283F612400A6AA3D /* XCRemoteSwiftPackageReference "saytv_sdk_ios" */;
-			productName = SaytvChat;
-		};
 		7B8FA346283D236B00C8F5A7 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7B8FA345283D236B00C8F5A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -430,6 +425,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7B8FA345283D236B00C8F5A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		7BD006852844E76A0052E2B2 /* SaytvChat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BD006842844E76A0052E2B2 /* XCRemoteSwiftPackageReference "saytv_sdk_ios" */;
+			productName = SaytvChat;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

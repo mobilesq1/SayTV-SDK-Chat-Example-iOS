@@ -18,10 +18,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func sendTapAction(_ sender: UIButton) {
-        guard let text = digicelIdTextField.text,
-                let digicelId = Int(text)
+        guard let digicelId = digicelIdTextField.text,
+              !digicelId.isEmpty
         else {
-            resultTextView.text = "DigicelId needs to be a number"
+            resultTextView.text = "DigicelId needs to have a value"
             return
         }
         SayTvSdk.login(digicelId: digicelId) { result in

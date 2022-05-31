@@ -39,10 +39,10 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func sendTapAction(_ sender: UIButton) {
-        guard let text = chatIdTextField.text,
-                let chatId = Int(text)
+        guard let chatId = chatIdTextField.text,
+              !chatId.isEmpty
         else {
-            resultTextView.text = "chatId needs to be a number"
+            resultTextView.text = "chatId needs to have a value"
             return
         }
         let name = nameTextField.text ?? ""
