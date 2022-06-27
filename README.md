@@ -207,11 +207,29 @@ component.setActAsOverlay(_ actAsOverlay: true)
 - You can change the theme at runtime of the `ChatComponent` and the `HeaderComponent` using this after initialize the components:
 
 ```swift
-SayTvSdk.setChatTheme(_ theme: SaytvChat.ChatTheme)
+let theme = ChatTheme(headerBackground: .red,
+                      headerTextColor: .red,
+                      viewerCountTextColor: .red,
+                      settingsFilterTextColor: .red,
+                      settingsQuizTextColor: .red,
+                      timeRemainingTextColor: .red,
+                      timeIntervalTextColor: .red,
+                      chatText: .red,
+                      chatTextPlaceholder: .red,
+                      chatTextBackground: .red,
+                      hashtagText: .red,
+                      chatBackground: .red,
+                      eventBackground: .red,
+                      chatTextBorder: .red)
+
+SayTvSdk.setChatTheme(_ theme: theme)
 ```
 
 - You can change the theme at runtime of the `ProfileComponent` using this after initialize the component:
 
 ```swift
-SayTvSdk.setProfileTheme(_ theme: SaytvChat.ProfileTheme)
+let theme = ProfileTheme(nameTextColor: .red,
+                         memberSinceTextColor: .red)
+
+SayTvSdk.setProfileTheme(_ theme: theme)
 ```

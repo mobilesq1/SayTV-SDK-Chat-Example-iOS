@@ -110,6 +110,7 @@ class ChatViewController: UIViewController {
                                 endDate: endDate,
                                 theme: theme,
                                 completion: completion)
+        let x = ProfileTheme(nameTextColor: <#T##UIColor?#>, memberSinceTextColor: <#T##UIColor#>)
     }
     
     private func startChat(chatId: String, name: String,
