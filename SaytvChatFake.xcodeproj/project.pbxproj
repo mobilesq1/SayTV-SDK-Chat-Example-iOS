@@ -17,6 +17,7 @@
 		7B8FA34E283D289E00C8F5A7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FA34D283D289E00C8F5A7 /* ChatViewController.swift */; };
 		7B8FA350283D2CA100C8F5A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */; };
 		7BE94BBD2869C607009F0D5C /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE94BBC2869C607009F0D5C /* ViewControllerExtension.swift */; };
+		7BE94BBF286A037F009F0D5C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE94BBE286A037F009F0D5C /* ProfileViewController.swift */; };
 		7BF779CC28475D4400E7FCB0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF779CB28475D4400E7FCB0 /* FirebaseAnalytics */; };
 		7BF779CE28475D4400E7FCB0 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF779CD28475D4400E7FCB0 /* FirebaseMessaging */; };
 		7BF779D128476B5800E7FCB0 /* SaytvChat in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF779D028476B5800E7FCB0 /* SaytvChat */; };
@@ -35,6 +36,7 @@
 		7B8FA34D283D289E00C8F5A7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7BE94BBC2869C607009F0D5C /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		7BE94BBE286A037F009F0D5C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				7B8FA335283D1E5800C8F5A7 /* RegisterViewController.swift */,
 				7B8FA34B283D288700C8F5A7 /* LoginViewController.swift */,
+				7BE94BBE286A037F009F0D5C /* ProfileViewController.swift */,
 				7B8FA34D283D289E00C8F5A7 /* ChatViewController.swift */,
 			);
 			path = Controllers;
@@ -186,6 +189,7 @@
 				7B8FA336283D1E5800C8F5A7 /* RegisterViewController.swift in Sources */,
 				7BE94BBD2869C607009F0D5C /* ViewControllerExtension.swift in Sources */,
 				7B8FA332283D1E5800C8F5A7 /* AppDelegate.swift in Sources */,
+				7BE94BBF286A037F009F0D5C /* ProfileViewController.swift in Sources */,
 				7B8FA34E283D289E00C8F5A7 /* ChatViewController.swift in Sources */,
 				7B8FA334283D1E5800C8F5A7 /* SceneDelegate.swift in Sources */,
 			);

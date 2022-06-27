@@ -95,12 +95,20 @@ class ChatViewController: UIViewController {
     private func startHeader(chatId: String, name: String,
                              chatImage: String, startDate: Date,
                              endDate: Date, completion: @escaping (Result<Void, Error>) -> Void) {
+        let theme = ChatTheme(headerBackground: .red,
+                              headerTextColor: .orange,
+                              viewerCountTextColor: .green,
+                              settingsFilterTextColor: .darkGray,
+                              settingsQuizTextColor: .cyan,
+                              timeRemainingTextColor: .blue,
+                              timeIntervalTextColor: .yellow)
         let _ = HeaderComponent(containerView: headerContainerView,
                                 chatId: chatId,
                                 chatName: name,
                                 chatImage: chatImage,
                                 startDate: startDate,
                                 endDate: endDate,
+                                theme: theme,
                                 completion: completion)
     }
     

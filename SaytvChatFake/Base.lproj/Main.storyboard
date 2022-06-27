@@ -32,40 +32,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iJ-if-6MW">
-                                <rect key="frame" x="157.66666666666666" y="390.66666666666669" width="60" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Login"/>
-                                <connections>
-                                    <segue destination="PAJ-wK-DNE" kind="show" id="EbD-lr-i2B"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9M-re-Obp">
-                                <rect key="frame" x="148.66666666666666" y="329.66666666666669" width="78" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Register"/>
-                                <connections>
-                                    <segue destination="Ige-yp-LxU" kind="show" id="jqg-no-iaM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yY3-mk-vyt">
-                                <rect key="frame" x="160" y="451.66666666666669" width="55" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Chat"/>
-                                <connections>
-                                    <segue destination="ayT-2h-3Tg" kind="show" id="o71-1h-y4F"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ai6-VK-CE8">
+                                <rect key="frame" x="149" y="299" width="77.333333333333314" height="214"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9M-re-Obp">
+                                        <rect key="frame" x="0.0" y="0.0" width="77.333333333333329" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Register"/>
+                                        <connections>
+                                            <segue destination="Ige-yp-LxU" kind="show" id="jqg-no-iaM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iJ-if-6MW">
+                                        <rect key="frame" x="0.0" y="61" width="77.333333333333329" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                                        <connections>
+                                            <segue destination="PAJ-wK-DNE" kind="show" id="EbD-lr-i2B"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yY3-mk-vyt">
+                                        <rect key="frame" x="0.0" y="122" width="77.333333333333329" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Chat"/>
+                                        <connections>
+                                            <segue destination="ayT-2h-3Tg" kind="show" id="o71-1h-y4F"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jA5-5c-Z52">
+                                        <rect key="frame" x="0.0" y="183" width="77.333333333333329" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Profile"/>
+                                        <connections>
+                                            <segue destination="iu4-my-IdU" kind="show" id="oOY-G5-xK5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="yY3-mk-vyt" firstAttribute="top" secondItem="3iJ-if-6MW" secondAttribute="bottom" constant="30" id="C94-VC-iJa"/>
-                            <constraint firstItem="3iJ-if-6MW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ETb-qM-FOM"/>
-                            <constraint firstItem="3iJ-if-6MW" firstAttribute="top" secondItem="H9M-re-Obp" secondAttribute="bottom" constant="30" id="KLI-AE-7t7"/>
-                            <constraint firstItem="3iJ-if-6MW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jf9-2d-Laf"/>
-                            <constraint firstItem="yY3-mk-vyt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sC3-qg-TS4"/>
-                            <constraint firstItem="H9M-re-Obp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xJC-h2-cIO"/>
+                            <constraint firstItem="ai6-VK-CE8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HH9-lP-l4B"/>
+                            <constraint firstItem="ai6-VK-CE8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oOZ-mp-0Ry"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3FS-wz-N8D"/>
@@ -273,6 +282,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kg8-lz-2A0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="511" y="94"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="QcV-zX-vTF">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="iu4-my-IdU" customClass="ProfileViewController" customModule="SaytvChatFake" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zuf-lK-Ry3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="rDf-7v-CbC">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You must be registered or logged in before trying to use chat." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSB-fn-VmM">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="4cn-Sm-Pew">
+                                        <rect key="frame" x="0.0" y="46.666666666666657" width="375" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfY-EG-7V4">
+                                                <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VmM-74-nBg">
+                                                <rect key="frame" x="60.666666666666657" y="0.0" width="314.33333333333337" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="U2v-5y-pMQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqD-Qq-1vj">
+                                        <rect key="frame" x="0.0" y="86.666666666666657" width="375" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="A3c-DJ-7lt"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Send"/>
+                                        <connections>
+                                            <action selector="sendTapAction:" destination="Ige-yp-LxU" eventType="touchUpInside" id="7jH-rO-Fb4"/>
+                                            <action selector="sendTapAction:" destination="ayT-2h-3Tg" eventType="touchUpInside" id="k2d-3B-UKm"/>
+                                            <action selector="tapButton:" destination="iu4-my-IdU" eventType="touchUpInside" id="5hL-yk-jpz"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dQx-xw-tcD">
+                                        <rect key="frame" x="0.0" y="123.66666666666669" width="375" height="566.33333333333326"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5Jq-EN-6Ng"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rDf-7v-CbC" firstAttribute="top" secondItem="5Jq-EN-6Ng" secondAttribute="top" id="4sW-Ni-BPi"/>
+                            <constraint firstAttribute="trailing" secondItem="rDf-7v-CbC" secondAttribute="trailing" id="FCR-87-4iQ"/>
+                            <constraint firstItem="5Jq-EN-6Ng" firstAttribute="bottom" secondItem="rDf-7v-CbC" secondAttribute="bottom" id="LlV-w9-2zz"/>
+                            <constraint firstItem="rDf-7v-CbC" firstAttribute="leading" secondItem="5Jq-EN-6Ng" secondAttribute="leading" id="Ylm-NR-aWH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2Ws-q2-aFh"/>
+                    <connections>
+                        <outlet property="infoStackView" destination="rDf-7v-CbC" id="ZtL-hK-7fc"/>
+                        <outlet property="resultTextView" destination="dQx-xw-tcD" id="9sH-VV-Vph"/>
+                        <outlet property="userIdLabel" destination="VmM-74-nBg" id="JqL-B2-bbL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FOU-jr-BHJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-346" y="816"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="N2m-R3-bmc">

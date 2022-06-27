@@ -138,3 +138,61 @@ class ChatViewController: UIViewController {
     ...
 }
 ```
+
+## Header
+> You must be registered or logged in before trying to use chat.
+
+You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `HeaderComponent(`***containerView***`: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, completion: _)`. The start time must be a date after or equal to now to work properly.
+
+```swift 
+class ChatViewController: UIViewController {
+
+    @IBOutlet weak var containerView: UIView!
+    ....
+    func startHeader() {
+        let name = "Nice episode event chat"
+        let image = "https://image_url_example.com"
+        let startTime = dateFormatter.date(from: "24/05/2022 10:05:00")
+        let endTime = dateFormatter.date(from: "26/05/2022 18:00:00")
+        let theme = ChatTheme(headerBackground: .red,
+                              headerTextColor: .orange,
+                              viewerCountTextColor: .green,
+                              settingsFilterTextColor: .darkGray,
+                              settingsQuizTextColor: .cyan,
+                              timeRemainingTextColor: .blue,
+                              timeIntervalTextColor: .yellow)
+        let _ = HeaderComponent(containerView: containerView,
+                                chatId: chatId,
+                                chatName: name,
+                                chatImage: image,
+                                startDate: startTime,
+                                endDate: endTime,
+                                theme: theme) { result in
+            switch result {
+            case .success:
+                print("Header Success")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    ...
+}
+```
+
+## Profile
+> You must be registered or logged in before trying to use chat.
+
+You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `ProfileComponent(userId: _, `***containerView***`: _)`
+
+```swift 
+class ProfileViewController: UIViewController {
+
+    @IBOutlet weak var containerView: UIView!
+    ....
+    func startProfile() {
+        let _ = ProfileComponent(userId: 1, containerView: containerView)
+    }
+    ...
+}
+```
