@@ -104,8 +104,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/promises.git",
       "state" : {
-        "revision" : "46c1e6b5ac09d8f82c991061c659f67e573d425d",
-        "version" : "2.1.0"
+        "revision" : "afa9a1ace74e116848d4f743599ab83e584ff8cb",
+        "version" : "1.2.12"
       }
     },
     {
@@ -113,8 +113,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git",
       "state" : {
-        "revision" : "6b7611091827598c7b9134ba53e26a70a68ff421",
-        "version" : "1.0.2"
+        "revision" : "ca3e0f8d3a9bfb75c6820043e02b67fb7d6f5b59",
+        "version" : "2.0.0"
       }
     },
     {

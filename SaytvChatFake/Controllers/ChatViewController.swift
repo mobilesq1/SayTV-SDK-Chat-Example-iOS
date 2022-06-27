@@ -10,7 +10,8 @@ import SaytvChat
 
 class ChatViewController: UIViewController {
 
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var headerContainerView: UIView!
+    @IBOutlet weak var chatContainerView: UIView!
     
     @IBOutlet weak var infoStackView: UIStackView!
     @IBOutlet weak var chatIdTextField: UITextField!
@@ -27,9 +28,17 @@ class ChatViewController: UIViewController {
         return dateFormatter
     }()
     
+    private var showFullChat: Bool = false {
+        didSet {
+            chatContainerView.isHidden = !showFullChat
+            headerContainerView.isHidden = !showFullChat
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        containerView.isHidden = true
+        hideKeyboardWhenTappedAround()
+        showFullChat = false
         startTimeTextField.tag = 100
         endTimeTextField.tag = 101
         startTimeTextField.delegate = self
@@ -40,33 +49,71 @@ class ChatViewController: UIViewController {
     
     @IBAction func sendTapAction(_ sender: UIButton) {
         guard let chatId = chatIdTextField.text,
-              !chatId.isEmpty
+              let name = nameTextField.text,
+              let startTime = dateFormatter.date(from: startTimeTextField.text ?? ""),
+              let endTime = dateFormatter.date(from: endTimeTextField.text ?? ""),
+              !chatId.isEmpty || !name.isEmpty
         else {
-            resultTextView.text = "chatId needs to have a value"
+            resultTextView.text = "Fill all the form"
             return
         }
-        let name = nameTextField.text ?? ""
         let image = imageTextField.text ?? ""
-        let startTime = dateFormatter.date(from: startTimeTextField.text ?? "")
-        let endTime = dateFormatter.date(from: endTimeTextField.text ?? "")
         sender.isUserInteractionEnabled = false
-        let _ = ChatComponent(view: containerView,
-                              name: name.isEmpty ? nil : name,
-                              image: image.isEmpty ? nil : image,
-                              
-                              startTime: startTime,
-                              endTime: endTime,
-                              chatId: chatId,
-                              theme: nil) { result in
+        
+        startHeader(chatId: chatId,
+                    name: name,
+                    chatImage: image,
+                    startDate: startTime,
+                    endDate: endTime) { result in
+            self.evaluate(sender: sender, result: result)
             switch result {
             case .success:
-                self.infoStackView.isHidden = true
-                self.containerView.isHidden = false
-            case .failure(let error):
-                sender.isUserInteractionEnabled = true
-                self.resultTextView.text = "Failure: \(error.localizedDescription)"
+                self.startChat(chatId: chatId,
+                               name: name,
+                               chatImage: image,
+                               startDate: startTime,
+                               endDate: endTime) { result in
+                    self.evaluate(sender: sender, result: result)
+                }
+            default:
+                break
             }
         }
+    }
+    
+    private func evaluate(sender: UIButton, result: Result<Void, Error> ) {
+        switch result {
+        case .success:
+            self.infoStackView.isHidden = true
+            self.showFullChat = true
+        case .failure(let error):
+            sender.isUserInteractionEnabled = true
+            self.resultTextView.text = "Failure: \(error.localizedDescription)"
+        }
+    }
+    
+    private func startHeader(chatId: String, name: String,
+                             chatImage: String, startDate: Date,
+                             endDate: Date, completion: @escaping (Result<Void, Error>) -> Void) {
+        let _ = HeaderComponent(containerView: headerContainerView,
+                                chatId: chatId,
+                                chatName: name,
+                                chatImage: chatImage,
+                                startDate: startDate,
+                                endDate: endDate,
+                                completion: completion)
+    }
+    
+    private func startChat(chatId: String, name: String,
+                           chatImage: String, startDate: Date,
+                           endDate: Date, completion: @escaping (Result<Void, Error>) -> Void) {
+        let _ = ChatComponent(view: chatContainerView,
+                              name: name.isEmpty ? nil : name,
+                              image: chatImage.isEmpty ? nil : chatImage,
+                              startTime: startDate,
+                              endTime: endDate,
+                              chatId: chatId,
+                              completion: completion)
     }
     
     private func addDatePicker(id: Int, textField: UITextField) {

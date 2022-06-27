@@ -10,6 +10,8 @@ import Firebase
 import FirebaseMessaging
 import SaytvChat
 
+let kApiToken = "$2y$10$m0qcFR4qVKS7h4eJlbLmcekPeSVv6En3mITCq0nZe0Rwm2r2JHZN."
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -18,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        pushComponent.configure()
         
         UNUserNotificationCenter.current().delegate = self
 
@@ -31,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         Messaging.messaging().delegate = self
-        pushComponent.configureMessaging()
         return true
     }
 
@@ -91,13 +91,16 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging,
                    didReceiveRegistrationToken fcmToken: String?) {
-      print("Firebase registration token internal: \(String(describing: fcmToken!))")
-
-      let dataDict: [String: String] = ["token": fcmToken ?? ""]
-      NotificationCenter.default.post(
-        name: Notification.Name("FCMToken"),
-        object: nil,
-        userInfo: dataDict
-      )
+        guard let fcmToken = fcmToken else {
+            return
+        }
+        print("Firebase registration token internal: \(String(describing: fcmToken))")
+        pushComponent.saveToken(fcmToken)
+        let dataDict: [String: String] = ["token": fcmToken]
+        NotificationCenter.default.post(
+            name: Notification.Name("FCMToken"),
+            object: nil,
+            userInfo: dataDict
+        )
     }
 }

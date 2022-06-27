@@ -18,7 +18,7 @@ The Chat SDK is available on Swift Package Manager (SPM), to use it we are going
 https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git
 ```
 
-3. Next, set the **Dependency Rule** to be `Up to Next Major Version` and specify `1.0.0` as the lower bound.
+3. Next, set the **Dependency Rule** to be `Up to Next Major Version` and specify `2.0.0` as the lower bound.
 
 4. Then, select **Add Package**.
 
@@ -36,29 +36,11 @@ The class that handles all the push notification behavior is `PushComponent`. We
 
 You need to instantiate the class and use the next methods in the **AppDelegate.swift**:
 
-- Just after the personal app’s firebase configuration method in the `applicationDidFinishLaunchingWithOptions`, add `.configure()` to set up the SDK’s firebase configuration.
-
 ```swift
 private let pushComponent = PushComponent()
-
-func application(_ application: UIApplication,
-                 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    FirebaseApp.configure()
-    pushComponent.configure()
-    ...
-}
 ```
 
-- After setting the delegate of the Messaging in the `applicationDidFinishLaunchingWithOptions`, add `.configureMessaging()` method to set up the SDK’s messaging
-
-```swift
-...
-Messaging.messaging().delegate = self
-pushComponent.configureMessaging()
-...
-```
-
-- At the beginning of the `applicationDidReceiveRemoteNotification`, add the .`handlePush(response:_)` to filter the messages that the SDK is going to handle
+- At the beginning of the `applicationDidReceiveRemoteNotification`, add the `.handlePush(response:_)` to filter the messages that the SDK is going to handle
 
 ```swift
 func application(_ application: UIApplication,
@@ -72,14 +54,24 @@ func application(_ application: UIApplication,
 }
 ```
 
+- Using the `MessagingDelegate`, in the `didReceiveRegistrationToken` function, add the `.saveToken(_ fcmToken: _)` to save and use the token in the SDK
+
+```swift
+func messaging(_ messaging: Messaging, 
+               didReceiveRegistrationToken fcmToken: String?) {
+    pushComponent.saveToken(fcmToken ?? "")
+}
+```
+
 ## Register and Login
-To register inside the SDK you just need to add `SayTvSadk.register(digicelId:_, email:_, avatar:_, username:_, completion: _)` where the **completion** is going to have the service call response.
+To register inside the SDK you just need to add `SayTvSadk.register(digicelId:_, email:_, avatar:_, username:_, apiToken:_, completion: _)` where the **completion** is going to have the service call response.
 
 ```swift
 SayTvSdk.register(digicelId: 12,
                   email: "david2+saytv@square1.io",
                   avatar: "https://lorempixel.com/avatar.png",
-                  username: "davidtwo") { result in
+                  username: "davidtwo", 
+                  apiToken: "XXXXXXXXXXXXXXXXXXXX") { result in
     switch result {
     case .success(let response):
         print(response)
@@ -90,10 +82,11 @@ SayTvSdk.register(digicelId: 12,
 ```
 > You must be registered before try to use the login
 
-To login inside the SDK, you just need to add `SayTvSdk.login(digicelId:_, completion: _)` where the completion is going to have the service call response
+To login inside the SDK, you just need to add `SayTvSdk.login(digicelId:_, apiToken:_, completion: _)` where the completion is going to have the service call response
 
 ```swift
-SayTvSdk.login(digicelId: digicelId) { result in
+SayTvSdk.login(digicelId: digicelId, 
+               apiToken: "XXXXXXXXXXXXXXXXXXXX") { result in
     switch result {
     case .success(let response):
         print(response)

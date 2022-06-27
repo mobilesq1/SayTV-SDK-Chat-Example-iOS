@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func sendTapAction(_ sender: UIButton) {
@@ -24,7 +25,8 @@ class LoginViewController: UIViewController {
             resultTextView.text = "DigicelId needs to have a value"
             return
         }
-        SayTvSdk.login(digicelId: digicelId) { result in
+        SayTvSdk.login(digicelId: digicelId,
+                       apiToken: kApiToken) { result in
             switch result {
             case .success(let response):
                 self.resultTextView.text = "Success: \(response == true), User has login"

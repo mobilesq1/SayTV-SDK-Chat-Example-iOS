@@ -18,6 +18,7 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func sendTapAction(_ sender: UIButton) {
@@ -30,7 +31,8 @@ class RegisterViewController: UIViewController {
         SayTvSdk.register(digicelId: digicelId,
                           email: emailTextField.text ?? "",
                           avatar: avatarTextField.text ?? "",
-                          username: usernameTextField.text ?? "") { result in
+                          username: usernameTextField.text ?? "",
+                          apiToken: kApiToken) { result in
             switch result {
             case .success(let response):
                 self.resultTextView.text = "Success: \(response == true), User registered"
