@@ -142,7 +142,7 @@ class ChatViewController: UIViewController {
 ## Header
 > You must be registered or logged in before trying to use chat.
 
-You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `HeaderComponent(`***containerView***`: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, completion: _)`. The start time must be a date after or equal to now to work properly.
+You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `HeaderComponent(`***containerView***`: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
 
 ```swift 
 class ChatViewController: UIViewController {
@@ -195,4 +195,23 @@ class ProfileViewController: UIViewController {
     }
     ...
 }
+```
+
+## Options
+- The `ChatComponent`, `HeaderComponent` and the `ProfileComponent` can act as an overlay just calling the next method:
+
+```swift
+component.setActAsOverlay(_ actAsOverlay: true)
+```
+
+- You can change the theme at runtime of the `ChatComponent` and the `HeaderComponent` using this after initialize the components:
+
+```swift
+SayTvSdk.setChatTheme(_ theme: SaytvChat.ChatTheme)
+```
+
+- You can change the theme at runtime of the `ProfileComponent` using this after initialize the component:
+
+```swift
+SayTvSdk.setProfileTheme(_ theme: SaytvChat.ProfileTheme)
 ```
