@@ -144,9 +144,9 @@ class ChatViewController: UIViewController {
 
 You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `HeaderComponent(`***containerView***`: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
 
-- Set UIViewControllerBasedStatusBarAppearance to true, if the flag is not added to the project then the default setup will be used instead and indicate that this is optional
+- In the SDK modally presented views supports status bar appearance customisation. In order to support this your project Info.plist needs to include `UIViewControllerBasedStatusBarAppearance` set to `true`. Other way SDK will use default project setup. This customisation is optional.
 
-- Height can be flexible and set by the user but not required. If it will high priority instead of required it will work smoothly
+- Header component supports dynamic height. It can be set either by autolayout with all edges aligned to your containing view so the view resizes automatically based on the header internal elements size or the height can be set with constant value with height constraint you set. If you set header height constraint with constant value remember to change constraint priority to `height` instead of `required` in order to support header collapsing functionality. 
 
 ```swift 
 class ChatViewController: UIViewController {
