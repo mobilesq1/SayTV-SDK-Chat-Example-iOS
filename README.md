@@ -144,6 +144,10 @@ class ChatViewController: UIViewController {
 
 You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `HeaderComponent(`***containerView***`: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
 
+- Set UIViewControllerBasedStatusBarAppearance to true, if the flag is not added to the project then the default setup will be used instead and indicate that this is optional
+
+- Height can be flexible and set by the user but not required. If it will high priority instead of required it will work smoothly
+
 ```swift 
 class ChatViewController: UIViewController {
 
