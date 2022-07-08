@@ -31,8 +31,8 @@ https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git
 import SaytvChat
 ```
 
-## Firebase
-The class that handles all the push notification behavior is `PushComponent`. We assume you already have the **firebase configured**.
+## Push notifications
+The class that handles all the push notification behavior is `PushComponent`. We assume you already have the **push configured**.
 
 You need to instantiate the class and use the next methods in the **AppDelegate.swift**:
 
@@ -184,6 +184,54 @@ class ChatViewController: UIViewController {
 }
 ```
 
+## Full Chat
+> You must be registered or logged in before trying to use chat.
+
+You're going to need to select an **UIView**, could be a placed view or **view**'s UIViewController directly that will work as the container for the Full Chat that have the Header + Chat in one component. With that decided you will have to call the `FullChatComponent(containerView: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
+
+```swift 
+class FullChatController: UIViewController {
+
+    ...
+
+    func startFullChat() {
+        let name = "Nice episode event chat"
+        let image = "https://image_url_example.com"
+        let startTime = dateFormatter.date(from: "24/05/2022 10:05:00")
+        let endTime = dateFormatter.date(from: "26/05/2022 18:00:00")
+        let theme = ChatTheme(headerBackground: .red,
+                              headerTextColor: .red,
+                              viewerCountTextColor: .red,
+                              settingsFilterTextColor: .red,
+                              settingsQuizTextColor: .red,
+                              timeRemainingTextColor: .red,
+                              timeIntervalTextColor: .red,
+                              chatText: .red,
+                              chatTextPlaceholder: .red,
+                              chatTextBackground: .red,
+                              hashtagText: .red,
+                              chatBackground: .red,
+                              eventBackground: .red,
+                              chatTextBorder: .red)
+        let _ = FullChatComponent(containerView: view,
+                                  chatId: chatId,
+                                  chatName: name,
+                                  chatImage: image,
+                                  startDate: startTime,
+                                  endDate: endTime) { result in
+            switch result {
+            case .success:
+                print("Chat Success")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    ...
+}
+```
+
 ## Profile
 > You must be registered or logged in before trying to use chat.
 
@@ -202,10 +250,26 @@ class ProfileViewController: UIViewController {
 ```
 
 ## Options
-- The `ChatComponent`, `HeaderComponent` and the `ProfileComponent` can act as an overlay just calling the next method:
+- The `ChatComponent`, `HeaderComponent`, `FullChatComponent` and the `ProfileComponent` can act as an overlay just calling the next method:
 
 ```swift
 component.setActAsOverlay(_ actAsOverlay: true)
+```
+
+- You can get some events that the SDK is doing using the next method with the `ChatComponent` or `FullChatComponent` instances:
+
+```swift
+component.chatActions { event in
+    print("ChatActions event: \(event)")
+}
+```
+
+- You can get some events that the SDK is doing using the next method with the `ProfileComponent` instance:
+
+```swift
+profileComponent.profileActions { event in
+    print("ProfileActions event: \(event)")
+}
 ```
 
 - You can change the theme at runtime of the `ChatComponent` and the `HeaderComponent` using this after initialize the components:
@@ -237,3 +301,128 @@ let theme = ProfileTheme(nameTextColor: .red,
 
 SayTvSdk.setProfileTheme(_ theme: theme)
 ```
+
+- You can change the quizzes theme in the `ChatTheme` declaring the `QuizTheme`, where its could use the following instances:
+
+    - ActiveQuizTheme: Could use the following instance:
+        - SayTvButtonTheme
+    - InfoPopupTheme
+    - QuizFinalResultsTheme
+    - QuizFormTheme: Could use the following instances:
+        - SayTvButtonTheme
+        - StatusBarTheme
+        - TextFieldTheme
+
+```swift
+var theme: QuizTheme {
+    QuizTheme(
+        quizFormTheme: quizFormTheme,
+        quizSuccessViewTheme: quizSuccessViewTheme,
+        activeQuizTheme: activeQuizTheme,
+        quizFinalResultsTheme: quizFinalResultsTheme
+    )
+}
+
+var quizFormTheme: QuizFormTheme {
+    let questionTextFieldTheme = TextFieldTheme(
+        textColor: .white,
+        placeholderColor: .purple,
+        backgroundColor: .systemPink,
+        borderActiveColor: .blue,
+        borderInactiveColor: .gray,
+        borderWidth: 1.0,
+        tintColor: .green,
+        cornerRadius: 10.0
+    )
+    let optionTextFieldTheme = TextFieldTheme(
+        textColor: .red,
+        placeholderColor: .blue,
+        backgroundColor: .gray,
+        borderActiveColor: .black,
+        borderInactiveColor: .gray,
+        borderWidth: 3.0,
+        tintColor: .purple,
+        cornerRadius: 0.0
+    )
+    let confirmButtonTheme = SayTvButtonTheme(
+        enabledTitleColor: .blue,
+        disabledTitleColor: .red,
+        enabledBackgroundColor: .green,
+        disabledBackgroundColor: .orange
+    )
+    let quizFormTheme = QuizFormTheme(
+        viewBackground: .yellow,
+        navigationBarTitleTextColor: .cyan,
+        titleTextColor: .blue,
+        questionTitleTextColor: .red,
+        questionTextFieldTheme: questionTextFieldTheme,
+        optionsTitleTextColor: .purple,
+        firstOptionTextFieldTheme: optionTextFieldTheme,
+        secondptionTextFieldTheme: optionTextFieldTheme,
+        closeButtonColor: .green,
+        confirmButtonTheme: confirmButtonTheme,
+        disclaimerTextColor: .red,
+        statusBarTheme: .darkContent
+    )
+    return quizFormTheme
+}
+
+var quizSuccessViewTheme: InfoPopupTheme {
+    InfoPopupTheme(
+        contentViewBackgroundColor: .green,
+        contentViewBorderWidth: 3.0,
+        contentViewBorderColor: .purple,
+        contentViewCornerRadius: 10.0,
+        titleTextColor: .black,
+        subtitleTextColor: .blue,
+        descriptionTextColor: .red,
+        closeButtonColor: .cyan,
+        dimmingViewBackgroundColor: .blue.withAlphaComponent(0.8)
+    )
+}
+
+var activeQuizTheme: ActiveQuizTheme {
+    let firstOptionButtonTheme = SayTvButtonTheme(
+        enabledTitleColor: .blue,
+        disabledTitleColor: .red,
+        enabledBackgroundColor: .green,
+        disabledBackgroundColor: .orange
+    )
+    let secondOptionButtonTheme = SayTvButtonTheme(
+        enabledTitleColor: .yellow,
+        disabledTitleColor: .green,
+        enabledBackgroundColor: .black,
+        disabledBackgroundColor: .blue
+    )
+    let firstOptionGradient = UIColor.Gradient(startColor: .yellow, endColor: .green)
+    let secondOptionGradient = UIColor.Gradient(startColor: .purple, endColor: .blue)
+
+    return ActiveQuizTheme(
+        bottomViewBackgroundColor: .systemPink,
+        bottomViewCornerRadius: 15.0,
+        titleTextColor: .red,
+        questionTextColor: .white,
+        firstOptionVotingButtonTheme: firstOptionButtonTheme,
+        secondOptionVotingButtonTheme: secondOptionButtonTheme,
+        firstOptionTextColor: .yellow,
+        secondOptionTextColor: .blue,
+        firstOptionResultTextColor: .black,
+        secondOptionResultTextColor: .blue,
+        firstOptionResultBackgroundGradient: firstOptionGradient,
+        secondOptionResultBackgroundGradient: secondOptionGradient,
+        expirationTimeBackgroundColor: .orange,
+        expirationTimeTextNormalColor: .gray,
+        expirationTimeTextExpiringColor: .purple,
+        collapseButtonTintColor: .purple
+    )
+}
+
+var quizFinalResultsTheme: QuizFinalResultsTheme {
+    QuizFinalResultsTheme(
+        viewBackgroundColor: .blue,
+        backgroundViewCornerRadius: 20.0,
+        textColor: .purple
+    )
+}
+```
+

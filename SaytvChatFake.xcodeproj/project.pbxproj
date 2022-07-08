@@ -16,6 +16,7 @@
 		7B8FA34C283D288700C8F5A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FA34B283D288700C8F5A7 /* LoginViewController.swift */; };
 		7B8FA34E283D289E00C8F5A7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FA34D283D289E00C8F5A7 /* ChatViewController.swift */; };
 		7B8FA350283D2CA100C8F5A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */; };
+		7BA17EE3287725AF00475377 /* FullChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA17EE2287725AF00475377 /* FullChatViewController.swift */; };
 		7BE94BBD2869C607009F0D5C /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE94BBC2869C607009F0D5C /* ViewControllerExtension.swift */; };
 		7BE94BBF286A037F009F0D5C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE94BBE286A037F009F0D5C /* ProfileViewController.swift */; };
 		7BF779CC28475D4400E7FCB0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF779CB28475D4400E7FCB0 /* FirebaseAnalytics */; };
@@ -35,6 +36,8 @@
 		7B8FA34B283D288700C8F5A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7B8FA34D283D289E00C8F5A7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7BA17EE2287725AF00475377 /* FullChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullChatViewController.swift; sourceTree = "<group>"; };
+		7BA17EE4287729CA00475377 /* SaytvChatFake.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SaytvChatFake.entitlements; sourceTree = "<group>"; };
 		7BE94BBC2869C607009F0D5C /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		7BE94BBE286A037F009F0D5C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +75,7 @@
 		7B8FA330283D1E5800C8F5A7 /* SaytvChatFake */ = {
 			isa = PBXGroup;
 			children = (
+				7BA17EE4287729CA00475377 /* SaytvChatFake.entitlements */,
 				7BE94BBB2869C5A5009F0D5C /* Extensions */,
 				7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */,
 				7B8FA34A283D282800C8F5A7 /* Controllers */,
@@ -92,6 +96,7 @@
 				7B8FA34B283D288700C8F5A7 /* LoginViewController.swift */,
 				7BE94BBE286A037F009F0D5C /* ProfileViewController.swift */,
 				7B8FA34D283D289E00C8F5A7 /* ChatViewController.swift */,
+				7BA17EE2287725AF00475377 /* FullChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B8FA34C283D288700C8F5A7 /* LoginViewController.swift in Sources */,
+				7BA17EE3287725AF00475377 /* FullChatViewController.swift in Sources */,
 				7B8FA336283D1E5800C8F5A7 /* RegisterViewController.swift in Sources */,
 				7BE94BBD2869C607009F0D5C /* ViewControllerExtension.swift in Sources */,
 				7B8FA332283D1E5800C8F5A7 /* AppDelegate.swift in Sources */,
@@ -336,6 +342,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SaytvChatFake/SaytvChatFake.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4TXKG56UHG;
@@ -365,6 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SaytvChatFake/SaytvChatFake.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4TXKG56UHG;
@@ -425,8 +433,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = "bugfix/check-compile";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

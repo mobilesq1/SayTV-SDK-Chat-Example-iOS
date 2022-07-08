@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "alamofireimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/AlamofireImage",
+      "state" : {
+        "revision" : "98cbb00ce0ec5fc8e52a5b50a6bfc08d3e5aee10",
+        "version" : "4.2.0"
+      }
+    },
+    {
       "identity" : "boringssl-swiftpm",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/boringssl-SwiftPM.git",
@@ -113,8 +122,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git",
       "state" : {
-        "revision" : "ca3e0f8d3a9bfb75c6820043e02b67fb7d6f5b59",
-        "version" : "2.0.0"
+        "branch" : "bugfix/check-compile",
+        "revision" : "94394ed0ac82443c2704cebaea6b525d58e87834"
       }
     },
     {
