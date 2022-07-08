@@ -433,8 +433,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git";
 			requirement = {
-				branch = "bugfix/check-compile";
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

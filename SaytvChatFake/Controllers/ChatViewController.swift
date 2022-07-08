@@ -50,6 +50,7 @@ class ChatViewController: UIViewController {
     @IBAction func sendTapAction(_ sender: UIButton) {
         guard let chatId = chatIdTextField.text,
               let name = nameTextField.text,
+              let image = imageTextField.text,
               let startTime = dateFormatter.date(from: startTimeTextField.text ?? ""),
               let endTime = dateFormatter.date(from: endTimeTextField.text ?? ""),
               !chatId.isEmpty || !name.isEmpty
@@ -57,7 +58,6 @@ class ChatViewController: UIViewController {
             resultTextView.text = "Fill all the form"
             return
         }
-        let image = imageTextField.text ?? ""
         sender.isUserInteractionEnabled = false
         
         startHeader(chatId: chatId,
