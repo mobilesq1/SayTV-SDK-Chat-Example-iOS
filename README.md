@@ -1,11 +1,35 @@
 # Saytv Chat Example iOS
 App that is going to use the Saytv Chat library.
 
-Table of contents 
+Table of contents
+- [what's New](#whats-new) 
 - [Instalation](#chat-sdk)
 - [Firebase](#firebase)
+- [Initialisation](#initialisation)
 - [Register and Login](#register-and-login)
 - [Chat](#chat)
+- [Known Issues](#known-issues)
+
+## What's New
+### 3.0.0
+- Add SDK initialization with chat name .  
+- Update chat theme:
+    - make separate theme for chat component and header component,
+    - add moderator chat message theme customization,
+    - add chat options buttons customization.
+- Improve SDK error handling.
+- Display quiz results on chat list when enter the chat.
+- Handle user banned status: On chat subscribe handle banned user error status and update chat UI: disable all option buttons and display message about banned user. 
+- Refator chat options button to use native UIButton component with custom theme.
+- Hide chat options buttons.
+- Handle closed chat status: On chat subscribe handle closed chat error status and update chat UI: disable all option buttons and display infromation about closed chat.
+- Replace system icons (play and keyboard icons) that are not supported below iOS 13.0.
+- Fix chat filters gesture interaction.
+- Fix chat input text field overlapped by chat message text.
+- Fix chat remaining time date format.
+- Update chat cell UI for moderator messages.
+- Update chat layout in landscape mode - add spacing in chat messages and events when in horizontal mode.
+- Add possibility to fetch active users list for selected chats.
 
 ## Chat SDK
 
@@ -62,6 +86,9 @@ func messaging(_ messaging: Messaging,
     pushComponent.saveToken(fcmToken ?? "")
 }
 ```
+
+## Initialisation
+To initialise SDK simply call `SayTvSdk.initialise(chatName: "CHAT_NAME")`on your app start in AppDelegate or before using any SDK component.
 
 ## Register and Login
 To register inside the SDK you just need to add `SayTvSadk.register(digicelId:_, email:_, avatar:_, username:_, apiToken:_, completion: _)` where the **completion** is going to have the service call response.
@@ -158,13 +185,12 @@ class ChatViewController: UIViewController {
         let image = "https://image_url_example.com"
         let startTime = dateFormatter.date(from: "24/05/2022 10:05:00")
         let endTime = dateFormatter.date(from: "26/05/2022 18:00:00")
-        let theme = ChatTheme(headerBackground: .red,
-                              headerTextColor: .orange,
-                              viewerCountTextColor: .green,
-                              settingsFilterTextColor: .darkGray,
-                              settingsQuizTextColor: .cyan,
-                              timeRemainingTextColor: .blue,
-                              timeIntervalTextColor: .yellow)
+        let theme = HeaderTheme(overlayBackgroundColor: .blue,
+                                headerBackground: .yellow,
+                                textColor: .brown,
+                                viewerCountTextColor: .blue,
+                                timeRemainingTextColor: .cyan,
+                                timeIntervalTextColor: .purple)
         let _ = HeaderComponent(containerView: containerView,
                                 chatId: chatId,
                                 chatName: name,
@@ -199,20 +225,11 @@ class FullChatController: UIViewController {
         let image = "https://image_url_example.com"
         let startTime = dateFormatter.date(from: "24/05/2022 10:05:00")
         let endTime = dateFormatter.date(from: "26/05/2022 18:00:00")
-        let theme = ChatTheme(headerBackground: .red,
-                              headerTextColor: .red,
-                              viewerCountTextColor: .red,
-                              settingsFilterTextColor: .red,
-                              settingsQuizTextColor: .red,
-                              timeRemainingTextColor: .red,
-                              timeIntervalTextColor: .red,
-                              chatText: .red,
-                              chatTextPlaceholder: .red,
-                              chatTextBackground: .red,
-                              hashtagText: .red,
-                              chatBackground: .red,
-                              eventBackground: .red,
-                              chatTextBorder: .red)
+        let headerTheme = HeaderTheme(overlayBackgroundColor: .blue,
+                                      headerBackground: .yellow)
+        let chatTheme = ChatTheme(chatText: .red,
+                                  chatTextPlaceholder: .orange)
+        let theme = FullChatTheme(headerTheme: headerTheme, chatTheme: chatTheme)
         let _ = FullChatComponent(containerView: view,
                                   chatId: chatId,
                                   chatName: name,
@@ -272,25 +289,119 @@ profileComponent.profileActions { event in
 }
 ```
 
+- SayTvSdk provides possibility to fetch list of active users for a desirable list of chats:
+
+ ```swift
+SayTvSdk.getActiveUsers(chatIds: ["CHAT_ID", "CHAT_ID"]) { result in
+    switch result {
+    case .success(let activeUsers):
+        // handle active users list
+    case .failure(let error):
+        // handle error response
+    }
+}
+```
+ in response closure request returns array of type `[ChatActiveUsers]` with a list of active chats active users. 
+ In case chat is inactive it won't be included in API response.
+ 
 - You can change the theme at runtime of the `ChatComponent` and the `HeaderComponent` using this after initialize the components:
 
 ```swift
-let theme = ChatTheme(headerBackground: .red,
-                      headerTextColor: .red,
-                      viewerCountTextColor: .red,
-                      settingsFilterTextColor: .red,
-                      settingsQuizTextColor: .red,
-                      timeRemainingTextColor: .red,
-                      timeIntervalTextColor: .red,
-                      chatText: .red,
-                      chatTextPlaceholder: .red,
-                      chatTextBackground: .red,
-                      hashtagText: .red,
-                      chatBackground: .red,
-                      eventBackground: .red,
-                      chatTextBorder: .red)
-
-SayTvSdk.setChatTheme(_ theme: theme)
+let quizOptionButtonTheme = SayTvButtonTheme(enabledTitleColor: .blue,
+                                             disabledTitleColor: .red,
+                                             enabledBackgroundColor: .green,
+                                             disabledBackgroundColor: .orange,
+                                             borderColor: .clear)
+let firstOptionGradient = UIColor.Gradient(startColor: .yellow, endColor: .green)
+let secondOptionGradient = UIColor.Gradient(startColor: .purple, endColor: .blue)
+let activeQuizTheme = ActiveQuizTheme(bottomViewBackgroundColor: .systemPink,
+                                      bottomViewCornerRadius: 15.0,
+                                      titleTextColor: .red,
+                                      questionTextColor: .white,
+                                      firstOptionVotingButtonTheme: quizOptionButtonTheme,
+                                      secondOptionVotingButtonTheme: quizOptionButtonTheme,
+                                      firstOptionTextColor: .yellow,
+                                      secondOptionTextColor: .blue,
+                                      firstOptionResultTextColor: .black,
+                                      secondOptionResultTextColor: .blue,
+                                      firstOptionResultBackgroundGradient: firstOptionGradient,
+                                      secondOptionResultBackgroundGradient: secondOptionGradient,
+                                      expirationTimeBackgroundColor: .orange,
+                                      expirationTimeTextNormalColor: .gray,
+                                      expirationTimeTextExpiringColor: .purple,
+                                      collapseButtonTintColor: .purple)
+let headerTheme = HeaderTheme(overlayBackgroundColor: .blue,
+                              headerBackground: .yellow,
+                              textColor: .brown,
+                              viewerCountTextColor: .blue,
+                              timeRemainingTextColor: .cyan,
+                              timeIntervalTextColor: .purple,
+                              activeQuizTheme: activeQuizTheme)
+let chatOptionButtonTheme = SayTvButtonTheme(enabledTitleColor: .blue,
+                                             disabledTitleColor: .purple,
+                                             enabledBackgroundColor: .green,
+                                             disabledBackgroundColor: .red,
+                                             borderColor: .black)
+let moderatorMessageTheme = ModeratorMessageTheme(titleColor: .orange,
+                                                  messageColor: .black,
+                                                  backgroundColor: .purple)
+let quizFormTextFieldTheme = TextFieldTheme(textColor: .red,
+                                            placeholderColor: .blue,
+                                            backgroundColor: .gray,
+                                            borderActiveColor: .black,
+                                            borderInactiveColor: .gray,
+                                            borderWidth: 3.0,
+                                            tintColor: .purple,
+                                            cornerRadius: 0.0)
+let quizConfirmButtonTheme = SayTvButtonTheme(enabledTitleColor: .blue,
+                                              disabledTitleColor: .red,
+                                              enabledBackgroundColor: .green,
+                                              disabledBackgroundColor: .orange,
+                                              borderColor: .clear)
+let quizFormTheme = QuizFormTheme(viewBackground: .yellow,
+                                  navigationBarTitleTextColor: .cyan,
+                                  titleTextColor: .blue,
+                                  questionTitleTextColor: .red,
+                                  questionTextFieldTheme: quizFormTextFieldTheme,
+                                  optionsTitleTextColor: .purple,
+                                  firstOptionTextFieldTheme: quizFormTextFieldTheme,
+                                  secondptionTextFieldTheme: quizFormTextFieldTheme,
+                                  closeButtonColor: .green,
+                                  confirmButtonTheme: quizConfirmButtonTheme,
+                                  disclaimerTextColor: .red,
+                                  statusBarTheme: .darkContent)
+let quizSuccessViewTheme = InfoPopupTheme(contentViewBackgroundColor: .green,
+                                          contentViewBorderWidth: 3.0,
+                                          contentViewBorderColor: .purple,
+                                          contentViewCornerRadius: 10.0,
+                                          titleTextColor: .black,
+                                          subtitleTextColor: .blue,
+                                          descriptionTextColor: .red,
+                                          closeButtonColor: .cyan,
+                                          dimmingViewBackgroundColor: .blue.withAlphaComponent(0.8))
+let quizFinalResultsTheme = QuizFinalResultsTheme(viewBackgroundColor: .blue,
+                                                  backgroundViewCornerRadius: 20.0,
+                                                  textColor: .purple)
+let quizTheme = QuizTheme(quizFormTheme: quizFormTheme,
+                          quizSuccessViewTheme: quizSuccessViewTheme,
+                          quizFinalResultsTheme: quizFinalResultsTheme)
+let chatTheme = ChatTheme(chatText: .red,
+                          chatTextPlaceholder: .orange,
+                          chatTextBackground: .green,
+                          hashtagText: .green,
+                          chatBackground: .darkGray,
+                          eventBackground: .cyan,
+                          chatTextBorder: .blue,
+                          commentRowBackgroundColor: .orange,
+                          allOptionsButtonTheme: chatOptionButtonTheme,
+                          playPauseButtonTheme: chatOptionButtonTheme,
+                          pictureOptionButtonTheme: chatOptionButtonTheme,
+                          newQuizButtonTheme: chatOptionButtonTheme,
+                          hashtagOptionButtonTheme: chatOptionButtonTheme,
+                          quizTheme: quizTheme,
+                          moderatorMessageTheme: moderatorMessageTheme)
+let fullChatTheme = FullChatTheme(headerTheme: headerTheme, chatTheme: chatTheme)
+SayTvSdk.setChatTheme(fullChatTheme)
 ```
 
 - You can change the theme at runtime of the `ProfileComponent` using this after initialize the component:
@@ -425,4 +536,36 @@ var quizFinalResultsTheme: QuizFinalResultsTheme {
     )
 }
 ```
+## Known Issues
 
+### Chat Initialisation
+When intializing chat component with unique `chatId` backend is registering chat in the database with provided start date and end date:
+```
+let name = "Custom Chat Name"
+let start = "14/07/2022 10:00:00"
+let end = "14/07/2022 12:00:00"
+let dateFormatter = DateFormatter()
+let startTime = dateFormatter.date(from: start)
+let endTime = dateFormatter.date(from: end)
+let containerView = UIView()
+let _ = ChatComponent(view: containerView, startTime: startTime, endTime: endTime, chatId: "123") { result in
+    // handle chat component initialisation result...
+}
+```
+
+If user is initializing chat component again with the same chatId but with different dates backend does not override passed dates and original one are used instead:
+```
+let name = "Custom Chat Name"
+let start = "20/07/2022 8:00:00"
+let end = "20/07/2022 10:45:00"
+let dateFormatter = DateFormatter()
+let startTime = dateFormatter.date(from: start)
+let endTime = dateFormatter.date(from: end)
+let containerView = UIView()
+let _ = ChatComponent(view: containerView, startTime: startTime, endTime: endTime, chatId: "123") { result in
+    // In this scenario selected dates are not applied to the chat and the original one from the previous example will be used.
+}
+```
+
+Chat can be initialised only once in database with provided dates and even when user starts chat component again but with different dates only original dates are used instead. 
+If the dates changes then also `chatId` needs to be changed that is passed to chat component because we do not provide dates overriding mechanism. 
