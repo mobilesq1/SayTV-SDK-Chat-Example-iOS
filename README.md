@@ -2,10 +2,10 @@
 App that is going to use the Saytv Chat library.
 
 Table of contents
-- [what's New](#whats-new) 
+- [What's New](#whats-new) 
 - [Instalation](#chat-sdk)
-- [Firebase](#firebase)
 - [Initialisation](#initialisation)
+- [Push notifications](#push-notifications)
 - [Register and Login](#register-and-login)
 - [Chat](#chat)
 - [Known Issues](#known-issues)
@@ -55,6 +55,9 @@ https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git
 import SaytvChat
 ```
 
+## Initialisation
+To initialise SDK simply call `SayTvSdk.initialise(chatName: "CHAT_NAME")`on your app start in AppDelegate or before using any of the SDK component.
+
 ## Push notifications
 The class that handles all the push notification behavior is `PushComponent`. We assume you already have the **push configured**.
 
@@ -86,9 +89,6 @@ func messaging(_ messaging: Messaging,
     pushComponent.saveToken(fcmToken ?? "")
 }
 ```
-
-## Initialisation
-To initialise SDK simply call `SayTvSdk.initialise(chatName: "CHAT_NAME")`on your app start in AppDelegate or before using any SDK component.
 
 ## Register and Login
 To register inside the SDK you just need to add `SayTvSadk.register(digicelId:_, email:_, avatar:_, username:_, apiToken:_, completion: _)` where the **completion** is going to have the service call response.
@@ -301,7 +301,7 @@ SayTvSdk.getActiveUsers(chatIds: ["CHAT_ID", "CHAT_ID"]) { result in
     }
 }
 ```
- in response closure request returns array of type `[ChatActiveUsers]` with a list of active chats active users. 
+ In response closure request returns array of type `[ChatActiveUsers]` with a list of chat active users that contains active chat id and number of active users. 
  In case chat is inactive it won't be included in API response.
  
 - You can change the theme at runtime of the `ChatComponent` and the `HeaderComponent` using this after initialize the components:
@@ -538,7 +538,7 @@ var quizFinalResultsTheme: QuizFinalResultsTheme {
 ```
 ## Known Issues
 
-### Chat Initialisation
+### Chat Initialisation start date and end date updates
 When intializing chat component with unique `chatId` backend is registering chat in the database with provided start date and end date:
 ```
 let name = "Custom Chat Name"
@@ -548,7 +548,7 @@ let dateFormatter = DateFormatter()
 let startTime = dateFormatter.date(from: start)
 let endTime = dateFormatter.date(from: end)
 let containerView = UIView()
-let _ = ChatComponent(view: containerView, startTime: startTime, endTime: endTime, chatId: "123") { result in
+ChatComponent(view: containerView, startTime: startTime, endTime: endTime, chatId: "123") { result in
     // handle chat component initialisation result...
 }
 ```
@@ -562,10 +562,11 @@ let dateFormatter = DateFormatter()
 let startTime = dateFormatter.date(from: start)
 let endTime = dateFormatter.date(from: end)
 let containerView = UIView()
-let _ = ChatComponent(view: containerView, startTime: startTime, endTime: endTime, chatId: "123") { result in
+ChatComponent(view: containerView, startTime: startTime, endTime: endTime, chatId: "123") { result in
     // In this scenario selected dates are not applied to the chat and the original one from the previous example will be used.
 }
 ```
 
 Chat can be initialised only once in database with provided dates and even when user starts chat component again but with different dates only original dates are used instead. 
+
 If the dates changes then also `chatId` needs to be changed that is passed to chat component because we do not provide dates overriding mechanism. 
