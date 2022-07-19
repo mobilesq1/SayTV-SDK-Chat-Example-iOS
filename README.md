@@ -4,32 +4,33 @@ App that is going to use the Saytv Chat library.
 Table of contents
 - [What's New](#whats-new) 
 - [Instalation](#chat-sdk)
-- [Initialisation](#initialisation)
+- [Initialization](#initialization)
 - [Push notifications](#push-notifications)
 - [Register and Login](#register-and-login)
 - [Chat](#chat)
+- [Header](#header)
+- [Get active users](#get-active-users)
+- [Dummy header](#dummy-header)
+- [Full Chat](#full-chat)
+- [Profile](#profile)
+- [Options](#options)
 - [Known Issues](#known-issues)
 
 ## What's New
-### 3.0.0
-- Add SDK initialization with chat name .  
-- Update chat theme:
-    - make separate theme for chat component and header component,
-    - add moderator chat message theme customization,
-    - add chat options buttons customization.
-- Improve SDK error handling.
-- Display quiz results on chat list when enter the chat.
-- Handle user banned status: On chat subscribe handle banned user error status and update chat UI: disable all option buttons and display message about banned user. 
-- Refator chat options button to use native UIButton component with custom theme.
-- Hide chat options buttons.
-- Handle closed chat status: On chat subscribe handle closed chat error status and update chat UI: disable all option buttons and display infromation about closed chat.
-- Replace system icons (play and keyboard icons) that are not supported below iOS 13.0.
-- Fix chat filters gesture interaction.
-- Fix chat input text field overlapped by chat message text.
-- Fix chat remaining time date format.
-- Update chat cell UI for moderator messages.
-- Update chat layout in landscape mode - add spacing in chat messages and events when in horizontal mode.
-- Add possibility to fetch active users list for selected chats.
+### 4.0.0
+- Setup celebrity comment UI
+- Handle awaiting activation chat state
+    - Disable chat if it’s start date is more than 10 minutes from now.
+    - Activate chat 10 minutes before start date.
+    - Activate header progress view on chat start date.
+- Add padding to text field container on the chat
+- The app can be tested on the simulator
+- Hide three point on your messages
+- Add a dummy header component to reuse the view without the service call
+- Setup mandatory chat dates
+- Use the `user_role` and `is_moderator` to identify is user is admin or not
+- Add the report comment functionality
+- Add multi-language supporting english and french, with english as default value
 
 ## Chat SDK
 
@@ -55,7 +56,7 @@ https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git
 import SaytvChat
 ```
 
-## Initialisation
+## Initialization
 To initialise SDK simply call `SayTvSdk.initialise(chatName: "CHAT_NAME")`on your app start in AppDelegate or before using any of the SDK component.
 
 ## Push notifications
@@ -207,6 +208,44 @@ class ChatViewController: UIViewController {
         }
     }
     ...
+}
+```
+
+## Get active users
+Get the active user in several chat ids
+
+```swift
+SayTvSdk.getActiveUsers(chatIds: ["1130", "1132", "1133", "1135"]) { result in
+            switch result {
+            case .success(let activeusers):
+                self.activeUsers = activeusers
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+```
+
+## Dummy header
+> To get the active users in the chat, you need to use [Get active users](#get-active-users) before
+
+Heather that you can use without call any service call and just show the header view
+
+```swift
+class HeaderTableViewCell: UITableViewCell {
+    
+    func setContent(name: String, 
+                    image: String, 
+                    startDate: Date, 
+                    endDate: Date, 
+                    count: Int) {
+        let _ = HeaderComponent(containerView: contentView,
+                                chatName: name,
+                                chatImage: image,
+                                startDate: startDate,
+                                endDate: endDate,
+                                activeUsers: count)
+    }
+    
 }
 ```
 
@@ -536,11 +575,21 @@ var quizFinalResultsTheme: QuizFinalResultsTheme {
     )
 }
 ```
+
+-  Every component has a `language` parameter when is initialize
+```swift
+...
+let component = Component(..., language: .english, ...) {
+    // handle chat component initialisation result...
+}
+...
+```
+
 ## Known Issues
 
 ### Chat Initialisation start date and end date updates
 When intializing chat component with unique `chatId` backend is registering chat in the database with provided start date and end date:
-```
+```swift
 let name = "Custom Chat Name"
 let start = "14/07/2022 10:00:00"
 let end = "14/07/2022 12:00:00"
@@ -554,7 +603,7 @@ ChatComponent(view: containerView, startTime: startTime, endTime: endTime, chatI
 ```
 
 If user is initializing chat component again with the same chatId but with different dates backend does not override passed dates and original one are used instead:
-```
+```swift
 let name = "Custom Chat Name"
 let start = "20/07/2022 8:00:00"
 let end = "20/07/2022 10:45:00"
