@@ -17,6 +17,9 @@
 		7B8FA34E283D289E00C8F5A7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FA34D283D289E00C8F5A7 /* ChatViewController.swift */; };
 		7B8FA350283D2CA100C8F5A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */; };
 		7BA17EE3287725AF00475377 /* FullChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA17EE2287725AF00475377 /* FullChatViewController.swift */; };
+		7BE0112F2887496900D815AF /* HeaderDummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE0112E2887496900D815AF /* HeaderDummyViewController.swift */; };
+		7BE01133288749C000D815AF /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE01131288749C000D815AF /* HeaderTableViewCell.swift */; };
+		7BE01134288749C000D815AF /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE01132288749C000D815AF /* HeaderTableViewCell.xib */; };
 		7BE94BBD2869C607009F0D5C /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE94BBC2869C607009F0D5C /* ViewControllerExtension.swift */; };
 		7BE94BBF286A037F009F0D5C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE94BBE286A037F009F0D5C /* ProfileViewController.swift */; };
 		7BF779CC28475D4400E7FCB0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF779CB28475D4400E7FCB0 /* FirebaseAnalytics */; };
@@ -38,6 +41,9 @@
 		7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7BA17EE2287725AF00475377 /* FullChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullChatViewController.swift; sourceTree = "<group>"; };
 		7BA17EE4287729CA00475377 /* SaytvChatFake.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SaytvChatFake.entitlements; sourceTree = "<group>"; };
+		7BE0112E2887496900D815AF /* HeaderDummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDummyViewController.swift; sourceTree = "<group>"; };
+		7BE01131288749C000D815AF /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		7BE01132288749C000D815AF /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		7BE94BBC2869C607009F0D5C /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		7BE94BBE286A037F009F0D5C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,13 +98,24 @@
 		7B8FA34A283D282800C8F5A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7BE01130288749A700D815AF /* Cells */,
 				7B8FA335283D1E5800C8F5A7 /* RegisterViewController.swift */,
 				7B8FA34B283D288700C8F5A7 /* LoginViewController.swift */,
 				7BE94BBE286A037F009F0D5C /* ProfileViewController.swift */,
 				7B8FA34D283D289E00C8F5A7 /* ChatViewController.swift */,
 				7BA17EE2287725AF00475377 /* FullChatViewController.swift */,
+				7BE0112E2887496900D815AF /* HeaderDummyViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7BE01130288749A700D815AF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7BE01131288749C000D815AF /* HeaderTableViewCell.swift */,
+				7BE01132288749C000D815AF /* HeaderTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		7BE94BBB2869C5A5009F0D5C /* Extensions */ = {
@@ -179,6 +196,7 @@
 				7B8FA33E283D1E5900C8F5A7 /* LaunchScreen.storyboard in Resources */,
 				7B8FA350283D2CA100C8F5A7 /* GoogleService-Info.plist in Resources */,
 				7B8FA33B283D1E5900C8F5A7 /* Assets.xcassets in Resources */,
+				7BE01134288749C000D815AF /* HeaderTableViewCell.xib in Resources */,
 				7B8FA339283D1E5800C8F5A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,8 +211,10 @@
 				7B8FA34C283D288700C8F5A7 /* LoginViewController.swift in Sources */,
 				7BA17EE3287725AF00475377 /* FullChatViewController.swift in Sources */,
 				7B8FA336283D1E5800C8F5A7 /* RegisterViewController.swift in Sources */,
+				7BE0112F2887496900D815AF /* HeaderDummyViewController.swift in Sources */,
 				7BE94BBD2869C607009F0D5C /* ViewControllerExtension.swift in Sources */,
 				7B8FA332283D1E5800C8F5A7 /* AppDelegate.swift in Sources */,
+				7BE01133288749C000D815AF /* HeaderTableViewCell.swift in Sources */,
 				7BE94BBF286A037F009F0D5C /* ProfileViewController.swift in Sources */,
 				7B8FA34E283D289E00C8F5A7 /* ChatViewController.swift in Sources */,
 				7B8FA334283D1E5800C8F5A7 /* SceneDelegate.swift in Sources */,

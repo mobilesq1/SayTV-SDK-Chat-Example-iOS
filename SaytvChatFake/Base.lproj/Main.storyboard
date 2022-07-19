@@ -33,10 +33,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ai6-VK-CE8">
-                                <rect key="frame" x="128.66666666666666" y="268.66666666666669" width="118" height="275.00000000000006"/>
+                                <rect key="frame" x="123.00000000000001" y="238" width="129.33333333333337" height="336"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9M-re-Obp">
-                                        <rect key="frame" x="0.0" y="0.0" width="118" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="129.33333333333334" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Register"/>
                                         <connections>
@@ -44,7 +44,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iJ-if-6MW">
-                                        <rect key="frame" x="0.0" y="61" width="118" height="31"/>
+                                        <rect key="frame" x="0.0" y="61" width="129.33333333333334" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Login"/>
                                         <connections>
@@ -52,7 +52,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yY3-mk-vyt">
-                                        <rect key="frame" x="0.0" y="122" width="118" height="31"/>
+                                        <rect key="frame" x="0.0" y="122" width="129.33333333333334" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Chat + Header"/>
                                         <connections>
@@ -60,7 +60,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WO4-vA-Jr1">
-                                        <rect key="frame" x="0.0" y="183" width="118" height="31"/>
+                                        <rect key="frame" x="0.0" y="183" width="129.33333333333334" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Full Chat"/>
                                         <connections>
@@ -68,11 +68,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jA5-5c-Z52">
-                                        <rect key="frame" x="0.0" y="243.99999999999994" width="118" height="31"/>
+                                        <rect key="frame" x="0.0" y="244" width="129.33333333333334" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Profile"/>
                                         <connections>
                                             <segue destination="iu4-my-IdU" kind="show" id="oOY-G5-xK5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIa-K7-RAi">
+                                        <rect key="frame" x="0.0" y="305" width="129.33333333333334" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Header as a Cell"/>
+                                        <connections>
+                                            <segue destination="FFc-s0-ooh" kind="show" id="Cdy-CZ-iSI"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -544,6 +552,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LhW-ll-kHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="409" y="95"/>
+        </scene>
+        <!--Header Dummy View Controller-->
+        <scene sceneID="hKQ-IO-Ctl">
+            <objects>
+                <viewController storyboardIdentifier="HeaderDummyViewController" id="FFc-s0-ooh" customClass="HeaderDummyViewController" customModule="SaytvChatFake" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qo3-vS-4hy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4eb-Ux-oBW">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rM3-zw-JhC">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kJA-V1-X6j"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4eb-Ux-oBW" firstAttribute="top" secondItem="kJA-V1-X6j" secondAttribute="top" id="0eO-VO-K6k"/>
+                            <constraint firstItem="rM3-zw-JhC" firstAttribute="top" secondItem="kJA-V1-X6j" secondAttribute="top" id="71V-hj-ewX"/>
+                            <constraint firstItem="kJA-V1-X6j" firstAttribute="bottom" secondItem="rM3-zw-JhC" secondAttribute="bottom" id="OHW-NJ-ic3"/>
+                            <constraint firstItem="kJA-V1-X6j" firstAttribute="trailing" secondItem="4eb-Ux-oBW" secondAttribute="trailing" id="Sr8-JT-hp8"/>
+                            <constraint firstItem="kJA-V1-X6j" firstAttribute="trailing" secondItem="rM3-zw-JhC" secondAttribute="trailing" id="XaQ-R4-YE7"/>
+                            <constraint firstItem="rM3-zw-JhC" firstAttribute="leading" secondItem="kJA-V1-X6j" secondAttribute="leading" id="dII-ek-Ny5"/>
+                            <constraint firstItem="kJA-V1-X6j" firstAttribute="bottom" secondItem="4eb-Ux-oBW" secondAttribute="bottom" id="kI6-Df-ags"/>
+                            <constraint firstItem="4eb-Ux-oBW" firstAttribute="leading" secondItem="kJA-V1-X6j" secondAttribute="leading" id="vxF-oo-j4v"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="EOA-Yq-lGv"/>
+                    <connections>
+                        <outlet property="resultTextView" destination="4eb-Ux-oBW" id="eOl-2A-pRC"/>
+                        <outlet property="tableView" destination="rM3-zw-JhC" id="gJX-eE-iKF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lew-4z-1wL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153" y="98"/>
         </scene>
         <!--Full Chat View Controller-->
         <scene sceneID="lif-cY-0FU">
