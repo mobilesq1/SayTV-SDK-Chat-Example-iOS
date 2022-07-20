@@ -120,7 +120,7 @@ class ChatViewController: UIViewController {
         let datePicker = UIDatePicker()
         datePicker.tag = id
         datePicker.preferredDatePickerStyle = .wheels
-        datePicker.minimumDate = Date()
+//        datePicker.minimumDate = Date()
         datePicker.addTarget(self,
                              action: #selector(dateChanged),
                              for: .allEvents)
