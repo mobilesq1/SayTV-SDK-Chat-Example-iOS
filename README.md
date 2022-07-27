@@ -17,6 +17,19 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 5.0.0
+- Add `ChatConfiguration` object as a parameter to modify the behavior of the chat
+    - `alignTextMessageLeft` Align the text of the message of the screen to the left
+    - `displayButtonBar` Show or hide the filter, quiz, etc options on top of the chat
+    - `isFanzone` Used when you wanna create a fanzone
+- Remove done button from the keyboard
+- Centered the likes button with the icon and message of the message
+- Add loading to Chat, Header and Full chat components
+- Add `EVENT_1st_COMMENT` and `EVENT_10st_COMMENT` actions when interact with the chat
+- Update all events to send useful data to the client
+- Add `isFanzone` parameter to create a fanzone in the Header and Full chat components.
+- Add pull to refresh when there is no more data
+ 
 ### 4.0.0
 - Setup celebrity comment UI
 - Handle awaiting activation chat state
@@ -583,6 +596,18 @@ let component = Component(..., language: .english, ...) {
     // handle chat component initialisation result...
 }
 ...
+```
+
+- Add `ChatConfiguration` object as a parameter to modify the behavior of the chat
+    - `alignTextMessageLeft` Align the text of the message of the screen to the left
+    - `displayButtonBar` Show or hide the filter, quiz, etc options on top of the chat
+    - `isFanzone` Used when you wanna create a fanzone
+```swift
+ChatComponent(..., 
+              configuration: ChatConfiguration(alignTextMessageLeft: true,
+                                               displayButtonBar: false,
+                                               isFanzone: true)
+            ,...)
 ```
 
 ## Known Issues

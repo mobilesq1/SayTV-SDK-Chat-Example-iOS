@@ -101,6 +101,7 @@ class ChatViewController: UIViewController {
                                 chatImage: chatImage,
                                 startDate: startDate,
                                 endDate: endDate,
+                                isFanzone: true,
                                 completion: completion)
     }
     
@@ -113,6 +114,7 @@ class ChatViewController: UIViewController {
                               startTime: startDate,
                               endTime: endDate,
                               chatId: chatId,
+                              configuration: ChatConfiguration(alignTextMessageLeft: true, displayButtonBar: false, isFanzone: true),
                               completion: completion)
     }
     
