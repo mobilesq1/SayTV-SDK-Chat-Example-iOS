@@ -114,7 +114,6 @@ class ChatViewController: UIViewController {
                               startTime: startDate,
                               endTime: endDate,
                               chatId: chatId,
-                              configuration: ChatConfiguration(alignTextMessageLeft: true, displayButtonBar: false, isFanzone: true),
                               completion: completion)
     }
     
