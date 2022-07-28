@@ -18,7 +18,7 @@ Table of contents
 
 ## What's New
 ### 5.1.0
-- Add `loading` parameter in Chat, Header and FullChat component
+- Add `loading` parameter in Chat, Header and FullChat theme, to change the color of their respective components.
 - 3 dots in the chat has just one color and align it with the rest of the cell
 
 ### 5.0.0
