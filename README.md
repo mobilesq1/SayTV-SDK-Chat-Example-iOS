@@ -17,6 +17,10 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 5.1.0
+- Add `loading` parameter in Chat, Header and FullChat component
+- 3 dots in the chat has just one color and align it with the rest of the cell
+
 ### 5.0.0
 - Add `ChatConfiguration` object as a parameter to modify the behavior of the chat
     - `alignTextMessageLeft` Align the text of the message of the screen to the left
