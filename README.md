@@ -17,6 +17,16 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 5.2.0
+- Update SDK initialization with app name,
+- Fix landscape mode chat messages trailing margin,
+- For fanzone anways enable chat despite used chat start and end dates, 
+- Fix JSON serialization on iOS 11 and 12,
+- Temporarily add logging mechanism in order to investigate not replicable bugs, 
+- Update chat message for closed chat (start and end date set in the past),
+- Update message labels literals,
+- Remove duplicated chat events.
+ 
 ### 5.1.0
 - Add `loading` parameter in Chat, Header and FullChat theme, to change the color of their respective components.
 - 3 dots in the chat has just one color and align it with the rest of the cell
@@ -74,7 +84,10 @@ import SaytvChat
 ```
 
 ## Initialization
-To initialise SDK simply call `SayTvSdk.initialise(chatName: "CHAT_NAME")`on your app start in AppDelegate or before using any of the SDK component.
+To initialise SDK simply call `SayTvSdk.initialise(appName: "APP_NAME")`on your app start in AppDelegate or before using any of the SDK component.
+App name will be used mainly in the chat component to replace app name in the messages displayed to the user (e.g. welcome message on empty chat).
+
+To enable logging mechanism use `SayTvSdk.setLogOption(.verbose)` to see all logs related with Saytv SDK before initializing any of the SDK component, preferably in AppDelegate just before `SayTvSdk.initialise` method.
 
 ## Push notifications
 The class that handles all the push notification behavior is `PushComponent`. We assume you already have the **push configured**.
