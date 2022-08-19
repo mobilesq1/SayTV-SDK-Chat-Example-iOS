@@ -6,7 +6,7 @@ Table of contents
 - [Instalation](#chat-sdk)
 - [Initialization](#initialization)
 - [Push notifications](#push-notifications)
-- [Register and Login](#register-and-login)
+- [Register, login and logout](#register-login-and-logout)
 - [Chat](#chat)
 - [Header](#header)
 - [Get active users](#get-active-users)
@@ -17,6 +17,16 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 6.0.0
+- Take up all the view space when is landscape
+- Separate configuration behavior by each `ChatComponent`
+- Fix pause/play functionality when press the play button
+- Create a `logout` method on the main SDK
+- Fix spinner that was disappearing too soon
+- Add optional `chatImage` to `FullChatComponent`
+- Align the messages that you send with the other users
+- Show message when the user report a message
+
 ### 5.2.2
 Update SDK data synchronisation and handle unsusbscribe manually: When initialising a chat component SDK automatically subscribes user to the chat events. 
 While subscription is done automatically by the SDK user now needs to handle unsubscribe manually to be in charge of chat subscription status.
@@ -127,7 +137,7 @@ func messaging(_ messaging: Messaging,
 }
 ```
 
-## Register and Login
+## Register, login and logout
 To register inside the SDK you just need to add `SayTvSadk.register(digicelId:_, email:_, avatar:_, username:_, apiToken:_, completion: _)` where the **completion** is going to have the service call response.
 
 ```swift
@@ -154,6 +164,19 @@ SayTvSdk.login(digicelId: digicelId,
     switch result {
     case .success(let response):
         print(response)
+    case .failure(let error):
+        print(error.localizedDescription)
+    }
+}
+```
+
+To logout inside the SDK, you just need to add `SayTvSdk.logoutUser(completion: _)` where the completion is going to have the service call response
+
+```swift
+SayTvSdk.logoutUser { result in
+    switch result {
+    case .success(let message):
+        print(message)
     case .failure(let error):
         print(error.localizedDescription)
     }
