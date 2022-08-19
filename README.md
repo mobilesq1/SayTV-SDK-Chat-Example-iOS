@@ -17,6 +17,22 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 5.2.2
+Update SDK data synchronisation and handle unsusbscribe manually: When initialising a chat component SDK automatically subscribes user to the chat events. 
+While subscription is done automatically by the SDK user now needs to handle unsubscribe manually to be in charge of chat subscription status.
+This helps keeping track of chat current data if chat component is recreated multiple times (for example on device orientation change) without unsubscribing.
+To read more about unsunscribing please refer to ChatComponent section.
+
+### 5.2.0
+- Update SDK initialization with app name,
+- Fix landscape mode chat messages trailing margin,
+- For fanzone anways enable chat despite used chat start and end dates, 
+- Fix JSON serialization on iOS 11 and 12,
+- Temporarily add logging mechanism in order to investigate not replicable bugs, 
+- Update chat message for closed chat (start and end date set in the past),
+- Update message labels literals,
+- Remove duplicated chat events.
+ 
 ### 5.1.0
 - Add `loading` parameter in Chat, Header and FullChat theme, to change the color of their respective components.
 - 3 dots in the chat has just one color and align it with the rest of the cell
@@ -74,7 +90,10 @@ import SaytvChat
 ```
 
 ## Initialization
-To initialise SDK simply call `SayTvSdk.initialise(chatName: "CHAT_NAME")`on your app start in AppDelegate or before using any of the SDK component.
+To initialise SDK simply call `SayTvSdk.initialise(appName: "APP_NAME")`on your app start in AppDelegate or before using any of the SDK component.
+App name will be used mainly in the chat component to replace app name in the messages displayed to the user (e.g. welcome message on empty chat).
+
+To enable logging mechanism use `SayTvSdk.setLogOption(.verbose)` to see all logs related with Saytv SDK before initializing any of the SDK component, preferably in AppDelegate just before `SayTvSdk.initialise` method.
 
 ## Push notifications
 The class that handles all the push notification behavior is `PushComponent`. We assume you already have the **push configured**.
@@ -184,6 +203,27 @@ class ChatViewController: UIViewController {
 }
 ```
 
+When initialising a chat component SDK automatically subscribes user to the chat events. 
+While subscription is done automatically by the SDK user needs to handle unsubscribe manually to be in charge of chat subscription status calling:
+```
+SayTvSdk.unsubscribeActiveChat { result in
+    switch result {
+    case .success:
+        print("Unsubscribe successfully")
+    case .failure(let error):
+        print(error.localizedDescription)
+    }
+}
+```
+Yet there are some exceptions where SKD also unsubscribe user automatically from the chat:
+    - when user has been banned from the chat by admin,
+    - when user selects `pause` option button from the chat options (buttons above chat list - visible if proper chat component `ChatConfiguration` is set or default setup is used)
+    
+There could be only one active chat at a time in the SDK. 
+If the new chat is created (different chatId) without unsubscribing from old chat then unsubscribe from old chat will be performed automatically before subscribing to a new chat.
+This provides possibility to control subscribe status when recreating chat component in different scenarios so the SDK can store all chat data between subscribe and unsubscribe so if chat is multiple time recreated (for example on device orientation change) all the data of the chat are up to date and are removed only when unsubscribe is called. This improves data synchronisation when recreating the chat without unsubscribing.
+
+
 ## Header
 > You must be registered or logged in before trying to use chat.
 
@@ -226,6 +266,12 @@ class ChatViewController: UIViewController {
     }
     ...
 }
+```
+
+If header is used as a standalone `HeaderComponent` component you need to handle unsubscribe method manually the same way as unsubscribing in ChatComponent when header is removed or anytime you want to unsubscribe from the chat.
+To unsubscribe simply call:
+```
+SayTvSdk.unsubscribeActiveChat()
 ```
 
 ## Get active users
