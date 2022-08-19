@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 6.0.1
+- Make start and end dates optionals on every component
+
 ### 6.0.0
 - Take up all the view space when is landscape
 - Separate configuration behavior by each `ChatComponent`
