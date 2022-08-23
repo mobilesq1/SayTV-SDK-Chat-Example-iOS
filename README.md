@@ -17,6 +17,12 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 6.0.2
+- Center empty message on `ChatComponent` and show the message when it have to
+- Hide quiz button on Chat
+- Improve filter behavior on `ChatComponent`
+- Fix chat actions events on Chat, show the 1st and 10th commend when occured
+
 ### 6.0.1
 - Make start and end dates optionals on every component
 
