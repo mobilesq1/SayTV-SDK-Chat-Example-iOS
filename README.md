@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 6.0.3
+- Correct typo in a message
+
 ### 6.0.2
 - Center empty message on `ChatComponent` and show the message when it have to
 - Hide quiz button on Chat
