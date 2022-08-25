@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 6.0.4
+- Add "Chat" to welcome message
+
 ### 6.0.3
 - Correct typo in a message
 
