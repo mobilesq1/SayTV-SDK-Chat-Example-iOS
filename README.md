@@ -17,6 +17,17 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 7.0.0
+- Public and update user method and update behavior
+- Show the correct state when an subscribe error occurred
+- Fix profile convertion
+- Remove password from update user
+- Show alert when the send message get an error
+- Resign first responder when the text fail
+- Remove name from update user
+- Change configurations values
+- Change is fanzone parameter
+
 ### 6.0.4
 - Add "Chat" to welcome message
 
