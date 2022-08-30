@@ -10,7 +10,6 @@ import SaytvChat
 
 class RegisterViewController: UIViewController {
 
-    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var avatarTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var digicelIdTextField: UITextField!
@@ -29,7 +28,6 @@ class RegisterViewController: UIViewController {
             return
         }
         SayTvSdk.register(digicelId: digicelId,
-                          email: emailTextField.text ?? "",
                           avatar: avatarTextField.text ?? "",
                           username: usernameTextField.text ?? "",
                           apiToken: kApiToken) { result in
