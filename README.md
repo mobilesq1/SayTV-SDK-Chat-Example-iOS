@@ -17,6 +17,10 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 7.0.1
+- Fix double message in different chats
+- Fix several scroll behavior
+
 ### 7.0.0
 - Public and update user method and update behavior
 - Show the correct state when an subscribe error occurred
