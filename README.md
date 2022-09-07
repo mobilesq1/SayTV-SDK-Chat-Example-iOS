@@ -18,12 +18,12 @@ Table of contents
 
 ## What's New
 ### 7.1.1
-- Improve `isHidden` attributed on `ChatComponent`
+- Improve [isHidden](#is-hidden) attributed on `ChatComponent`
 
 ### 7.1.0
 - Fix scroll to bottom when select a top filter
 - Doesn't show new message when a filter is applied
-- Scroll new messages to bottom when the chat is hide with the attribute `isHidden` is true on `ChatComponent`
+- Scroll new messages to bottom when the chat is hide with the attribute [isHidden](#is-hidden) is true on `ChatComponent`
 - Remove text field when a filter is applied
 
 ### 7.0.1
@@ -181,7 +181,6 @@ To register inside the SDK you just need to add `SayTvSadk.register(digicelId:_,
 
 ```swift
 SayTvSdk.register(digicelId: 12,
-                  email: "david2+saytv@square1.io",
                   avatar: "https://lorempixel.com/avatar.png",
                   username: "davidtwo", 
                   apiToken: "XXXXXXXXXXXXXXXXXXXX") { result in
@@ -200,6 +199,20 @@ To login inside the SDK, you just need to add `SayTvSdk.login(digicelId:_, apiTo
 ```swift
 SayTvSdk.login(digicelId: digicelId, 
                apiToken: "XXXXXXXXXXXXXXXXXXXX") { result in
+    switch result {
+    case .success(let response):
+        print(response)
+    case .failure(let error):
+        print(error.localizedDescription)
+    }
+}
+```
+
+To update user information inside the SDK, add `updateUser(avatar: _, username: _, completion: _)` where the completion is going to have the service call response:
+
+```swift
+SayTvSdk.updateUser(avatar: "https://image.com",
+                    username: "davidtwo") { result in
     switch result {
     case .success(let response):
         print(response)
@@ -238,20 +251,34 @@ class ChatViewController: UIViewController {
         let image = "https://image_url_example.com"
         let startTime = dateFormatter.date(from: "24/05/2022 10:05:00")
         let endTime = dateFormatter.date(from: "26/05/2022 18:00:00")
-        let theme = ChatTheme(chatText: .red, 
+        let theme = ChatTheme(chatText: .red,
                               chatTextPlaceholder: .orange,
-                              chatTextBackground: .green, 
+                              chatTextBackground: .green,
                               hashtagText: .green,
-                              chatBackground: .darkGray, 
+                              chatBackground: .darkGray,
                               eventBackground: .cyan,
-                              chatTextBorder: .blue)
+                              chatTextBorder: .blue,
+                              commentRowBackgroundColor: .orange,
+                              allOptionsButtonTheme: chatOptionButtonTheme,
+                              playPauseButtonTheme: chatOptionButtonTheme,
+                              pictureOptionButtonTheme: chatOptionButtonTheme,
+                              newQuizButtonTheme: chatOptionButtonTheme,
+                              hashtagOptionButtonTheme: chatOptionButtonTheme,
+                              quizTheme: quizTheme,
+                              moderatorMessageTheme: moderatorMessageTheme,
+                              loading: .white)
+        let configuration = ChatConfiguration(alignTextMessageLeft: false, 
+                                              displayButtonBar: true,
+                                              isFanzone: false)
         let _ = ChatComponent(view: containerView,
                               name: name,
                               image: image,
                               startTime: startTime,
                               endTime: endTime,
                               chatId: chatId,
-                              theme: theme) { result in
+                              theme: theme, 
+                              configuration: configuration,
+                              language: .english) { result in
             switch result {
             case .success:
                 print("Chat Success")
@@ -392,7 +419,21 @@ class FullChatController: UIViewController {
         let headerTheme = HeaderTheme(overlayBackgroundColor: .blue,
                                       headerBackground: .yellow)
         let chatTheme = ChatTheme(chatText: .red,
-                                  chatTextPlaceholder: .orange)
+                                  chatTextPlaceholder: .orange,
+                                  chatTextBackground: .green,
+                                  hashtagText: .green,
+                                  chatBackground: .darkGray,
+                                  eventBackground: .cyan,
+                                  chatTextBorder: .blue,
+                                  commentRowBackgroundColor: .orange,
+                                  allOptionsButtonTheme: chatOptionButtonTheme,
+                                  playPauseButtonTheme: chatOptionButtonTheme,
+                                  pictureOptionButtonTheme: chatOptionButtonTheme,
+                                  newQuizButtonTheme: chatOptionButtonTheme,
+                                  hashtagOptionButtonTheme: chatOptionButtonTheme,
+                                  quizTheme: quizTheme,
+                                  moderatorMessageTheme: moderatorMessageTheme,
+                                  loading: .white)
         let theme = FullChatTheme(headerTheme: headerTheme, chatTheme: chatTheme)
         let _ = FullChatComponent(containerView: view,
                                   chatId: chatId,
@@ -563,7 +604,8 @@ let chatTheme = ChatTheme(chatText: .red,
                           newQuizButtonTheme: chatOptionButtonTheme,
                           hashtagOptionButtonTheme: chatOptionButtonTheme,
                           quizTheme: quizTheme,
-                          moderatorMessageTheme: moderatorMessageTheme)
+                          moderatorMessageTheme: moderatorMessageTheme,
+                          loading: .white)
 let fullChatTheme = FullChatTheme(headerTheme: headerTheme, chatTheme: chatTheme)
 SayTvSdk.setChatTheme(fullChatTheme)
 ```
@@ -720,6 +762,13 @@ ChatComponent(...,
                                                displayButtonBar: false,
                                                isFanzone: true)
             ,...)
+```
+
+### Is hidden
+- Add `isHidden` attributed to `ChatComponent` that hide the container view and executed extra bihavior when is show again in the screen:
+```swift
+let chatComponent = ChatComponent(....)
+chatComponent.isHidden = true
 ```
 
 ## Known Issues

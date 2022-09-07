@@ -59,6 +59,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         completionHandler(.newData)
     }
+    
+    func startChat() {
+        
+    }
 
 }
 
