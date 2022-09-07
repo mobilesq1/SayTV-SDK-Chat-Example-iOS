@@ -17,6 +17,15 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 7.1.1
+- Improve `isHidden` attributed on `ChatComponent`
+
+### 7.1.0
+- Fix scroll to bottom when select a top filter
+- Doesn't show new message when a filter is applied
+- Scroll new messages to bottom when the chat is hide with the attribute `isHidden` is true on `ChatComponent`
+- Remove text field when a filter is applied
+
 ### 7.0.1
 - Fix double message in different chats
 - Fix several scroll behavior
