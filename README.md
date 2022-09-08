@@ -776,7 +776,7 @@ ChatComponent(...,
 ```
 
 ### Is hidden
-- Add `isHidden` attributed to `ChatComponent` that hide the container view and executed extra bihavior when is show again in the screen:
+- Add `isHidden` attributed to `ChatComponent` that hide the container view and executed extra behavior when is show again in the screen:
 ```swift
 let chatComponent = ChatComponent(....)
 chatComponent.isHidden = true
