@@ -238,7 +238,7 @@ SayTvSdk.logoutUser { result in
 ## Chat
 > You must be registered or logged in before trying to use chat.
 
-You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `ChatComponent(`***view***`: _, name: _, image:_, startTime: _, endTime: _, `***chatId***`: _, theme: _, completion: _)`, where the ***view*** is the UIView that is configured in your screen, the others parameters are optional except for the ***chatId*** that you need to subscribe to the chat. The start time must be a date after or equal to now to work properly.
+You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `ChatComponent(`***view***`: _, name: _, image: _, startTime: _, endTime: _, `***chatId***`: _, theme: _, configuration: _, language: _, completion: _)`, where the ***view*** is the UIView that is configured in your screen, the others parameters are optional except for the ***chatId*** that you need to subscribe to the chat. The start time must be a date after or equal to now to work properly.
 
 ```swift 
 class ChatViewController: UIViewController {
@@ -316,7 +316,7 @@ This provides possibility to control subscribe status when recreating chat compo
 ## Header
 > You must be registered or logged in before trying to use chat.
 
-You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `HeaderComponent(`***containerView***`: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
+You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `HeaderComponent(`***containerView***`: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, language: _, isFanzone: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
 
 - In the SDK modally presented views supports status bar appearance customisation. In order to support this your project Info.plist needs to include `UIViewControllerBasedStatusBarAppearance` set to `true`. Other way SDK will use default project setup. This customisation is optional.
 
@@ -337,14 +337,17 @@ class ChatViewController: UIViewController {
                                 textColor: .brown,
                                 viewerCountTextColor: .blue,
                                 timeRemainingTextColor: .cyan,
-                                timeIntervalTextColor: .purple)
+                                timeIntervalTextColor: .purple, 
+                                loading: .white)
         let _ = HeaderComponent(containerView: containerView,
                                 chatId: chatId,
                                 chatName: name,
                                 chatImage: image,
                                 startDate: startTime,
                                 endDate: endTime,
-                                theme: theme) { result in
+                                theme: theme, 
+                                language: .english,
+                                isFanzone: nil) { result in
             switch result {
             case .success:
                 print("Header Success")
@@ -404,7 +407,7 @@ class HeaderTableViewCell: UITableViewCell {
 ## Full Chat
 > You must be registered or logged in before trying to use chat.
 
-You're going to need to select an **UIView**, could be a placed view or **view**'s UIViewController directly that will work as the container for the Full Chat that have the Header + Chat in one component. With that decided you will have to call the `FullChatComponent(containerView: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
+You're going to need to select an **UIView**, could be a placed view or **view**'s UIViewController directly that will work as the container for the Full Chat that have the Header + Chat in one component. With that decided you will have to call the `FullChatComponent(containerView: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, language: _, isFanzone: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
 
 ```swift 
 class FullChatController: UIViewController {
@@ -440,7 +443,10 @@ class FullChatController: UIViewController {
                                   chatName: name,
                                   chatImage: image,
                                   startDate: startTime,
-                                  endDate: endTime) { result in
+                                  endDate: endTime, 
+                                  theme: theme, 
+                                  language: .english,
+                                  isFanzone: nil) { result in
             switch result {
             case .success:
                 print("Chat Success")
@@ -457,7 +463,7 @@ class FullChatController: UIViewController {
 ## Profile
 > You must be registered or logged in before trying to use chat.
 
-You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `ProfileComponent(userId: _, `***containerView***`: _)`
+You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `ProfileComponent(userId: _, `***containerView***`: _, theme: _, language: _)`
 
 ```swift 
 class ProfileViewController: UIViewController {
@@ -465,7 +471,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     ....
     func startProfile() {
-        let _ = ProfileComponent(userId: 1, containerView: containerView)
+        let theme = ProfileTheme(nameTextColor: .red,
+                         memberSinceTextColor: .red)
+        let _ = ProfileComponent(userId: 1, 
+                                 containerView: containerView, 
+                                 theme: theme, 
+                                 language: .english)
     }
     ...
 }
@@ -541,7 +552,8 @@ let headerTheme = HeaderTheme(overlayBackgroundColor: .blue,
                               viewerCountTextColor: .blue,
                               timeRemainingTextColor: .cyan,
                               timeIntervalTextColor: .purple,
-                              activeQuizTheme: activeQuizTheme)
+                              activeQuizTheme: activeQuizTheme, 
+                              loading: .white)
 let chatOptionButtonTheme = SayTvButtonTheme(enabledTitleColor: .blue,
                                              disabledTitleColor: .purple,
                                              enabledBackgroundColor: .green,
@@ -635,7 +647,6 @@ var theme: QuizTheme {
     QuizTheme(
         quizFormTheme: quizFormTheme,
         quizSuccessViewTheme: quizSuccessViewTheme,
-        activeQuizTheme: activeQuizTheme,
         quizFinalResultsTheme: quizFinalResultsTheme
     )
 }
