@@ -17,6 +17,11 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 8.0.0
+- Add [getLoggedUser](#get-logged-user) action to SaytvSdk
+- Apply color to the username as we getting from the server
+- Change design on the quizzes, add different foxes when the quizzes are shown
+
 ### 7.1.1
 - Improve [isHidden](#is-hidden) attributed on `ChatComponent`
 
@@ -780,6 +785,20 @@ ChatComponent(...,
 ```swift
 let chatComponent = ChatComponent(....)
 chatComponent.isHidden = true
+```
+
+### Get logged user
+Add `getLoggedUser(completion: _)` action to `SaytvSdk` to get the logged user information, if the response is `nil` means there is no logged user on the SDK.
+
+```swift
+SayTvSdk.getLoggedUser { result in
+    switch result {
+    case .success(let user):
+        print("\(String(describing: user))")
+    case .failure(let error):
+        print(error.localizedDescription)
+    }
+}
 ```
 
 ## Known Issues
