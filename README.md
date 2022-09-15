@@ -17,6 +17,10 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 8.1.0
+- Add [environment](#initialization) variable to `initialise` method
+    - The `environment` variables has two values `staging` and `production`
+
 ### 8.0.0
 - Add [getLoggedUser](#get-logged-user) action to SaytvSdk
 - Apply color to the username as we getting from the server
@@ -144,7 +148,7 @@ import SaytvChat
 ```
 
 ## Initialization
-To initialise SDK simply call `SayTvSdk.initialise(appName: "APP_NAME")`on your app start in AppDelegate or before using any of the SDK component.
+To initialise SDK simply call `SayTvSdk.initialise(appName: "APP_NAME", environment: .production)`on your app start in AppDelegate or before using any of the SDK component.
 App name will be used mainly in the chat component to replace app name in the messages displayed to the user (e.g. welcome message on empty chat).
 
 To enable logging mechanism use `SayTvSdk.setLogOption(.verbose)` to see all logs related with Saytv SDK before initializing any of the SDK component, preferably in AppDelegate just before `SayTvSdk.initialise` method.

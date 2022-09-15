@@ -91,15 +91,6 @@
       }
     },
     {
-      "identity" : "instabug-sp",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Instabug/Instabug-SP",
-      "state" : {
-        "revision" : "bce2d235b194736a7939a3cbe3cb3211844b05a8",
-        "version" : "11.2.0"
-      }
-    },
-    {
       "identity" : "leveldb",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/leveldb.git",
@@ -131,8 +122,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git",
       "state" : {
-        "revision" : "0e48ec9ffd02c73de086fff99519404bb0d069bd",
-        "version" : "8.0.0"
+        "revision" : "dc1458f0e6bf0ac09886ea257120f66de2ded7c4",
+        "version" : "8.1.0"
       }
     },
     {
