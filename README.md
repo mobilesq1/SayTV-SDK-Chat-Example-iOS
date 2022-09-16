@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 8.2.0
+- Return an array of `GeneralError` when [register](#register) or [update a user](#update)
+
 ### 8.1.0
 - Add [environment](#initialization) variable to `initialise` method
     - The `environment` variables has two values `staging` and `production`
@@ -186,6 +189,9 @@ func messaging(_ messaging: Messaging,
 ```
 
 ## Register, login and logout
+
+### Register
+
 To register inside the SDK you just need to add `SayTvSadk.register(digicelId:_, email:_, avatar:_, username:_, apiToken:_, completion: _)` where the **completion** is going to have the service call response.
 
 ```swift
@@ -196,11 +202,30 @@ SayTvSdk.register(digicelId: 12,
     switch result {
     case .success(let response):
         print(response)
-    case .failure(let error):
-        print(error.localizedDescription)
+    case .failure(let errors):
+        print(errors.localizedDescription)
+        errors.forEach { error in
+            switch error {
+            case GeneralError.usernameIsRequired:
+                print("SDK register failed with error: \(error)")
+            case GeneralError.usernameHasAlreadyBeenTaken:
+                print("SDK register failed with error: \(error)")
+            case GeneralError.digicelIdIsRequired:
+                print("SDK register failed with error: \(error)")
+            case GeneralError.digicelIdHasAlreadyBeenTaken:
+                print("SDK register failed with error: \(error)")
+            case GeneralError.fcmTokenIsEmpty:
+                print("SDK register failed with error: \(error)")
+            default:
+                print(error)
+            }
+        }
     }
 }
 ```
+
+### Login
+
 > You must be registered before try to use the login
 
 To login inside the SDK, you just need to add `SayTvSdk.login(digicelId:_, apiToken:_, completion: _)` where the completion is going to have the service call response
@@ -217,6 +242,10 @@ SayTvSdk.login(digicelId: digicelId,
 }
 ```
 
+### Update
+
+> You must be logged in before try to use the update
+
 To update user information inside the SDK, add `updateUser(avatar: _, username: _, completion: _)` where the completion is going to have the service call response:
 
 ```swift
@@ -225,11 +254,23 @@ SayTvSdk.updateUser(avatar: "https://image.com",
     switch result {
     case .success(let response):
         print(response)
-    case .failure(let error):
-        print(error.localizedDescription)
+    case .failure(let errors):
+        print(errors.localizedDescription)
+        errors.forEach { error in
+            switch error {
+            case GeneralError.usernameIsRequired:
+                print("Fail update user: \(error)")
+            case GeneralError.usernameHasAlreadyBeenTaken:
+                print("Fail update user: \(error)")
+            default:
+                print(error)
+            }
+        }
     }
 }
 ```
+
+### Logout
 
 To logout inside the SDK, you just need to add `SayTvSdk.logoutUser(completion: _)` where the completion is going to have the service call response
 
