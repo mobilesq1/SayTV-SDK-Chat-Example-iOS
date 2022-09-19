@@ -32,8 +32,8 @@ class RegisterViewController: UIViewController {
                           username: usernameTextField.text ?? "",
                           apiToken: kApiToken) { result in
             switch result {
-            case .success(let response):
-                self.resultTextView.text = "Success: \(response == true), User registered"
+            case .success:
+                self.resultTextView.text = "Success: User registered"
             case .failure(let error):
                 self.resultTextView.text = "Failure: \(error.localizedDescription)"
             }

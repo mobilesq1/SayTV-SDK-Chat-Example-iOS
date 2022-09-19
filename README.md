@@ -17,6 +17,16 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 8.2.1
+- Add `usernameForbidden` value to `GeneralError`
+```swift
+enum GeneralError : Error {
+...
+    case usernameForbidden
+...
+}
+```
+
 ### 8.2.0
 - Return an array of `GeneralError` when [register](#register) or [update a user](#update)
 
