@@ -17,6 +17,11 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 8.2.2
+- Multiples quizzes on the same chat, now we just show one
+- Fix scroll to bottom when like a comment
+- Adding multi-language to badges
+
 ### 8.2.1
 - Add `usernameForbidden` value to `GeneralError`
 ```swift
