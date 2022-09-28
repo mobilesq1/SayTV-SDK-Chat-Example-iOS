@@ -17,6 +17,10 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 8.3.0
+- Add `filterBackgroundColor` and `filterSelectedColor` color's parameters to [ChatTheme](#themes), responsibles of change the background and the selector color of the filter screen.
+- Stability improvements
+
 ### 8.2.2
 - Multiples quizzes on the same chat, now we just show one
 - Fix scroll to bottom when like a comment
@@ -331,7 +335,9 @@ class ChatViewController: UIViewController {
                               hashtagOptionButtonTheme: chatOptionButtonTheme,
                               quizTheme: quizTheme,
                               moderatorMessageTheme: moderatorMessageTheme,
-                              loading: .white)
+                              loading: .white,
+                              filterBackgroundColor: UIColor = .gray,
+                              filterSelectedColor: UIColor = .blue)
         let configuration = ChatConfiguration(alignTextMessageLeft: false, 
                                               displayButtonBar: true,
                                               isFanzone: false)
@@ -501,7 +507,9 @@ class FullChatController: UIViewController {
                                   hashtagOptionButtonTheme: chatOptionButtonTheme,
                                   quizTheme: quizTheme,
                                   moderatorMessageTheme: moderatorMessageTheme,
-                                  loading: .white)
+                                  loading: .white,
+                                  filterBackgroundColor: UIColor = .gray,
+                                  filterSelectedColor: UIColor = .blue)
         let theme = FullChatTheme(headerTheme: headerTheme, chatTheme: chatTheme)
         let _ = FullChatComponent(containerView: view,
                                   chatId: chatId,
@@ -585,6 +593,7 @@ SayTvSdk.getActiveUsers(chatIds: ["CHAT_ID", "CHAT_ID"]) { result in
  In response closure request returns array of type `[ChatActiveUsers]` with a list of chat active users that contains active chat id and number of active users. 
  In case chat is inactive it won't be included in API response.
  
+### Themes
 - You can change the theme at runtime of the `ChatComponent` and the `HeaderComponent` using this after initialize the components:
 
 ```swift
@@ -682,7 +691,9 @@ let chatTheme = ChatTheme(chatText: .red,
                           hashtagOptionButtonTheme: chatOptionButtonTheme,
                           quizTheme: quizTheme,
                           moderatorMessageTheme: moderatorMessageTheme,
-                          loading: .white)
+                          loading: .white,
+                          filterBackgroundColor: UIColor = .gray,
+                          filterSelectedColor: UIColor = .blue)
 let fullChatTheme = FullChatTheme(headerTheme: headerTheme, chatTheme: chatTheme)
 SayTvSdk.setChatTheme(fullChatTheme)
 ```
