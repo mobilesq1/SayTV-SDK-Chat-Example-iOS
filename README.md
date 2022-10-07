@@ -17,6 +17,12 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 8.3.2
+- Improve the chat when handle a user banned
+
+### 8.3.1
+- Minor fixs
+
 ### 8.3.0
 - Add `filterBackgroundColor` and `filterSelectedColor` color's parameters to [ChatTheme](#themes), responsibles of change the background and the selector color of the filter screen.
 - Stability improvements
