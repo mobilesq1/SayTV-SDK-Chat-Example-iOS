@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 8.3.4
+- Unsubscribe when the user is banned
+
 ### 8.3.3
 - Show banned message when a banned user enter a chat again and show the full hide message.
 
