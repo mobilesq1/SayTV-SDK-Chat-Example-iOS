@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 8.3.3
+- Show banned message when a banned user enter a chat again and show the full hide message.
+
 ### 8.3.2
 - Improve the chat when handle a user banned
 
