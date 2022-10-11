@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 8.3.5
+- Fix trimmed text on the event text
+
 ### 8.3.4
 - Unsubscribe when the user is banned
 
