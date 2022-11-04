@@ -17,6 +17,13 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 8.4.0
+- Add avatar selection on profile
+- Change user joining behaviour
+- Add chat rules screen
+- Improve profile UI
+- Improve some UI/UX
+
 ### 8.3.5
 - Fix trimmed text on the event text
 
