@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 9.0.0
+- Add `ProfileComponent` initializer without [id](#profile)
+
 ### 8.4.0
 - Add avatar selection on profile
 - Change user joining behaviour
@@ -570,6 +573,24 @@ class ProfileViewController: UIViewController {
                          memberSinceTextColor: .red)
         let _ = ProfileComponent(userId: 1, 
                                  containerView: containerView, 
+                                 theme: theme, 
+                                 language: .english)
+    }
+    ...
+}
+```
+
+You can also use your `ProfileComponent` without and '**id**' and it will get the id from the user that is already logged on the app:
+
+```swift 
+class ProfileViewController: UIViewController {
+
+    @IBOutlet weak var containerView: UIView!
+    ....
+    func startProfile() {
+        let theme = ProfileTheme(nameTextColor: .red,
+                         memberSinceTextColor: .red)
+        let _ = ProfileComponent(containerView: containerView, 
                                  theme: theme, 
                                  language: .english)
     }
