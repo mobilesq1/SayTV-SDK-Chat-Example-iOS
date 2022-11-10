@@ -17,6 +17,10 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 9.0.1
+- Fix profile UI
+- Improvement on anti spamming behaviour
+
 ### 9.0.0
 - Add `ProfileComponent` initializer without [id](#profile)
 
