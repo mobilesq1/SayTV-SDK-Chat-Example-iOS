@@ -17,7 +17,7 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 9.0.2
+### 9.0.3
 - Add `profileInfoLayoutBackground` to [Profile Theme](#profile)
 
 ### 9.0.1

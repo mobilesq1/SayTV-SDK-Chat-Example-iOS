@@ -28,14 +28,6 @@ class ProfileViewController: UIViewController {
         }
         let _ = ProfileComponent(userId: userId, containerView: view)
         infoStackView.isHidden = true
-        ProfileTheme(nameTextColor: .red,
-                     memberSinceTextColor: .red,
-                     profileBadgesTextColor: ,
-                     profileBadgesBackgroundColor: ,
-                     seeAllEarnedBadgesTextColor: ,
-                     seeAllEarnedBadgesBackgroundColor: ,
-                     profileBackgroundColor: ,
-                     profileInfoLayoutBackground: )
     }
     
 }
