@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 9.0.2
+- Add `profileInfoLayoutBackground` to [Profile Theme](#profile)
+
 ### 9.0.1
 - Fix profile UI
 - Improvement on anti spamming behaviour
@@ -574,7 +577,13 @@ class ProfileViewController: UIViewController {
     ....
     func startProfile() {
         let theme = ProfileTheme(nameTextColor: .red,
-                         memberSinceTextColor: .red)
+                                 memberSinceTextColor: .blue,
+                                 profileBadgesTextColor: .red,
+                                 profileBadgesBackgroundColor: .brown,
+                                 seeAllEarnedBadgesTextColor: .blue,
+                                 seeAllEarnedBadgesBackgroundColor: .yellow,
+                                 profileBackgroundColor: .cyan,
+                                 profileInfoLayoutBackground: .yellow)
         let _ = ProfileComponent(userId: 1, 
                                  containerView: containerView, 
                                  theme: theme, 
@@ -593,7 +602,13 @@ class ProfileViewController: UIViewController {
     ....
     func startProfile() {
         let theme = ProfileTheme(nameTextColor: .red,
-                         memberSinceTextColor: .red)
+                                 memberSinceTextColor: .blue,
+                                 profileBadgesTextColor: .red,
+                                 profileBadgesBackgroundColor: .brown,
+                                 seeAllEarnedBadgesTextColor: .blue,
+                                 seeAllEarnedBadgesBackgroundColor: .yellow,
+                                 profileBackgroundColor: .cyan,
+                                 profileInfoLayoutBackground: .yellow)
         let _ = ProfileComponent(containerView: containerView, 
                                  theme: theme, 
                                  language: .english)
