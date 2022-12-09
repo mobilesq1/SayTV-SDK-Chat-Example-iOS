@@ -17,6 +17,12 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 10.0.0
+- Minor improvenments
+- Update quizzes' UI/UX and update [ActiveQuizTheme](#themes)
+- Add `shouldDisplayQuizzes` to [ChatConfiguration](#chat) and [HeaderComponent](#header)
+- Add [getActivUsers](#options) in the `ChatComponent`, `HeaderComponent` and `FullChatComponent`
+
 ### 9.0.3
 - Add `profileInfoLayoutBackground` to [Profile Theme](#profile)
 
@@ -372,7 +378,8 @@ class ChatViewController: UIViewController {
                               filterSelectedColor: UIColor = .blue)
         let configuration = ChatConfiguration(alignTextMessageLeft: false, 
                                               displayButtonBar: true,
-                                              isFanzone: false)
+                                              isFanzone: false,
+                                              shouldDisplayQuizzes: true)
         let _ = ChatComponent(view: containerView,
                               name: name,
                               image: image,
@@ -450,7 +457,8 @@ class ChatViewController: UIViewController {
                                 endDate: endTime,
                                 theme: theme, 
                                 language: .english,
-                                isFanzone: nil) { result in
+                                isFanzone: nil, 
+                                shouldDisplayQuizzes: true) { result in
             switch result {
             case .success:
                 print("Header Success")
@@ -654,6 +662,14 @@ SayTvSdk.getActiveUsers(chatIds: ["CHAT_ID", "CHAT_ID"]) { result in
 ```
  In response closure request returns array of type `[ChatActiveUsers]` with a list of chat active users that contains active chat id and number of active users. 
  In case chat is inactive it won't be included in API response.
+
+ - The `ChatComponent`, `HeaderComponent` and `FullChatComponent` allow to check the active users in the chat in real time
+
+ ```swift
+ component.getActivUsers { info in
+    // handle actives users info
+}
+ ```
  
 ### Themes
 - You can change the theme at runtime of the `ChatComponent` and the `HeaderComponent` using this after initialize the components:
@@ -666,22 +682,20 @@ let quizOptionButtonTheme = SayTvButtonTheme(enabledTitleColor: .blue,
                                              borderColor: .clear)
 let firstOptionGradient = UIColor.Gradient(startColor: .yellow, endColor: .green)
 let secondOptionGradient = UIColor.Gradient(startColor: .purple, endColor: .blue)
-let activeQuizTheme = ActiveQuizTheme(bottomViewBackgroundColor: .systemPink,
-                                      bottomViewCornerRadius: 15.0,
-                                      titleTextColor: .red,
-                                      questionTextColor: .white,
-                                      firstOptionVotingButtonTheme: quizOptionButtonTheme,
-                                      secondOptionVotingButtonTheme: quizOptionButtonTheme,
-                                      firstOptionTextColor: .yellow,
-                                      secondOptionTextColor: .blue,
-                                      firstOptionResultTextColor: .black,
-                                      secondOptionResultTextColor: .blue,
-                                      firstOptionResultBackgroundGradient: firstOptionGradient,
-                                      secondOptionResultBackgroundGradient: secondOptionGradient,
-                                      expirationTimeBackgroundColor: .orange,
-                                      expirationTimeTextNormalColor: .gray,
-                                      expirationTimeTextExpiringColor: .purple,
-                                      collapseButtonTintColor: .purple)
+let activeQuizTheme = ActiveQuizTheme(
+    bottomViewBackgroundColor: .systemPink,
+    titleTextColor: .red,
+    questionTextColor: .white,
+    expirationTimeBackgroundColor: .orange,
+    expirationTimeTextNormalColor: .gray,
+    expirationTimeTextExpiringColor: .purple,
+    collapseButtonTintColor: .purple,
+    xButtonColor: .purple,
+    optionSelectedColor: .green,
+    optionRoundColor: .yellow,
+    optionTextColor: .blue,
+    responseTextColor: .blue
+)
 let headerTheme = HeaderTheme(overlayBackgroundColor: .blue,
                               headerBackground: .yellow,
                               textColor: .brown,
@@ -865,21 +879,17 @@ var activeQuizTheme: ActiveQuizTheme {
 
     return ActiveQuizTheme(
         bottomViewBackgroundColor: .systemPink,
-        bottomViewCornerRadius: 15.0,
         titleTextColor: .red,
         questionTextColor: .white,
-        firstOptionVotingButtonTheme: firstOptionButtonTheme,
-        secondOptionVotingButtonTheme: secondOptionButtonTheme,
-        firstOptionTextColor: .yellow,
-        secondOptionTextColor: .blue,
-        firstOptionResultTextColor: .black,
-        secondOptionResultTextColor: .blue,
-        firstOptionResultBackgroundGradient: firstOptionGradient,
-        secondOptionResultBackgroundGradient: secondOptionGradient,
         expirationTimeBackgroundColor: .orange,
         expirationTimeTextNormalColor: .gray,
         expirationTimeTextExpiringColor: .purple,
-        collapseButtonTintColor: .purple
+        collapseButtonTintColor: .purple,
+        xButtonColor: .purple,
+        optionSelectedColor: .green,
+        optionRoundColor: .yellow,
+        optionTextColor: .blue,
+        responseTextColor: .blue
     )
 }
 
@@ -909,7 +919,8 @@ let component = Component(..., language: .english, ...) {
 ChatComponent(..., 
               configuration: ChatConfiguration(alignTextMessageLeft: true,
                                                displayButtonBar: false,
-                                               isFanzone: true)
+                                               isFanzone: true, 
+                                               shouldDisplayQuizzes: true)
             ,...)
 ```
 
