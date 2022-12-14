@@ -17,6 +17,12 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 10.1.0
+- Add "chat closed" button once the chat is finished that is going to send an `EVENT_NEXT_CHAT` on component's `actions`
+- Add link preview and add `PreviewTheme` to [ChatTheme](#themes) for handle preview message style
+- Get url metadata using `ChatComponent` and `FullChatComponent`  on [selectedUrl()](#options)
+- Improve observers performance when use the `ChatComponent`, `HeaderComponent` and `FullChatComponent` on [removeObservers()](#options)
+
 ### 10.0.0
 - Minor improvenments
 - Update quizzes' UI/UX and update [ActiveQuizTheme](#themes)
@@ -375,7 +381,7 @@ class ChatViewController: UIViewController {
                               moderatorMessageTheme: moderatorMessageTheme,
                               loading: .white,
                               filterBackgroundColor: UIColor = .gray,
-                              filterSelectedColor: UIColor = .blue)
+                              filterSelectedColor: UIColor = .blue, )
         let configuration = ChatConfiguration(alignTextMessageLeft: false, 
                                               displayButtonBar: true,
                                               isFanzone: false,
@@ -670,7 +676,44 @@ SayTvSdk.getActiveUsers(chatIds: ["CHAT_ID", "CHAT_ID"]) { result in
     // handle actives users info
 }
  ```
- 
+
+- Close component's observers with `removeObservers` method when the app is going to disappear from the controller to improve performance behavior of the message received for the `ChatComponent`, `HeaderComponent` and `FullChatComponent`
+
+ ```swift
+ class UIViewController {
+    ...
+    private var component: ChatComponent!
+    ...
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        component.removeObservers()
+    }
+    ...
+ }
+ ```
+
+- Get selected url metada using the `selectedUrl` method on the `ChatComponent` and `FullChatComponent` 
+
+```swift
+chatComponent.selectedUrl { info in
+            InternalLogger.shared.info("Chat component: \(info)")
+        }
+
+class UIViewController {
+    ...
+    private var component: ChatComponent!
+    ...
+    func setupComponent() {
+        ...
+        component.selectedUrl { info in
+            print("url metada dictionary: \(info)")
+        }
+        ...
+    }
+    ...
+ }
+```
+
 ### Themes
 - You can change the theme at runtime of the `ChatComponent` and the `HeaderComponent` using this after initialize the components:
 
@@ -752,24 +795,37 @@ let quizFinalResultsTheme = QuizFinalResultsTheme(viewBackgroundColor: .blue,
 let quizTheme = QuizTheme(quizFormTheme: quizFormTheme,
                           quizSuccessViewTheme: quizSuccessViewTheme,
                           quizFinalResultsTheme: quizFinalResultsTheme)
-let chatTheme = ChatTheme(chatText: .red,
-                          chatTextPlaceholder: .orange,
-                          chatTextBackground: .green,
-                          hashtagText: .green,
-                          chatBackground: .darkGray,
-                          eventBackground: .cyan,
-                          chatTextBorder: .blue,
-                          commentRowBackgroundColor: .orange,
-                          allOptionsButtonTheme: chatOptionButtonTheme,
-                          playPauseButtonTheme: chatOptionButtonTheme,
-                          pictureOptionButtonTheme: chatOptionButtonTheme,
-                          newQuizButtonTheme: chatOptionButtonTheme,
-                          hashtagOptionButtonTheme: chatOptionButtonTheme,
-                          quizTheme: quizTheme,
-                          moderatorMessageTheme: moderatorMessageTheme,
-                          loading: .white,
-                          filterBackgroundColor: UIColor = .gray,
-                          filterSelectedColor: UIColor = .blue)
+var previewTheme = PreviewTheme(titleColor: .red,
+                               descriptionColor: .blue,
+                               urlColor: .black)
+let chatTheme = ChatTheme(
+            chatText: .red,
+            chatTextPlaceholder: .orange,
+            chatTextBackground: .green,
+            hashtagText: .green,
+            chatBackground: .darkGray,
+            eventBackground: .cyan,
+            chatTextBorder: .blue,
+            commentRowBackgroundColor: .orange,
+            allOptionsButtonTheme: chatOptionButtonTheme,
+            playPauseButtonTheme: chatOptionButtonTheme,
+            pictureOptionButtonTheme: chatOptionButtonTheme,
+            newQuizButtonTheme: chatOptionButtonTheme,
+            hashtagOptionButtonTheme: chatOptionButtonTheme,
+            quizTheme: quizTheme,
+            moderatorMessageTheme: moderatorMessageTheme,
+            loading: .blue,
+            filterBackgroundColor: .purpleSDK,
+            filterSelectedColor: .blue,
+            rulesBackgroundColor: .cyan,
+            rulesTextColor: .blue,
+            rulesButtonColor: .yellow,
+            rulesButtonTextColor: .red,
+            rulesBorderColor: .brown
+            rulesBorderColor: .brown,
+            previewTheme: previewTheme
+        )
+
 let fullChatTheme = FullChatTheme(headerTheme: headerTheme, chatTheme: chatTheme)
 SayTvSdk.setChatTheme(fullChatTheme)
 ```
