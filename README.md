@@ -17,6 +17,10 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 10.1.1
+- Remove image on quiz and add `backgroundColor` to [ActiveQuizTheme](#themes) 
+- Add "Not authenticated" status on the chat
+
 ### 10.1.0
 - Add "chat closed" button once the chat is finished that is going to send an `EVENT_NEXT_CHAT` on component's `actions`
 - Add link preview and add `PreviewTheme` to [ChatTheme](#themes) for handle preview message style
@@ -737,7 +741,8 @@ let activeQuizTheme = ActiveQuizTheme(
     optionSelectedColor: .green,
     optionRoundColor: .yellow,
     optionTextColor: .blue,
-    responseTextColor: .blue
+    responseTextColor: .blue,
+    backgroundColor: .yellow
 )
 let headerTheme = HeaderTheme(overlayBackgroundColor: .blue,
                               headerBackground: .yellow,
@@ -945,7 +950,8 @@ var activeQuizTheme: ActiveQuizTheme {
         optionSelectedColor: .green,
         optionRoundColor: .yellow,
         optionTextColor: .blue,
-        responseTextColor: .blue
+        responseTextColor: .blue,
+        backgroundColor: .yellow
     )
 }
 
