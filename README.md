@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 10.1.2
+- Add next button when the chat received chat is close event
+
 ### 10.1.1
 - Remove image on quiz and add `backgroundColor` to [ActiveQuizTheme](#themes) 
 - Add "Not authenticated" status on the chat
