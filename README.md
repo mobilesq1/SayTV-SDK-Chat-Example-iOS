@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 10.1.3
+- Add Sentry (Crash reporting tool) to login logs when the login fails
+
 ### 10.1.2
 - Add next button when the chat received chat is close event
 
