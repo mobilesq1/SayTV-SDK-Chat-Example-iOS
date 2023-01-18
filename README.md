@@ -17,6 +17,10 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 10.2.0
+- Add `chatCustomText` to [ChatComponenet](#chat) and [FullChatComponent](#full-chat)
+- Improve the X button on the quizzes with the behaviour
+
 ### 10.1.3
 - Add Sentry (Crash reporting tool) to login logs when the login fails
 
@@ -361,7 +365,7 @@ SayTvSdk.logoutUser { result in
 ## Chat
 > You must be registered or logged in before trying to use chat.
 
-You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `ChatComponent(`***view***`: _, name: _, image: _, startTime: _, endTime: _, `***chatId***`: _, theme: _, configuration: _, language: _, completion: _)`, where the ***view*** is the UIView that is configured in your screen, the others parameters are optional except for the ***chatId*** that you need to subscribe to the chat. The start time must be a date after or equal to now to work properly.
+You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `ChatComponent(`***view***`: _, name: _, image: _, startTime: _, endTime: _, `***chatId***`: _, theme: _, configuration: _, language: _, chatCustomText: _, completion: _)`, where the ***view*** is the UIView that is configured in your screen, the others parameters are optional except for the ***chatId*** that you need to subscribe to the chat. The start time must be a date after or equal to now to work properly.
 
 ```swift 
 class ChatViewController: UIViewController {
@@ -396,6 +400,7 @@ class ChatViewController: UIViewController {
                                               displayButtonBar: true,
                                               isFanzone: false,
                                               shouldDisplayQuizzes: true)
+        let chatCustomText = ChatCustomText(nextChat: "Finish chat")
         let _ = ChatComponent(view: containerView,
                               name: name,
                               image: image,
@@ -404,7 +409,8 @@ class ChatViewController: UIViewController {
                               chatId: chatId,
                               theme: theme, 
                               configuration: configuration,
-                              language: .english) { result in
+                              language: .english, 
+                              chatCustomText: chatCustomText) { result in
             switch result {
             case .success:
                 print("Chat Success")
@@ -534,7 +540,7 @@ class HeaderTableViewCell: UITableViewCell {
 ## Full Chat
 > You must be registered or logged in before trying to use chat.
 
-You're going to need to select an **UIView**, could be a placed view or **view**'s UIViewController directly that will work as the container for the Full Chat that have the Header + Chat in one component. With that decided you will have to call the `FullChatComponent(containerView: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, language: _, isFanzone: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
+You're going to need to select an **UIView**, could be a placed view or **view**'s UIViewController directly that will work as the container for the Full Chat that have the Header + Chat in one component. With that decided you will have to call the `FullChatComponent(containerView: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, language: _, isFanzone: _, chatCustomText: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
 
 ```swift 
 class FullChatController: UIViewController {
@@ -566,7 +572,9 @@ class FullChatController: UIViewController {
                                   loading: .white,
                                   filterBackgroundColor: UIColor = .gray,
                                   filterSelectedColor: UIColor = .blue)
-        let theme = FullChatTheme(headerTheme: headerTheme, chatTheme: chatTheme)
+        let theme = FullChatTheme(headerTheme: headerTheme, 
+                                  chatTheme: chatTheme)
+        let chatCustomText = ChatCustomText(nextChat: "Finish chat")
         let _ = FullChatComponent(containerView: view,
                                   chatId: chatId,
                                   chatName: name,
@@ -575,7 +583,8 @@ class FullChatController: UIViewController {
                                   endDate: endTime, 
                                   theme: theme, 
                                   language: .english,
-                                  isFanzone: nil) { result in
+                                  isFanzone: nil, 
+                                  chatCustomText: chatCustomText) { result in
             switch result {
             case .success:
                 print("Chat Success")
