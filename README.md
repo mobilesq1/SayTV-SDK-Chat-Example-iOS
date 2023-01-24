@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 10.2.1
+- Improve quiz behaviour
+
 ### 10.2.0
 - Add `chatCustomText` to [ChatComponenet](#chat) and [FullChatComponent](#full-chat)
 - Improve the X button on the quizzes with the behaviour
