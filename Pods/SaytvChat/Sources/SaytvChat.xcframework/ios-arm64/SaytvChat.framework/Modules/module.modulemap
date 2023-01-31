@@ -1,0 +1,4 @@
+framework module SaytvChat {
+  header "SaytvChat-Swift.h"
+  requires objc
+}

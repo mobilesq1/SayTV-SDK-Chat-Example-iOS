@@ -1,0 +1,219 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SaytvChat
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Alamofire
+import AlamofireImage
+import CoreGraphics
+import Foundation
+import Sentry
+import Swift
+import SystemConfiguration
+import UIKit
+import _Concurrency
+import _StringProcessing
+import os
+public struct QuizTheme {
+  public init(quizFormTheme: SaytvChat.QuizFormTheme = .init(), quizSuccessViewTheme: SaytvChat.InfoPopupTheme = .init(), quizFinalResultsTheme: SaytvChat.QuizFinalResultsTheme = .init())
+}
+public struct ProfileTheme {
+  public init(nameTextColor: UIKit.UIColor? = .white, memberSinceTextColor: UIKit.UIColor = .graySDK, profileBadgesTextColor: UIKit.UIColor = .white, profileBadgesBackgroundColor: UIKit.UIColor = .blueDarkSDK, seeAllEarnedBadgesTextColor: UIKit.UIColor = .white, seeAllEarnedBadgesBackgroundColor: UIKit.UIColor = .blueDarkSDK, profileBackgroundColor: UIKit.UIColor = .black2SDK, profileInfoLayoutBackground: UIKit.UIColor? = nil)
+}
+public struct InfoPopupTheme {
+  public init(contentViewBackgroundColor: UIKit.UIColor = .grayDark2SDK, contentViewBorderWidth: CoreFoundation.CGFloat = 1.0, contentViewBorderColor: UIKit.UIColor = UIColor.lightGray3SDK, contentViewCornerRadius: CoreFoundation.CGFloat = 8.0, titleTextColor: UIKit.UIColor = .white, subtitleTextColor: UIKit.UIColor = .white, descriptionTextColor: UIKit.UIColor = .white, closeButtonColor: UIKit.UIColor = .blueLight2SDK, dimmingViewBackgroundColor: UIKit.UIColor = .black2SDK.withAlphaComponent(0.8))
+}
+public struct QuizFormTheme {
+  public init(viewBackground: UIKit.UIColor = .grayDark3SDK, navigationBarTitleTextColor: UIKit.UIColor = .white, titleTextColor: UIKit.UIColor = .white, questionTitleTextColor: UIKit.UIColor = .white, questionTextFieldTheme: SaytvChat.TextFieldTheme = .darkTheme, optionsTitleTextColor: UIKit.UIColor = .white, firstOptionTextFieldTheme: SaytvChat.TextFieldTheme = .darkTheme, secondOptionTextFieldTheme: SaytvChat.TextFieldTheme = .darkTheme, closeButtonColor: UIKit.UIColor = .blueLight2SDK, confirmButtonTheme: SaytvChat.SayTvButtonTheme = .redTheme, disclaimerTextColor: UIKit.UIColor = .blueLightSDK, statusBarTheme: SaytvChat.StatusBarTheme = .lightContent)
+}
+final public class HeaderComponent {
+  public init(containerView: UIKit.UIView, chatId: Swift.String, chatName: Swift.String, chatImage: Swift.String, startDate: Foundation.Date?, endDate: Foundation.Date?, theme: SaytvChat.HeaderTheme? = nil, language: SaytvChat.Language = .english, isFanzone: Swift.Bool? = nil, shouldDisplayQuizzes: Swift.Bool = true, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public init(containerView: UIKit.UIView, chatName: Swift.String, chatImage: Swift.String, startDate: Foundation.Date, endDate: Foundation.Date, activeUsers: Swift.Int)
+  final public func setActAsOverlay(_ actAsOverlay: Swift.Bool)
+  final public func getActivUsers(completion: @escaping ([Swift.String : Swift.String]) -> Swift.Void)
+  final public func removeObservers()
+  @objc deinit
+}
+public enum StatusBarTheme {
+  case darkContent
+  case lightContent
+  case defaultTheme
+  public static func == (a: SaytvChat.StatusBarTheme, b: SaytvChat.StatusBarTheme) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct SayTvButtonTheme {
+  public static let redTheme: SaytvChat.SayTvButtonTheme
+  public static let grayTheme: SaytvChat.SayTvButtonTheme
+  public static let blueDarkTheme: SaytvChat.SayTvButtonTheme
+  public init(enabledTitleColor: UIKit.UIColor, disabledTitleColor: UIKit.UIColor, enabledBackgroundColor: UIKit.UIColor, disabledBackgroundColor: UIKit.UIColor, borderColor: UIKit.UIColor)
+}
+public enum SayTvLogOption {
+  case none
+  case verbose
+  public static func == (a: SaytvChat.SayTvLogOption, b: SaytvChat.SayTvLogOption) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension UIKit.UIColor {
+  public struct Gradient {
+    public init(startColor: UIKit.UIColor, endColor: UIKit.UIColor)
+  }
+  public static var redLightSDK: UIKit.UIColor
+  public static var redSDK: UIKit.UIColor
+  public static var purpleSDK: UIKit.UIColor
+  public static var black2SDK: UIKit.UIColor
+  public static var black3SDK: UIKit.UIColor
+  public static var blueLightSDK: UIKit.UIColor
+  public static var blueLight2SDK: UIKit.UIColor
+  public static var blueDarkSDK: UIKit.UIColor
+  public static var blueDark4SDK: UIKit.UIColor
+  public static var lightGray3SDK: UIKit.UIColor
+  public static var graySDK: UIKit.UIColor
+  public static var grayDarkSDK: UIKit.UIColor
+  public static var grayDark2SDK: UIKit.UIColor
+  public static var grayDark3SDK: UIKit.UIColor
+  public static var black4SDK: UIKit.UIColor
+  public static var blueLight4SDK: UIKit.UIColor
+  public static var blueGradient: UIKit.UIColor.Gradient
+  public static var redGradient: UIKit.UIColor.Gradient
+}
+public struct ChatTheme {
+  public init(chatText: UIKit.UIColor = .white, chatTextPlaceholder: UIKit.UIColor = .lightGray, chatTextBackground: UIKit.UIColor = .lightGray3SDK, hashtagText: UIKit.UIColor = .purpleSDK, chatBackground: UIKit.UIColor = .black2SDK.withAlphaComponent(0.8), eventBackground: UIKit.UIColor = .blueDarkSDK, chatTextBorder: UIKit.UIColor = .lightGray3SDK, commentRowBackgroundColor: UIKit.UIColor = .clear, allOptionsButtonTheme: SaytvChat.SayTvButtonTheme = .blueDarkTheme, playPauseButtonTheme: SaytvChat.SayTvButtonTheme = .blueDarkTheme, pictureOptionButtonTheme: SaytvChat.SayTvButtonTheme = .blueDarkTheme, newQuizButtonTheme: SaytvChat.SayTvButtonTheme = .blueDarkTheme, hashtagOptionButtonTheme: SaytvChat.SayTvButtonTheme = .blueDarkTheme, quizTheme: SaytvChat.QuizTheme = .init(), moderatorMessageTheme: SaytvChat.ModeratorMessageTheme = .init(), loading: UIKit.UIColor = .gray, filterBackgroundColor: UIKit.UIColor = .lightGray3SDK, filterSelectedColor: UIKit.UIColor = .blueLightSDK, rulesBackgroundColor: UIKit.UIColor = .blueDarkSDK, rulesTextColor: UIKit.UIColor = .white, rulesButtonColor: UIKit.UIColor = .redSDK, rulesButtonTextColor: UIKit.UIColor = .white, rulesBorderColor: UIKit.UIColor = .lightGray3SDK, previewTheme: SaytvChat.PreviewTheme = .init())
+}
+public struct PreviewTheme {
+  public init(titleColor: UIKit.UIColor = .blueLight4SDK, descriptionColor: UIKit.UIColor = .white, urlColor: UIKit.UIColor = .blueLight4SDK)
+}
+final public class FullChatComponent {
+  public init(containerView: UIKit.UIView, chatId: Swift.String, chatName: Swift.String, chatImage: Swift.String?, startDate: Foundation.Date?, endDate: Foundation.Date?, theme: SaytvChat.FullChatTheme? = nil, language: SaytvChat.Language = .english, isFanzone: Swift.Bool? = nil, chatCustomText: SaytvChat.ChatCustomText = .init(), completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  final public func setActAsOverlay(_ actAsOverlay: Swift.Bool)
+  final public func chatActions(completion: @escaping ([Swift.String : Swift.String]) -> Swift.Void)
+  final public func getActivUsers(completion: @escaping ([Swift.String : Swift.String]) -> Swift.Void)
+  final public func selectedUrl(completion: @escaping ([Swift.String : Swift.String]) -> Swift.Void)
+  final public func removeObservers()
+  @objc deinit
+}
+public struct ModeratorMessageTheme {
+  public init(titleColor: UIKit.UIColor = .white, messageColor: UIKit.UIColor = .white, backgroundColor: UIKit.UIColor = .lightGray3SDK)
+}
+public struct QuizFinalResultsTheme {
+  public init(viewBackgroundColor: UIKit.UIColor = .redLightSDK, backgroundViewCornerRadius: CoreFoundation.CGFloat = 4.0, textColor: UIKit.UIColor = .black3SDK)
+}
+public struct HeaderTheme {
+  public init(overlayBackgroundColor: UIKit.UIColor = .black2SDK.withAlphaComponent(0.8), headerBackground: UIKit.UIColor = .lightGray3SDK, textColor: UIKit.UIColor = .white, viewerCountTextColor: UIKit.UIColor = .blueLightSDK, timeRemainingTextColor: UIKit.UIColor = .blueLightSDK, timeIntervalTextColor: UIKit.UIColor = .blueLightSDK, activeQuizTheme: SaytvChat.ActiveQuizTheme = .init(), loading: UIKit.UIColor = .gray)
+}
+public struct ActiveQuizTheme {
+  public init(bottomViewBackgroundColor: UIKit.UIColor = .blueDarkSDK, titleTextColor: UIKit.UIColor = .white, questionTextColor: UIKit.UIColor = .white, expirationTimeBackgroundColor: UIKit.UIColor = .white, expirationTimeTextNormalColor: UIKit.UIColor = .grayDark2SDK, expirationTimeTextExpiringColor: UIKit.UIColor = .redSDK, collapseButtonTintColor: UIKit.UIColor = .white, xButtonColor: UIKit.UIColor = .white, optionSelectedColor: UIKit.UIColor = .grayDarkSDK, optionRoundColor: UIKit.UIColor = .lightGray3SDK, optionTextColor: UIKit.UIColor = .white, responseTextColor: UIKit.UIColor = .white, backgroundColor: UIKit.UIColor = .lightGray3SDK)
+}
+public enum Language : Swift.String {
+  case english
+  case french
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct CurrentUser {
+  public let externalID: Swift.String?
+  public let username: Swift.String
+  public let avatar: Swift.String
+  public let role: Swift.String?
+}
+final public class PushComponent {
+  public init()
+  final public func handlePush(response: [Swift.AnyHashable : Any]) -> Swift.Bool
+  final public func saveToken(_ fcmToken: Swift.String)
+  @objc deinit
+}
+public struct ChatConfiguration {
+  public init(alignTextMessageLeft: Swift.Bool = false, displayButtonBar: Swift.Bool = true, isFanzone: Swift.Bool? = nil, shouldDisplayQuizzes: Swift.Bool = false)
+}
+public struct FullChatTheme {
+  public init(headerTheme: SaytvChat.HeaderTheme = HeaderTheme(), chatTheme: SaytvChat.ChatTheme = ChatTheme(), loading: UIKit.UIColor = .gray)
+}
+public enum GeneralError : Swift.Error {
+  case usernameIsRequired
+  case usernameHasAlreadyBeenTaken
+  case digicelIdIsRequired
+  case digicelIdHasAlreadyBeenTaken
+  case usernameForbidden
+  case fcmTokenIsEmpty
+  case empty
+  public static func == (a: SaytvChat.GeneralError, b: SaytvChat.GeneralError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Swift.Array : Swift.Error where Element : Swift.Error {
+}
+public struct ChatCustomText {
+  public init(nextChat: Swift.String? = nil)
+}
+public struct TextFieldTheme {
+  public static let darkTheme: SaytvChat.TextFieldTheme
+  public init(textColor: UIKit.UIColor, placeholderColor: UIKit.UIColor, backgroundColor: UIKit.UIColor, borderActiveColor: UIKit.UIColor, borderInactiveColor: UIKit.UIColor, borderWidth: CoreFoundation.CGFloat, tintColor: UIKit.UIColor, cornerRadius: CoreFoundation.CGFloat)
+}
+final public class ProfileComponent {
+  public init(userId: Swift.Int, containerView: UIKit.UIView, theme: SaytvChat.ProfileTheme? = nil, language: SaytvChat.Language = .english)
+  public init(containerView: UIKit.UIView, theme: SaytvChat.ProfileTheme? = nil, language: SaytvChat.Language = .english)
+  final public func setActAsOverlay(_ actAsOverlay: Swift.Bool)
+  final public func profileActions(completion: @escaping (Swift.String) -> Swift.Void)
+  @objc deinit
+}
+public struct ActiveUsers {
+  public let chatId: Swift.String
+  public let activeUsers: Swift.Int
+  public init(chatId: Swift.String, activeUsers: Swift.Int)
+}
+final public class ChatComponent {
+  final public var isHidden: Swift.Bool {
+    get
+    set
+  }
+  public init(view: UIKit.UIView, name: Swift.String? = nil, image: Swift.String? = nil, startTime: Foundation.Date?, endTime: Foundation.Date?, chatId: Swift.String, theme: SaytvChat.ChatTheme? = nil, configuration: SaytvChat.ChatConfiguration = .init(), language: SaytvChat.Language = .english, chatCustomText: SaytvChat.ChatCustomText = .init(), completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  final public func setActAsOverlay(_ actAsOverlay: Swift.Bool)
+  final public func chatActions(completion: @escaping ([Swift.String : Swift.String]) -> Swift.Void)
+  final public func getActivUsers(completion: @escaping ([Swift.String : Swift.String]) -> Swift.Void)
+  final public func selectedUrl(completion: @escaping ([Swift.String : Swift.String]) -> Swift.Void)
+  final public func removeObservers()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class SayTvSdk {
+  public enum SDKEnvironment {
+    case staging, production
+    public static func == (a: SaytvChat.SayTvSdk.SDKEnvironment, b: SaytvChat.SayTvSdk.SDKEnvironment) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public static func initialise(appName: Swift.String, environment: SaytvChat.SayTvSdk.SDKEnvironment)
+  public static func initialise(appName: Swift.String, baseUrl: Swift.String)
+  public static func setLogOption(_ option: SaytvChat.SayTvLogOption)
+  public static func register(digicelId: Swift.String, avatar: Swift.String? = nil, username: Swift.String, apiToken: Swift.String, completion: @escaping (Swift.Result<Swift.Void, [Swift.Error]>) -> Swift.Void)
+  public static func login(digicelId: Swift.String, apiToken: Swift.String, completion: @escaping (Swift.Result<Swift.Bool, Swift.Error>) -> Swift.Void)
+  public static func getActiveUsers(chatIds: [Swift.String], completion: @escaping (Swift.Result<[SaytvChat.ActiveUsers], Swift.Error>) -> Swift.Void)
+  public static func updateUser(avatar: Swift.String? = nil, username: Swift.String?, completion: @escaping (Swift.Result<Swift.Void, [Swift.Error]>) -> Swift.Void)
+  public static func setChatTheme(_ theme: SaytvChat.FullChatTheme)
+  public static func setProfileTheme(_ theme: SaytvChat.ProfileTheme)
+  public static func unsubscribeActiveChat(completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)? = nil)
+  public static func logoutUser(completion: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
+  public static func getLoggedUser(completion: @escaping (Swift.Result<SaytvChat.CurrentUser?, Swift.Error>) -> Swift.Void)
+  @objc deinit
+}
+extension SaytvChat.StatusBarTheme : Swift.Equatable {}
+extension SaytvChat.StatusBarTheme : Swift.Hashable {}
+extension SaytvChat.SayTvLogOption : Swift.Equatable {}
+extension SaytvChat.SayTvLogOption : Swift.Hashable {}
+extension SaytvChat.Language : Swift.Equatable {}
+extension SaytvChat.Language : Swift.Hashable {}
+extension SaytvChat.Language : Swift.RawRepresentable {}
+extension SaytvChat.GeneralError : Swift.Equatable {}
+extension SaytvChat.GeneralError : Swift.Hashable {}
+extension SaytvChat.SayTvSdk.SDKEnvironment : Swift.Equatable {}
+extension SaytvChat.SayTvSdk.SDKEnvironment : Swift.Hashable {}

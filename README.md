@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 11.0.0
+- Add [inicializer](#initialization) that set the base url
+
 ### 10.2.1
 - Improve quiz behaviour
 
@@ -233,6 +236,8 @@ import SaytvChat
 ## Initialization
 To initialise SDK simply call `SayTvSdk.initialise(appName: "APP_NAME", environment: .production)`on your app start in AppDelegate or before using any of the SDK component.
 App name will be used mainly in the chat component to replace app name in the messages displayed to the user (e.g. welcome message on empty chat).
+
+You can initialize SDK with a custom base url call instead the default one `SayTvSdk.initialise(appName: "APP_NAME", baseUrl: "https:www.google.com")`
 
 To enable logging mechanism use `SayTvSdk.setLogOption(.verbose)` to see all logs related with Saytv SDK before initializing any of the SDK component, preferably in AppDelegate just before `SayTvSdk.initialise` method.
 
