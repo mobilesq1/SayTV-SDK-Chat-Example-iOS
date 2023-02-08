@@ -25,11 +25,9 @@
 		7BE94BBF286A037F009F0D5C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE94BBE286A037F009F0D5C /* ProfileViewController.swift */; };
 		7BF779CC28475D4400E7FCB0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF779CB28475D4400E7FCB0 /* FirebaseAnalytics */; };
 		7BF779CE28475D4400E7FCB0 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF779CD28475D4400E7FCB0 /* FirebaseMessaging */; };
-		9730610419215C24E5A3B3BB /* Pods_SaytvChatFake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5E6028F972DBE9A6E65C13 /* Pods_SaytvChatFake.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D5E6028F972DBE9A6E65C13 /* Pods_SaytvChatFake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaytvChatFake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8FA32E283D1E5800C8F5A7 /* SaytvChatFake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaytvChatFake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8FA331283D1E5800C8F5A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B8FA333283D1E5800C8F5A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,8 +46,6 @@
 		7BE01132288749C000D815AF /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		7BE94BBC2869C607009F0D5C /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		7BE94BBE286A037F009F0D5C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		8A3A15DED76145DAD5BDFC6F /* Pods-SaytvChatFake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaytvChatFake.release.xcconfig"; path = "Target Support Files/Pods-SaytvChatFake/Pods-SaytvChatFake.release.xcconfig"; sourceTree = "<group>"; };
-		C123BD1B0D1F9D3C4EFBD92E /* Pods-SaytvChatFake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaytvChatFake.debug.xcconfig"; path = "Target Support Files/Pods-SaytvChatFake/Pods-SaytvChatFake.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,28 +56,18 @@
 				7BDF226A2977D5CA004A29C7 /* SaytvChat in Frameworks */,
 				7BF779CE28475D4400E7FCB0 /* FirebaseMessaging in Frameworks */,
 				7BF779CC28475D4400E7FCB0 /* FirebaseAnalytics in Frameworks */,
-				9730610419215C24E5A3B3BB /* Pods_SaytvChatFake.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2235B83642EC32AC127BA954 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0D5E6028F972DBE9A6E65C13 /* Pods_SaytvChatFake.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7B8FA325283D1E5800C8F5A7 = {
 			isa = PBXGroup;
 			children = (
 				7B8FA330283D1E5800C8F5A7 /* SaytvChatFake */,
 				7B8FA32F283D1E5800C8F5A7 /* Products */,
 				DE085158598C4B3B6DCFDE68 /* Pods */,
-				2235B83642EC32AC127BA954 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,10 +130,7 @@
 		DE085158598C4B3B6DCFDE68 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C123BD1B0D1F9D3C4EFBD92E /* Pods-SaytvChatFake.debug.xcconfig */,
-				8A3A15DED76145DAD5BDFC6F /* Pods-SaytvChatFake.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -158,11 +141,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B8FA342283D1E5900C8F5A7 /* Build configuration list for PBXNativeTarget "SaytvChatFake" */;
 			buildPhases = (
-				AAFDD249E13D087C6FC3B4AB /* [CP] Check Pods Manifest.lock */,
 				7B8FA32A283D1E5800C8F5A7 /* Sources */,
 				7B8FA32B283D1E5800C8F5A7 /* Frameworks */,
 				7B8FA32C283D1E5800C8F5A7 /* Resources */,
-				492040FF5A9DD647032F5B57 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,48 +210,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		492040FF5A9DD647032F5B57 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SaytvChatFake/Pods-SaytvChatFake-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SaytvChatFake/Pods-SaytvChatFake-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SaytvChatFake/Pods-SaytvChatFake-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AAFDD249E13D087C6FC3B4AB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SaytvChatFake-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7B8FA32A283D1E5800C8F5A7 /* Sources */ = {
@@ -428,7 +367,6 @@
 		};
 		7B8FA343283D1E5900C8F5A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C123BD1B0D1F9D3C4EFBD92E /* Pods-SaytvChatFake.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -459,7 +397,6 @@
 		};
 		7B8FA344283D1E5900C8F5A7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A3A15DED76145DAD5BDFC6F /* Pods-SaytvChatFake.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -517,7 +454,7 @@
 			repositoryURL = "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
+				minimumVersion = 11.0.0;
 			};
 		};
 		7BF779CA28475D4400E7FCB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {

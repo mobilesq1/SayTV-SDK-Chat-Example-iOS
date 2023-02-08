@@ -1,6 +1,0 @@
-framework module Pods_SaytvChatFake {
-  umbrella header "Pods-SaytvChatFake-umbrella.h"
-
-  export *
-  module * { export * }
-}

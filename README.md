@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 11.1.1
+- Filter chat is close event by episode id
+
 ### 11.1.0
 - Add `progressColor` and `progressBackgroundColor` to [ActiveQuizTheme](#themes)
 - Add `userJoinedBackground` to [ChatTheme](#themes)
