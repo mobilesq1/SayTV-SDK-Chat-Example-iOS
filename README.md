@@ -17,6 +17,11 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 11.1.0
+- Add `progressColor` and `progressBackgroundColor` to [ActiveQuizTheme](#themes)
+- Add `userJoinedBackground` to [ChatTheme](#themes)
+- Add `chatHasEndedMessage` to [ChatCustomText](#chat)
+
 ### 11.0.0
 - Add [inicializer](#initialization) that set the base url
 
@@ -386,39 +391,55 @@ class ChatViewController: UIViewController {
         let image = "https://image_url_example.com"
         let startTime = dateFormatter.date(from: "24/05/2022 10:05:00")
         let endTime = dateFormatter.date(from: "26/05/2022 18:00:00")
-        let theme = ChatTheme(chatText: .red,
-                              chatTextPlaceholder: .orange,
-                              chatTextBackground: .green,
-                              hashtagText: .green,
-                              chatBackground: .darkGray,
-                              eventBackground: .cyan,
-                              chatTextBorder: .blue,
-                              commentRowBackgroundColor: .orange,
-                              allOptionsButtonTheme: chatOptionButtonTheme,
-                              playPauseButtonTheme: chatOptionButtonTheme,
-                              pictureOptionButtonTheme: chatOptionButtonTheme,
-                              newQuizButtonTheme: chatOptionButtonTheme,
-                              hashtagOptionButtonTheme: chatOptionButtonTheme,
-                              quizTheme: quizTheme,
-                              moderatorMessageTheme: moderatorMessageTheme,
-                              loading: .white,
-                              filterBackgroundColor: UIColor = .gray,
-                              filterSelectedColor: UIColor = .blue, )
-        let configuration = ChatConfiguration(alignTextMessageLeft: false, 
-                                              displayButtonBar: true,
-                                              isFanzone: false,
-                                              shouldDisplayQuizzes: true)
-        let chatCustomText = ChatCustomText(nextChat: "Finish chat")
-        let _ = ChatComponent(view: containerView,
-                              name: name,
-                              image: image,
-                              startTime: startTime,
-                              endTime: endTime,
-                              chatId: chatId,
-                              theme: theme, 
-                              configuration: configuration,
-                              language: .english, 
-                              chatCustomText: chatCustomText) { result in
+        let theme = ChatTheme(
+            chatText: .red,
+            chatTextPlaceholder: .orange,
+            chatTextBackground: .green,
+            hashtagText: .green,
+            chatBackground: .darkGray,
+            eventBackground: .cyan,
+            chatTextBorder: .blue,
+            commentRowBackgroundColor: .orange,
+            allOptionsButtonTheme: chatOptionButtonTheme,
+            playPauseButtonTheme: chatOptionButtonTheme,
+            pictureOptionButtonTheme: chatOptionButtonTheme,
+            newQuizButtonTheme: chatOptionButtonTheme,
+            hashtagOptionButtonTheme: chatOptionButtonTheme,
+            quizTheme: quizTheme,
+            moderatorMessageTheme: moderatorMessageTheme,
+            loading: .white,
+            filterBackgroundColor: UIColor = .gray,
+            filterSelectedColor: UIColor = .blue,
+            rulesBackgroundColor: .cyan,
+            rulesTextColor: .blue,
+            rulesButtonColor: .yellow,
+            rulesButtonTextColor: .red,
+            rulesBorderColor: .brown,
+            previewTheme: previewTheme,
+            userJoinedBackground: .blue
+        )
+        let configuration = ChatConfiguration(
+            alignTextMessageLeft: false, 
+            displayButtonBar: true,
+            isFanzone: false,
+            shouldDisplayQuizzes: true
+        )
+        let chatCustomText = ChatCustomText(
+            nextChat: "Finish chat",
+            chatHasEndedMessage: "Text description"
+        )
+        let _ = ChatComponent(
+            view: containerView,
+            name: name,
+            image: image,
+            startTime: startTime,
+            endTime: endTime,
+            chatId: chatId,
+            theme: theme, 
+            configuration: configuration,
+            language: .english, 
+            chatCustomText: chatCustomText
+        ) { result in
             switch result {
             case .success:
                 print("Chat Success")
@@ -562,27 +583,39 @@ class FullChatController: UIViewController {
         let endTime = dateFormatter.date(from: "26/05/2022 18:00:00")
         let headerTheme = HeaderTheme(overlayBackgroundColor: .blue,
                                       headerBackground: .yellow)
-        let chatTheme = ChatTheme(chatText: .red,
-                                  chatTextPlaceholder: .orange,
-                                  chatTextBackground: .green,
-                                  hashtagText: .green,
-                                  chatBackground: .darkGray,
-                                  eventBackground: .cyan,
-                                  chatTextBorder: .blue,
-                                  commentRowBackgroundColor: .orange,
-                                  allOptionsButtonTheme: chatOptionButtonTheme,
-                                  playPauseButtonTheme: chatOptionButtonTheme,
-                                  pictureOptionButtonTheme: chatOptionButtonTheme,
-                                  newQuizButtonTheme: chatOptionButtonTheme,
-                                  hashtagOptionButtonTheme: chatOptionButtonTheme,
-                                  quizTheme: quizTheme,
-                                  moderatorMessageTheme: moderatorMessageTheme,
-                                  loading: .white,
-                                  filterBackgroundColor: UIColor = .gray,
-                                  filterSelectedColor: UIColor = .blue)
+        let chatTheme = ChatTheme(
+            chatText: .red,
+            chatTextPlaceholder: .orange,
+            chatTextBackground: .green,
+            hashtagText: .green,
+            chatBackground: .darkGray,
+            eventBackground: .cyan,
+            chatTextBorder: .blue,
+            commentRowBackgroundColor: .orange,
+            allOptionsButtonTheme: chatOptionButtonTheme,
+            playPauseButtonTheme: chatOptionButtonTheme,
+            pictureOptionButtonTheme: chatOptionButtonTheme,
+            newQuizButtonTheme: chatOptionButtonTheme,
+            hashtagOptionButtonTheme: chatOptionButtonTheme,
+            quizTheme: quizTheme,
+            moderatorMessageTheme: moderatorMessageTheme,
+            loading: .white,
+            filterBackgroundColor: UIColor = .gray,
+            filterSelectedColor: UIColor = .blue,
+            rulesBackgroundColor: .cyan,
+            rulesTextColor: .blue,
+            rulesButtonColor: .yellow,
+            rulesButtonTextColor: .red,
+            rulesBorderColor: .brown,
+            previewTheme: previewTheme,
+            userJoinedBackground: .blue
+        )
         let theme = FullChatTheme(headerTheme: headerTheme, 
                                   chatTheme: chatTheme)
-        let chatCustomText = ChatCustomText(nextChat: "Finish chat")
+        let chatCustomText = ChatCustomText(
+            nextChat: "Finish chat",
+            chatHasEndedMessage: "Text description"
+        )
         let _ = FullChatComponent(containerView: view,
                                   chatId: chatId,
                                   chatName: name,
@@ -765,7 +798,9 @@ let activeQuizTheme = ActiveQuizTheme(
     optionRoundColor: .yellow,
     optionTextColor: .blue,
     responseTextColor: .blue,
-    backgroundColor: .yellow
+    backgroundColor: .yellow,
+    progressColor: .white,
+    progressBackgroundColor: .black
 )
 let headerTheme = HeaderTheme(overlayBackgroundColor: .blue,
                               headerBackground: .yellow,
@@ -842,16 +877,16 @@ let chatTheme = ChatTheme(
             hashtagOptionButtonTheme: chatOptionButtonTheme,
             quizTheme: quizTheme,
             moderatorMessageTheme: moderatorMessageTheme,
-            loading: .blue,
-            filterBackgroundColor: .purpleSDK,
-            filterSelectedColor: .blue,
+            loading: .white,
+            filterBackgroundColor: UIColor = .gray,
+            filterSelectedColor: UIColor = .blue,
             rulesBackgroundColor: .cyan,
             rulesTextColor: .blue,
             rulesButtonColor: .yellow,
             rulesButtonTextColor: .red,
-            rulesBorderColor: .brown
             rulesBorderColor: .brown,
-            previewTheme: previewTheme
+            previewTheme: previewTheme,
+            userJoinedBackground: .blue
         )
 
 let fullChatTheme = FullChatTheme(headerTheme: headerTheme, chatTheme: chatTheme)
@@ -946,21 +981,6 @@ var quizSuccessViewTheme: InfoPopupTheme {
 }
 
 var activeQuizTheme: ActiveQuizTheme {
-    let firstOptionButtonTheme = SayTvButtonTheme(
-        enabledTitleColor: .blue,
-        disabledTitleColor: .red,
-        enabledBackgroundColor: .green,
-        disabledBackgroundColor: .orange
-    )
-    let secondOptionButtonTheme = SayTvButtonTheme(
-        enabledTitleColor: .yellow,
-        disabledTitleColor: .green,
-        enabledBackgroundColor: .black,
-        disabledBackgroundColor: .blue
-    )
-    let firstOptionGradient = UIColor.Gradient(startColor: .yellow, endColor: .green)
-    let secondOptionGradient = UIColor.Gradient(startColor: .purple, endColor: .blue)
-
     return ActiveQuizTheme(
         bottomViewBackgroundColor: .systemPink,
         titleTextColor: .red,
@@ -974,7 +994,9 @@ var activeQuizTheme: ActiveQuizTheme {
         optionRoundColor: .yellow,
         optionTextColor: .blue,
         responseTextColor: .blue,
-        backgroundColor: .yellow
+        backgroundColor: .yellow,
+        progressColor: .white,
+        progressBackgroundColor: .black
     )
 }
 
