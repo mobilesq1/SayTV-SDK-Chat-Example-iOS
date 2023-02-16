@@ -17,6 +17,12 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 11.2.0
+- Show full text on the preview link
+- Add `nextChatButtonTheme` on [ChatTheme](#themes) to customize the next chat button
+- Remove update button and change avatar automatically on the profile
+- Show chat is closed on the current chat
+
 ### 11.1.1
 - Filter chat is close event by episode id
 
@@ -419,7 +425,8 @@ class ChatViewController: UIViewController {
             rulesButtonTextColor: .red,
             rulesBorderColor: .brown,
             previewTheme: previewTheme,
-            userJoinedBackground: .blue
+            userJoinedBackground: .blue,
+            nextChatButtonTheme: .redTheme
         )
         let configuration = ChatConfiguration(
             alignTextMessageLeft: false, 
@@ -611,7 +618,8 @@ class FullChatController: UIViewController {
             rulesButtonTextColor: .red,
             rulesBorderColor: .brown,
             previewTheme: previewTheme,
-            userJoinedBackground: .blue
+            userJoinedBackground: .blue,
+            nextChatButtonTheme: .redTheme
         )
         let theme = FullChatTheme(headerTheme: headerTheme, 
                                   chatTheme: chatTheme)
@@ -864,6 +872,13 @@ let quizTheme = QuizTheme(quizFormTheme: quizFormTheme,
 var previewTheme = PreviewTheme(titleColor: .red,
                                descriptionColor: .blue,
                                urlColor: .black)
+var nextChatButtonTheme = SayTvButtonTheme(
+    enabledTitleColor: .blue,
+    disabledTitleColor: .purple,
+    enabledBackgroundColor: .green,
+    disabledBackgroundColor: .red,
+    borderColor: .black
+)
 let chatTheme = ChatTheme(
             chatText: .red,
             chatTextPlaceholder: .orange,
@@ -889,7 +904,8 @@ let chatTheme = ChatTheme(
             rulesButtonTextColor: .red,
             rulesBorderColor: .brown,
             previewTheme: previewTheme,
-            userJoinedBackground: .blue
+            userJoinedBackground: .blue,
+            nextChatButtonTheme: nextChatButtonTheme
         )
 
 let fullChatTheme = FullChatTheme(headerTheme: headerTheme, chatTheme: chatTheme)
