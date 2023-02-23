@@ -17,6 +17,10 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 11.3.0
+- Add quick reactions to the chat
+- Fix style issues on mod messages
+
 ### 11.2.0
 - Show full text on the preview link
 - Add `nextChatButtonTheme` on [ChatTheme](#themes) to customize the next chat button
