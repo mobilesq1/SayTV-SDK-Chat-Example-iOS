@@ -67,7 +67,6 @@
 			children = (
 				7B8FA330283D1E5800C8F5A7 /* SaytvChatFake */,
 				7B8FA32F283D1E5800C8F5A7 /* Products */,
-				DE085158598C4B3B6DCFDE68 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,13 +126,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		DE085158598C4B3B6DCFDE68 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,8 +176,8 @@
 			);
 			mainGroup = 7B8FA325283D1E5800C8F5A7;
 			packageReferences = (
-				7BF779CA28475D4400E7FCB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */,
-				7BDF22682977D5CA004A29C7 /* XCRemoteSwiftPackageReference "saytv_sdk_ios.git" */,
+				7BF779CA28475D4400E7FCB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7BDF22682977D5CA004A29C7 /* XCRemoteSwiftPackageReference "saytv_sdk_ios" */,
 			);
 			productRefGroup = 7B8FA32F283D1E5800C8F5A7 /* Products */;
 			projectDirPath = "";
@@ -449,7 +441,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7BDF22682977D5CA004A29C7 /* XCRemoteSwiftPackageReference "saytv_sdk_ios.git" */ = {
+		7BDF22682977D5CA004A29C7 /* XCRemoteSwiftPackageReference "saytv_sdk_ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git";
 			requirement = {
@@ -457,7 +449,7 @@
 				minimumVersion = 11.0.0;
 			};
 		};
-		7BF779CA28475D4400E7FCB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {
+		7BF779CA28475D4400E7FCB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dgarciasquare1/firebase-ios-sdk.git";
 			requirement = {
@@ -470,17 +462,17 @@
 /* Begin XCSwiftPackageProductDependency section */
 		7BDF22692977D5CA004A29C7 /* SaytvChat */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7BDF22682977D5CA004A29C7 /* XCRemoteSwiftPackageReference "saytv_sdk_ios.git" */;
+			package = 7BDF22682977D5CA004A29C7 /* XCRemoteSwiftPackageReference "saytv_sdk_ios" */;
 			productName = SaytvChat;
 		};
 		7BF779CB28475D4400E7FCB0 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7BF779CA28475D4400E7FCB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			package = 7BF779CA28475D4400E7FCB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
 		7BF779CD28475D4400E7FCB0 /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7BF779CA28475D4400E7FCB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			package = 7BF779CA28475D4400E7FCB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
