@@ -17,6 +17,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 11.3.2
+- Disable hang sentry option
+
 ### 11.3.1
 - Increase sentry hang time
 - Round quick reactions background
