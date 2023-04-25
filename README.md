@@ -17,6 +17,13 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
+### 11.3.3
+- Send active user event when there is 25 or more users on the chat
+- Several minor performance improvements
+- Improve update user validations
+- Improve badges UX
+- Add multi-language to profile button
+
 ### 11.3.2
 - Disable hang sentry option
 

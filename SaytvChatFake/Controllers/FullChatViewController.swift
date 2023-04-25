@@ -7,6 +7,7 @@
 
 import UIKit
 import SaytvChat
+import FirebaseAnalytics
 
 class FullChatViewController: UIViewController {
 
@@ -52,7 +53,7 @@ class FullChatViewController: UIViewController {
         }
         sender.isUserInteractionEnabled = false
         
-        let _ = FullChatComponent(containerView: view,
+        let fullChatComponent = FullChatComponent(containerView: view,
                                   chatId: chatId,
                                   chatName: name,
                                   chatImage: image,
@@ -67,6 +68,12 @@ class FullChatViewController: UIViewController {
                 self.resultTextView.text = "Failure: \(error.localizedDescription)"
             }
         }
+        
+        fullChatComponent.chatActions { event in
+            print("Full ChatActions event: \(event)")
+            Analytics.logEvent("sdk_send_commend_test", parameters: event)
+        }
+
     }
     
     private func addDatePicker(id: Int, textField: UITextField) {
