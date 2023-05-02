@@ -71,7 +71,11 @@ class FullChatViewController: UIViewController {
         
         fullChatComponent.chatActions { event in
             print("Full ChatActions event: \(event)")
-            Analytics.logEvent("sdk_send_commend_test", parameters: event)
+        }
+        
+        fullChatComponent.analytics { name, parameters in
+            print("Fullchat analytics name: \(name) parameters: \(parameters)")
+            Analytics.logEvent(name, parameters: parameters)
         }
 
     }

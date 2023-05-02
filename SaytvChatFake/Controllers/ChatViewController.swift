@@ -7,6 +7,7 @@
 
 import UIKit
 import SaytvChat
+import FirebaseAnalytics
 
 class ChatViewController: UIViewController {
 
@@ -108,13 +109,17 @@ class ChatViewController: UIViewController {
     private func startChat(chatId: String, name: String,
                            chatImage: String, startDate: Date,
                            endDate: Date, completion: @escaping (Result<Void, Error>) -> Void) {
-        let _ = ChatComponent(view: chatContainerView,
-                              name: name.isEmpty ? nil : name,
-                              image: chatImage.isEmpty ? nil : chatImage,
-                              startTime: startDate,
-                              endTime: endDate,
-                              chatId: chatId,
-                              completion: completion)
+        let chatComponent = ChatComponent(view: chatContainerView,
+                                          name: name.isEmpty ? nil : name,
+                                          image: chatImage.isEmpty ? nil : chatImage,
+                                          startTime: startDate,
+                                          endTime: endDate,
+                                          chatId: chatId,
+                                          completion: completion)
+        chatComponent.analytics { name, parameters in
+            print("Chat analytics name: \(name) parameters: \(parameters)")
+            Analytics.logEvent(name, parameters: parameters)
+        }
     }
     
     private func addDatePicker(id: Int, textField: UITextField) {
