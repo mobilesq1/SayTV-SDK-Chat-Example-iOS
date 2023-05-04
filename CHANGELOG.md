@@ -2,6 +2,11 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 12.0.1
+- Add `activeUsersThreshold` parameter to [FullChatComponent][] and [HeaderComponent][] which sets the active user threshold that the Header Component is allowed to show when we received the active user notification
+- We send in background the active user event with the number of users everytime we received the notification that allow you to handle the value as you want
+- We show between 2 to 4 quizzes options and answers on the chat and the header
+
 ### 12.0.0
 - Add [analytics][] method to chats that is going to return analytics data to send parameters
 

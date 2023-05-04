@@ -17,8 +17,10 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 12.0.0
-- Add [analytics](#analytics) method to chats that is going to return analytics data to send parameters
+### 12.0.1
+- Add `activeUsersThreshold` parameter to [FullChatComponent](#full-chat) and [HeaderComponent](#header) which sets the active user threshold that the Header Component is allowed to show when we received the active user notification
+- We send in background the active user event with the number of users everytime we received the notification that allow you to handle the value as you want
+- We show between 2 to 4 quizzes options and answers on the chat and the header
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
@@ -286,7 +288,7 @@ This provides possibility to control subscribe status when recreating chat compo
 ## Header
 > You must be registered or logged in before trying to use chat.
 
-You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `HeaderComponent(`***containerView***`: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, language: _, isFanzone: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
+You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `HeaderComponent(`***containerView***`: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, language: _, isFanzone: _, shouldDisplayQuizzes: _, activeUsersThreshold: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
 
 - In the SDK modally presented views supports status bar appearance customisation. In order to support this your project Info.plist needs to include `UIViewControllerBasedStatusBarAppearance` set to `true`. Other way SDK will use default project setup. This customisation is optional.
 
@@ -318,7 +320,8 @@ class ChatViewController: UIViewController {
                                 theme: theme, 
                                 language: .english,
                                 isFanzone: nil, 
-                                shouldDisplayQuizzes: true) { result in
+                                shouldDisplayQuizzes: true,
+                                activeUsersThreshold: 5) { result in
             switch result {
             case .success:
                 print("Header Success")
@@ -378,7 +381,7 @@ class HeaderTableViewCell: UITableViewCell {
 ## Full Chat
 > You must be registered or logged in before trying to use chat.
 
-You're going to need to select an **UIView**, could be a placed view or **view**'s UIViewController directly that will work as the container for the Full Chat that have the Header + Chat in one component. With that decided you will have to call the `FullChatComponent(containerView: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, language: _, isFanzone: _, chatCustomText: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
+You're going to need to select an **UIView**, could be a placed view or **view**'s UIViewController directly that will work as the container for the Full Chat that have the Header + Chat in one component. With that decided you will have to call the `FullChatComponent(containerView: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, language: _, isFanzone: _, chatCustomText: _, activeUsersThreshold: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
 
 ```swift 
 class FullChatController: UIViewController {
@@ -435,7 +438,8 @@ class FullChatController: UIViewController {
                                   theme: theme, 
                                   language: .english,
                                   isFanzone: nil, 
-                                  chatCustomText: chatCustomText) { result in
+                                  chatCustomText: chatCustomText,
+                                  activeUsersThreshold: 5) { result in
             switch result {
             case .success:
                 print("Chat Success")
