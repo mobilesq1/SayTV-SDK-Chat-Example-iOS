@@ -122,8 +122,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git",
       "state" : {
-        "revision" : "f8a959c9f13ad13d78ae209b4d34d96ac7068a37",
-        "version" : "12.0.1"
+        "revision" : "1313c8e9bbe5fd523b2f895a461f5990f720bba6",
+        "version" : "12.0.2"
       }
     },
     {

@@ -116,7 +116,7 @@ class ChatViewController: UIViewController {
                                           endTime: endDate,
                                           chatId: chatId,
                                           completion: completion)
-        chatComponent.getActivUsers { info in
+        chatComponent.getActiveUsers { info in
             print(info)
         }
         chatComponent.analytics { name, parameters in
