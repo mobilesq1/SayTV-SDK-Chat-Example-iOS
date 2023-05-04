@@ -4,7 +4,7 @@
 
 ### 12.0.1
 - Add `activeUsersThreshold` parameter to [FullChatComponent][] and [HeaderComponent][] which sets the active user threshold that the Header Component is allowed to show when we received the active user notification
-- We send in background the active user event with the number of users everytime we received the notification that allow you to handle the value as you want
+- We send in background the active user event with the number of users everytime we received the notification that allow you to handle the value as you want, check [how to get active users][]
 - We show between 2 to 4 quizzes options and answers on the chat and the header
 
 ### 12.0.0
@@ -256,3 +256,4 @@ To read more about unsunscribing please refer to ChatComponent section.
 [getLoggedUser]: <README.md#get-logged-user>
 [isHidden]: <README.md#is-hidden>
 [analytics]: <README.md#analytics>
+[how to get active users]: <README.md#get-active-users>

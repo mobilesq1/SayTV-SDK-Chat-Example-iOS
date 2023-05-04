@@ -19,7 +19,7 @@ Table of contents
 ## What's New
 ### 12.0.1
 - Add `activeUsersThreshold` parameter to [FullChatComponent](#full-chat) and [HeaderComponent](#header) which sets the active user threshold that the Header Component is allowed to show when we received the active user notification
-- We send in background the active user event with the number of users everytime we received the notification that allow you to handle the value as you want
+- We send in background the active user event with the number of users everytime we received the notification that allow you to handle the value as you want, check [how to get active users](#get-active-users)
 - We show between 2 to 4 quizzes options and answers on the chat and the header
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
@@ -352,6 +352,14 @@ SayTvSdk.getActiveUsers(chatIds: ["1130", "1132", "1133", "1135"]) { result in
                 print("Error: \(error.localizedDescription)")
             }
         }
+```
+
+You can get the active user from the `ChatComponent`, `HeaderComponent` and `FullChatComponent` internally
+
+```swift
+component.getActivUsers { info in
+    print("Get active users: \(info)")
+}
 ```
 
 ## Dummy header
