@@ -17,9 +17,10 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 12.0.2
-- Fix public typo in code, check [get active users](#get-active-users)
-- Fixing minor issues
+### 12.0.3
+- Move the thumb to the right
+- Change clock timing format to `00:00:00`
+- Collapse the quizzes options and answer when show or hide the keyboard
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 

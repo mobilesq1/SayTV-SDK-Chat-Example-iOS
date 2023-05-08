@@ -2,6 +2,11 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 12.0.3
+- Move the thumb to the right
+- Change clock timing format to `00:00:00`
+- Collapse the quizzes options and answer when show or hide the keyboard
+
 ### 12.0.2
 - Fix public typo in code, check [get active users][]
 - Fixing minor issues
