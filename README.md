@@ -17,10 +17,8 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 12.0.3
-- Move the thumb to the right
-- Change clock timing format to `00:00:00`
-- Collapse the quizzes options and answer when show or hide the keyboard
+### 12.0.4
+- Add `activeQuizTheme` to [ChatTheme](#themes)
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
@@ -227,7 +225,8 @@ class ChatViewController: UIViewController {
             rulesBorderColor: .brown,
             previewTheme: previewTheme,
             userJoinedBackground: .blue,
-            nextChatButtonTheme: .redTheme
+            nextChatButtonTheme: .redTheme,
+            activeQuizTheme: activeQuizTheme
         )
         let configuration = ChatConfiguration(
             alignTextMessageLeft: false, 
@@ -429,7 +428,8 @@ class FullChatController: UIViewController {
             rulesBorderColor: .brown,
             previewTheme: previewTheme,
             userJoinedBackground: .blue,
-            nextChatButtonTheme: .redTheme
+            nextChatButtonTheme: .redTheme,
+            activeQuizTheme: activeQuizTheme
         )
         let theme = FullChatTheme(headerTheme: headerTheme, 
                                   chatTheme: chatTheme)
@@ -716,7 +716,8 @@ let chatTheme = ChatTheme(
             rulesBorderColor: .brown,
             previewTheme: previewTheme,
             userJoinedBackground: .blue,
-            nextChatButtonTheme: nextChatButtonTheme
+            nextChatButtonTheme: nextChatButtonTheme,
+            activeQuizTheme: activeQuizTheme
         )
 
 let fullChatTheme = FullChatTheme(headerTheme: headerTheme, chatTheme: chatTheme)

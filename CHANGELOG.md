@@ -2,6 +2,9 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 12.0.4
+- Add `activeQuizTheme` to [ChatTheme][]
+
 ### 12.0.3
 - Move the thumb to the right
 - Change clock timing format to `00:00:00`
