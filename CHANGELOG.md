@@ -2,6 +2,9 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 12.0.5
+- Apply `moderatorMessageTheme` colors correctly([Themes][])
+
 ### 12.0.4
 - Add `activeQuizTheme` to [ChatTheme][]
 
@@ -270,3 +273,4 @@ To read more about unsunscribing please refer to ChatComponent section.
 [analytics]: <README.md#analytics>
 [how to get active users]: <README.md#get-active-users>
 [get active users]: <README.md#get-active-users>
+[Themes]: <README.md#themes>

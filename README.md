@@ -17,8 +17,8 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 12.0.4
-- Add `activeQuizTheme` to [ChatTheme](#themes)
+### 12.0.5
+- Apply `moderatorMessageTheme` colors correctly ([Themes](#themes))
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
