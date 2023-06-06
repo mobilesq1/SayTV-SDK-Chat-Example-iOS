@@ -25,9 +25,13 @@ Check older versions on the [CHANGELOG](CHANGELOG.md)
 
 ## Images
 <img src="./Images/ChatComponent.png"  width="200"><img src="./Images/HeaderComponent.png"  width="200">
+
 <img src="./Images/ChatAndHeaderComponents.png"  width="200"><img src="./Images/FullChatComponent.png"  width="200">
+
 <img src="./Images/QuizOptions.png"  width="200"><img src="./Images/QuizPartialResult.png"  width="200">
+
 <img src="./Images/Profile.png"  width="200"><img src="./Images/Avatar.png"  width="200">
+
 <img src="./Images/Badges.png"  width="200">
 
 ## Requirements
