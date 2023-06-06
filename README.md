@@ -3,6 +3,7 @@ App that is going to use the Saytv Chat library.
 
 Table of contents
 - [What's New](#whats-new) 
+- [Requirements](#requirements) 
 - [Instalation](#chat-sdk)
 - [Initialization](#initialization)
 - [Push notifications](#push-notifications)
@@ -21,6 +22,34 @@ Table of contents
 - Apply `moderatorMessageTheme` colors correctly ([Themes](#themes))
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
+
+## Images
+<img src="./Images/ChatComponent.png"  width="200">
+<img src="./Images/HeaderComponent.png"  width="200">
+<img src="./Images/ChatAndHeaderComponents.png"  width="200">
+<img src="./Images/FullChatComponent.png"  width="200">
+<img src="./Images/QuizOptions.png"  width="200">
+<img src="./Images/QuizPartialResult.png"  width="200">
+<img src="./Images/Profile.png"  width="200">
+<img src="./Images/Avatar.png"  width="200">
+<img src="./Images/Badges.png"  width="200">
+
+## Requirements
+To utilize the library, it is essential to obtain a key that grants access to the repository. This requirement ensures secure and controlled distribution of the library within our organization. The key serves as an authentication mechanism, allowing authorized personnel to download the library from the repository.
+
+To request a key, please follow the steps outlined below:
+
+1. Contact the designated administrator or the responsible team within our organization to initiate the key request process.
+
+2. Provide the necessary information, including your name, role, and purpose for accessing the library. Explain how the library will be utilized within your projects or applications.
+
+Once you have obtained the key, you can use it to access and download the library from the repository. Follow the instructions provided by the administrator or refer to the documentation for details on how to authenticate and utilize the key for repository access.
+
+Note: The key is a valuable asset and should be handled with care. It is important to abide by the organization's policies and ensure that the key is used solely for the intended purposes.
+
+By following these steps and obtaining the necessary key, you will be able to download and integrate the library into your projects, thereby leveraging its functionality to enhance your software development process.
+
+If you encounter any issues during the key request process or require further assistance, please reach out to the designated administrator or the responsible team for prompt support.
 
 ## Chat SDK
 
