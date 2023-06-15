@@ -2,6 +2,11 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 12.1.0
+- Public `deleteLoggedUser` method on SayTvSdk that delete previous user information in the SDK, check out on [Options](#options)
+- Improve the quick reaction animation
+- Add advertises on the `ChatComponent`, `HeaderComponent`and `FullChatComponent`
+
 ### 12.0.5
 - Apply `moderatorMessageTheme` colors correctly([Themes][])
 

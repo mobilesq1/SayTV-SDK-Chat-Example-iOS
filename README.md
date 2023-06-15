@@ -18,8 +18,10 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 12.0.5
-- Apply `moderatorMessageTheme` colors correctly ([Themes](#themes))
+### 12.1.0
+- Public `deleteLoggedUser` method on SayTvSdk that delete previous user information in the SDK, check out on [Options](#options)
+- Improve the quick reaction animation
+- Add advertises on the `ChatComponent`, `HeaderComponent`and `FullChatComponent`
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
@@ -917,6 +919,23 @@ Add `analytics` method to get the analytics data that you need to send to the an
 ```swift
 component.analytics { name, parameters in
     Analytics.logEvent(name, parameters: parameters)
+}
+```
+
+### Delete logged user
+Add `deleteLoggedUser(completion: _)` action to `SaytvSdk` to delete the logged user information, if the response is `nil` means there is no logged user on the SDK.
+```swift 
+SayTvSdk.deleteLoggedUser { result in
+    switch result {
+    case .success(let success):
+        guard let _ = success else {
+            print("User not login or register")
+            return
+        }
+        print("User deleted successfully")
+    case .failure(let failure):
+        print(error.localizedDescription)
+    }
 }
 ```
 
