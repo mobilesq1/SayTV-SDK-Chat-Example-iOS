@@ -18,10 +18,8 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 12.1.0
-- Public `deleteLoggedUser` method on SayTvSdk that delete previous user information in the SDK, check out on [Options](#options)
-- Improve the quick reaction animation
-- Add advertises on the `ChatComponent`, `HeaderComponent`and `FullChatComponent`
+### 12.1.1
+- Fix ads design and behaviour
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
