@@ -2,6 +2,9 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 12.1.2
+- Fix ads minor issues
+
 ### 12.1.1
 - Fix ads design and behaviour
 

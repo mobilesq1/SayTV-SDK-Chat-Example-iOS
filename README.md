@@ -18,8 +18,8 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 12.1.1
-- Fix ads design and behaviour
+### 12.1.2
+- Fix ads minor issues
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
