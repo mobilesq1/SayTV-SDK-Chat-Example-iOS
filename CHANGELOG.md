@@ -2,6 +2,9 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 12.1.4
+- Minor UI fixs
+
 ### 12.1.3
 - Set title ads when swipe
 - Add extra blur to background ads

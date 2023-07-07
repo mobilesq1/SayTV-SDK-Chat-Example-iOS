@@ -18,9 +18,8 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 12.1.3
-- Set title ads when swipe
-- Add extra blur to background ads
+### 12.1.4
+- Minor UI fixs
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
