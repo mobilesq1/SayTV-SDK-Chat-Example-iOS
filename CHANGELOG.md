@@ -2,6 +2,10 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 13.0.0
+- Add websocket implementation
+- Improve several behaviours
+
 ### 12.1.4
 - Minor UI fixs
 

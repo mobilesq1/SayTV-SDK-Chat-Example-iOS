@@ -18,8 +18,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 12.1.4
-- Minor UI fixs
+### 13.0.0
+- Add websocket implementation
+- Improve several behaviours
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
