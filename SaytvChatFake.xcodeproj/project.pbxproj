@@ -445,8 +445,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 13.0.0;
+				kind = exactVersion;
+				version = 13.0.0;
 			};
 		};
 		7BF779CA28475D4400E7FCB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {

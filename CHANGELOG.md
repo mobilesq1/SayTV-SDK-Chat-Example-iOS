@@ -6,6 +6,10 @@
 - Add websocket implementation
 - Improve several behaviours
 
+### 12.1.5
+- Change ads UI
+- Show ads until reach the end time on the dashboard
+
 ### 12.1.4
 - Minor UI fixs
 
