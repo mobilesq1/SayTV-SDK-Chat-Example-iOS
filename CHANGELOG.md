@@ -6,6 +6,9 @@
 - Add websocket implementation
 - Improve several behaviours
 
+### 12.1.7
+- Hide ads when show the quiz on the `ChatComponent`
+
 ### 12.1.6
 - Resize headers ads
 - Fix quiz collapse behaviour
