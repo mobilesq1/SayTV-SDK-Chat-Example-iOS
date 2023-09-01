@@ -6,6 +6,9 @@
 - Add websocket implementation
 - Improve several behaviours
 
+### 12.1.8
+- Fix behaviour that hide ads when the quiz is active
+
 ### 12.1.7
 - Hide ads when show the quiz on the `ChatComponent`
 
