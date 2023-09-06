@@ -2,6 +2,16 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 13.0.2
+- Remove ads with end time
+- Hide ads when showing the quiz
+- Resize header ads and UI/UX behaviour
+
+### 13.0.1
+- Change ads design
+- Get web socket configuration from backend
+- Several small fixes
+
 ### 13.0.0
 - Add websocket implementation
 - Improve several behaviours

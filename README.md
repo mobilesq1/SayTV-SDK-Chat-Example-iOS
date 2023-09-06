@@ -18,9 +18,10 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 13.0.0
-- Add websocket implementation
-- Improve several behaviours
+### 13.0.2
+- Remove ads with end time
+- Hide ads when showing the quiz
+- Resize header ads and UI/UX behaviour
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
