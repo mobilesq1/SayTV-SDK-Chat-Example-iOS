@@ -18,10 +18,8 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 13.0.2
-- Remove ads with end time
-- Hide ads when showing the quiz
-- Resize header ads and UI/UX behaviour
+### 13.0.3
+- Show ads after close quiz
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 

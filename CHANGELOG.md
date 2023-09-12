@@ -2,6 +2,9 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 13.0.3
+- Show ads after close quiz
+
 ### 13.0.2
 - Remove ads with end time
 - Hide ads when showing the quiz
