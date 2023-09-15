@@ -2,6 +2,9 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 13.0.4
+- Fix quiz crash issue
+
 ### 13.0.3
 - Show ads after close quiz
 
