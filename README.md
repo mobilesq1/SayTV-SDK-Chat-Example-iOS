@@ -18,8 +18,8 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 13.0.4
-- Fix quiz crash issue
+### 13.0.5
+- Update service calls
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 

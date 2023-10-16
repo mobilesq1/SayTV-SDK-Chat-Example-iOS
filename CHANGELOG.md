@@ -2,6 +2,9 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 13.0.5
+- Update service calls
+
 ### 13.0.4
 - Fix quiz crash issue
 
