@@ -11,8 +11,7 @@ import FirebaseMessaging
 import SaytvChat
 
 //let kApiToken = "$2y$10$m0qcFR4qVKS7h4eJlbLmcekPeSVv6En3mITCq0nZe0Rwm2r2JHZN."//Prod
-//let kApiToken = "$2y$10$AXdBAUa.kQjQSTpkJ78MseDN.7Py2/55HChXiySNIqENr4XqOxygC"//Staging
-let kApiToken = "$2y$10$AJ1o/12vbJIoup5oOOnfpuGjglNj9nJUO8hIZgJWq9EnV2ave2X7m"//Madrid
+let kApiToken = "$2y$10$AXdBAUa.kQjQSTpkJ78MseDN.7Py2/55HChXiySNIqENr4XqOxygC"//Staging
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,9 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        SayTvSdk.initialise(appName: "NewName", environment: .staging)
-        SayTvSdk.initialise(appName: "NewName",
-                            baseUrl: "https://madridfc.tenant.staging.saytv.sq1.io")
         SayTvSdk.setLogOption(.verbose)
         FirebaseApp.configure()
         
