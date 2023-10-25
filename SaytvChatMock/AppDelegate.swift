@@ -10,8 +10,7 @@ import Firebase
 import FirebaseMessaging
 import SaytvChat
 
-//let kApiToken = "$2y$10$m0qcFR4qVKS7h4eJlbLmcekPeSVv6En3mITCq0nZe0Rwm2r2JHZN."//Prod
-let kApiToken = "$2y$10$AXdBAUa.kQjQSTpkJ78MseDN.7Py2/55HChXiySNIqENr4XqOxygC"//Staging
+let kApiToken = ""
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
