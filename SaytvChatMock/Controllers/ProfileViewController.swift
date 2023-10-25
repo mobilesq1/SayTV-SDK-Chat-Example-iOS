@@ -1,6 +1,6 @@
 //
 //  ProfileViewController.swift
-//  SaytvChatFake
+//  SaytvChatMock
 //
 //  Created by David Garcia on 27/6/22.
 //

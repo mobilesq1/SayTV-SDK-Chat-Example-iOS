@@ -1,6 +1,6 @@
 //
 //  HeaderTableViewCell.swift
-//  SaytvChatFake
+//  SaytvChatMock
 //
 //  Created by David Garcia on 19/7/22.
 //

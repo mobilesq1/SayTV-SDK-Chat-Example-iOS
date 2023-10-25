@@ -28,7 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7B8FA32E283D1E5800C8F5A7 /* SaytvChatFake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaytvChatFake.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B8FA32E283D1E5800C8F5A7 /* SaytvChatMock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaytvChatMock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8FA331283D1E5800C8F5A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B8FA333283D1E5800C8F5A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7B8FA335283D1E5800C8F5A7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		7B8FA34D283D289E00C8F5A7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7BA17EE2287725AF00475377 /* FullChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullChatViewController.swift; sourceTree = "<group>"; };
-		7BA17EE4287729CA00475377 /* SaytvChatFake.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SaytvChatFake.entitlements; sourceTree = "<group>"; };
+		7BA17EE4287729CA00475377 /* SaytvChatMock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SaytvChatMock.entitlements; sourceTree = "<group>"; };
 		7BE0112E2887496900D815AF /* HeaderDummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDummyViewController.swift; sourceTree = "<group>"; };
 		7BE01131288749C000D815AF /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		7BE01132288749C000D815AF /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 		7B8FA325283D1E5800C8F5A7 = {
 			isa = PBXGroup;
 			children = (
-				7B8FA330283D1E5800C8F5A7 /* SaytvChatFake */,
+				7B8FA330283D1E5800C8F5A7 /* SaytvChatMock */,
 				7B8FA32F283D1E5800C8F5A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,15 +73,15 @@
 		7B8FA32F283D1E5800C8F5A7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7B8FA32E283D1E5800C8F5A7 /* SaytvChatFake.app */,
+				7B8FA32E283D1E5800C8F5A7 /* SaytvChatMock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7B8FA330283D1E5800C8F5A7 /* SaytvChatFake */ = {
+		7B8FA330283D1E5800C8F5A7 /* SaytvChatMock */ = {
 			isa = PBXGroup;
 			children = (
-				7BA17EE4287729CA00475377 /* SaytvChatFake.entitlements */,
+				7BA17EE4287729CA00475377 /* SaytvChatMock.entitlements */,
 				7BE94BBB2869C5A5009F0D5C /* Extensions */,
 				7B8FA34F283D2CA100C8F5A7 /* GoogleService-Info.plist */,
 				7B8FA34A283D282800C8F5A7 /* Controllers */,
@@ -92,7 +92,7 @@
 				7B8FA33C283D1E5900C8F5A7 /* LaunchScreen.storyboard */,
 				7B8FA33F283D1E5900C8F5A7 /* Info.plist */,
 			);
-			path = SaytvChatFake;
+			path = SaytvChatMock;
 			sourceTree = "<group>";
 		};
 		7B8FA34A283D282800C8F5A7 /* Controllers */ = {
@@ -129,9 +129,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7B8FA32D283D1E5800C8F5A7 /* SaytvChatFake */ = {
+		7B8FA32D283D1E5800C8F5A7 /* SaytvChatMock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7B8FA342283D1E5900C8F5A7 /* Build configuration list for PBXNativeTarget "SaytvChatFake" */;
+			buildConfigurationList = 7B8FA342283D1E5900C8F5A7 /* Build configuration list for PBXNativeTarget "SaytvChatMock" */;
 			buildPhases = (
 				7B8FA32A283D1E5800C8F5A7 /* Sources */,
 				7B8FA32B283D1E5800C8F5A7 /* Frameworks */,
@@ -141,14 +141,14 @@
 			);
 			dependencies = (
 			);
-			name = SaytvChatFake;
+			name = SaytvChatMock;
 			packageProductDependencies = (
 				7BF779CB28475D4400E7FCB0 /* FirebaseAnalytics */,
 				7BF779CD28475D4400E7FCB0 /* FirebaseMessaging */,
 				7BDF22692977D5CA004A29C7 /* SaytvChat */,
 			);
 			productName = SaytvChatFake;
-			productReference = 7B8FA32E283D1E5800C8F5A7 /* SaytvChatFake.app */;
+			productReference = 7B8FA32E283D1E5800C8F5A7 /* SaytvChatMock.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -166,7 +166,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7B8FA329283D1E5800C8F5A7 /* Build configuration list for PBXProject "SaytvChatFake" */;
+			buildConfigurationList = 7B8FA329283D1E5800C8F5A7 /* Build configuration list for PBXProject "SaytvChatMock" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -183,7 +183,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7B8FA32D283D1E5800C8F5A7 /* SaytvChatFake */,
+				7B8FA32D283D1E5800C8F5A7 /* SaytvChatMock */,
 			);
 		};
 /* End PBXProject section */
@@ -362,12 +362,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SaytvChatFake/SaytvChatFake.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SaytvChatMock/SaytvChatMock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4TXKG56UHG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SaytvChatFake/Info.plist;
+				INFOPLIST_FILE = SaytvChatMock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -392,12 +392,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SaytvChatFake/SaytvChatFake.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SaytvChatMock/SaytvChatMock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4TXKG56UHG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SaytvChatFake/Info.plist;
+				INFOPLIST_FILE = SaytvChatMock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -420,7 +420,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7B8FA329283D1E5800C8F5A7 /* Build configuration list for PBXProject "SaytvChatFake" */ = {
+		7B8FA329283D1E5800C8F5A7 /* Build configuration list for PBXProject "SaytvChatMock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B8FA340283D1E5900C8F5A7 /* Debug */,
@@ -429,7 +429,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7B8FA342283D1E5900C8F5A7 /* Build configuration list for PBXNativeTarget "SaytvChatFake" */ = {
+		7B8FA342283D1E5900C8F5A7 /* Build configuration list for PBXNativeTarget "SaytvChatMock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B8FA343283D1E5900C8F5A7 /* Debug */,

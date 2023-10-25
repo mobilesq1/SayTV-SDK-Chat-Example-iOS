@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  SaytvChatFake
+//  SaytvChatMock
 //
 //  Created by David Garcia on 24/5/22.
 //

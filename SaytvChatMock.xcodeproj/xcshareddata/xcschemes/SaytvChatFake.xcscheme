@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7B8FA32D283D1E5800C8F5A7"
-               BuildableName = "SaytvChatFake.app"
-               BlueprintName = "SaytvChatFake"
-               ReferencedContainer = "container:SaytvChatFake.xcodeproj">
+               BuildableName = "SaytvChatMock.app"
+               BlueprintName = "SaytvChatMock"
+               ReferencedContainer = "container:SaytvChatMock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7B8FA32D283D1E5800C8F5A7"
-            BuildableName = "SaytvChatFake.app"
-            BlueprintName = "SaytvChatFake"
-            ReferencedContainer = "container:SaytvChatFake.xcodeproj">
+            BuildableName = "SaytvChatMock.app"
+            BlueprintName = "SaytvChatMock"
+            ReferencedContainer = "container:SaytvChatMock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -68,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7B8FA32D283D1E5800C8F5A7"
-            BuildableName = "SaytvChatFake.app"
-            BlueprintName = "SaytvChatFake"
-            ReferencedContainer = "container:SaytvChatFake.xcodeproj">
+            BuildableName = "SaytvChatMock.app"
+            BlueprintName = "SaytvChatMock"
+            ReferencedContainer = "container:SaytvChatMock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

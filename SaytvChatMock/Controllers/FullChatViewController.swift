@@ -1,6 +1,6 @@
 //
 //  FullChatViewController.swift
-//  SaytvChatFake
+//  SaytvChatMock
 //
 //  Created by David Garcia on 7/7/22.
 //
