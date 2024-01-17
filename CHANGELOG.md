@@ -25,6 +25,9 @@
 - Add websocket implementation
 - Improve several behaviours
 
+### 12.1.9
+- Show admin user name on the chat
+
 ### 12.1.8
 - Fix behaviour that hide ads when the quiz is active
 
