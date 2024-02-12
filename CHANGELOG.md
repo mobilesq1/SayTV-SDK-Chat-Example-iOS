@@ -2,6 +2,10 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 13.0.10
+- Update pusher library
+- Minor structural changes
+
 ### 13.0.5
 - Update service calls
 

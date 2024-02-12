@@ -18,8 +18,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 13.0.5
-- Update service calls
+### 13.0.10
+- Update pusher library
+- Minor structural changes
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
