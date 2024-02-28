@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        SayTvSdk.initialise(appName: "TEST APP", environment: .staging)
         SayTvSdk.setLogOption(.verbose)
         FirebaseApp.configure()
         
