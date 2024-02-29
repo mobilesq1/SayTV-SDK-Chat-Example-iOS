@@ -2,6 +2,10 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 13.0.11
+- Improve active users counter
+- Update websocket config when initialize the framework
+
 ### 13.0.10
 - Update pusher library
 - Minor structural changes

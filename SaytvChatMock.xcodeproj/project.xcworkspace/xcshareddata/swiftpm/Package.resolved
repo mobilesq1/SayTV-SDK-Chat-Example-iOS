@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire.git",
       "state" : {
-        "revision" : "f82c23a8a7ef8dc1a49a8bfc6a96883e79121864",
-        "version" : "5.5.0"
+        "revision" : "3dc6a42c7727c49bf26508e29b0a0b35f9c7e1ad",
+        "version" : "5.8.1"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/AlamofireImage",
       "state" : {
-        "revision" : "98cbb00ce0ec5fc8e52a5b50a6bfc08d3e5aee10",
-        "version" : "4.2.0"
+        "revision" : "1eaf3b6c6882bed10f6e7b119665599dd2329aa1",
+        "version" : "4.3.0"
       }
     },
     {
@@ -122,8 +122,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/promises.git",
       "state" : {
-        "revision" : "e70e889c0196c76d22759eb50d6a0270ca9f1d9e",
-        "version" : "2.3.1"
+        "revision" : "540318ecedd63d883069ae7f1ed811a2df00b6ac",
+        "version" : "2.4.0"
       }
     },
     {
@@ -140,8 +140,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git",
       "state" : {
-        "revision" : "fe2dfbbf677ae555eed7e589f420318ba7d42d09",
-        "version" : "13.0.10"
+        "revision" : "9819cf1b7814de4b3fe95867585e9431019cd02d",
+        "version" : "13.0.11"
       }
     },
     {
@@ -149,8 +149,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getsentry/sentry-cocoa",
       "state" : {
-        "revision" : "5238cc5f12c2b75027730a54ecf632cf103daf21",
-        "version" : "7.31.4"
+        "revision" : "b847a202a517a90763e8fd0656d8028aeee7b78d",
+        "version" : "8.20.0"
       }
     },
     {
