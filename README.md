@@ -21,6 +21,7 @@ Table of contents
 ### 13.0.11
 - Improve active users counter
 - Update websocket config when initialize the framework
+- Update framwork packages
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 

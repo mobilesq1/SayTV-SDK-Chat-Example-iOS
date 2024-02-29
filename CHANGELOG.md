@@ -5,6 +5,7 @@
 ### 13.0.11
 - Improve active users counter
 - Update websocket config when initialize the framework
+- Update framwork packages
 
 ### 13.0.10
 - Update pusher library
