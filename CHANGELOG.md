@@ -2,6 +2,14 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 13.0.12
+#### Updated
+- Alamofire to version 5.9.0
+
+#### Fixed
+- Pusher can be optional when you log out the SDK
+- Dispatch to main queue when use the timers and UI
+
 ### 13.0.11
 - Improve active users counter
 - Update websocket config when initialize the framework
