@@ -18,9 +18,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 13.0.13
-#### Add
-- Add privacy info manifest to the project and SPM
+### 13.0.14
+#### Update
+- Internal libraries with the privacy manifest
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
