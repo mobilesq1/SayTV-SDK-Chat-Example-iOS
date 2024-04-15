@@ -18,9 +18,9 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 13.0.14
-#### Update
-- Internal libraries with the privacy manifest
+### 13.0.15
+#### Fix
+- Fix resources issues on the SPM configuration
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
