@@ -1,9 +1,11 @@
 # Saytv Chat Example iOS
+
 App that is going to use the Saytv Chat library.
 
 Table of contents
-- [What's New](#whats-new) 
-- [Requirements](#requirements) 
+
+- [What's New](#whats-new)
+- [Requirements](#requirements)
 - [Instalation](#chat-sdk)
 - [Initialization](#initialization)
 - [Push notifications](#push-notifications)
@@ -18,13 +20,17 @@ Table of contents
 - [Known Issues](#known-issues)
 
 ## What's New
-### 13.0.15
-#### Fix
-- Fix resources issues on the SPM configuration
+
+### 13.0.16
+
+#### Updated
+
+- Sentry to version 8.26.0
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
 ## Images
+
 <img src="./Images/ChatComponent.png"  width="200"><img src="./Images/HeaderComponent.png"  width="200">
 
 <img src="./Images/ChatAndHeaderComponents.png"  width="200"><img src="./Images/FullChatComponent.png"  width="200">
@@ -36,6 +42,7 @@ Check older versions on the [CHANGELOG](CHANGELOG.md)
 <img src="./Images/Badges.png"  width="200">
 
 ## Requirements
+
 To utilize the library, it is essential to obtain a key that grants access to the repository. This requirement ensures secure and controlled distribution of the library within our organization. The key serves as an authentication mechanism, allowing authorized personnel to download the library from the repository.
 
 To request a key, please follow the steps outlined below:
@@ -59,6 +66,7 @@ The Chat SDK is available on Swift Package Manager (SPM), to use it we are going
 1. Add a package by selecting `File` → `Add Packages…` in Xcode’s menu bar.
 
 2. Search for the SaytvChat Apple SDK using the repo's URL:
+
 ```console
 https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git
 ```
@@ -72,11 +80,13 @@ https://davidgarcia93@bitbucket.org/square1/saytv_sdk_ios.git
 6. The SDK is private so you are going to need a password (That Square1 is going to send you) to download and add it to the project
 
 7. Use this import on every file you want to use the pod
+
 ```swift
 import SaytvChat
 ```
 
 ## Initialization
+
 To initialise SDK simply call `SayTvSdk.initialise(appName: "APP_NAME", environment: .production)`on your app start in AppDelegate or before using any of the SDK component.
 App name will be used mainly in the chat component to replace app name in the messages displayed to the user (e.g. welcome message on empty chat).
 
@@ -85,6 +95,7 @@ You can initialize SDK with a custom base url call instead the default one `SayT
 To enable logging mechanism use `SayTvSdk.setLogOption(.verbose)` to see all logs related with Saytv SDK before initializing any of the SDK component, preferably in AppDelegate just before `SayTvSdk.initialise` method.
 
 ## Push notifications
+
 The class that handles all the push notification behavior is `PushComponent`. We assume you already have the **push configured**.
 
 You need to instantiate the class and use the next methods in the **AppDelegate.swift**:
@@ -110,7 +121,7 @@ func application(_ application: UIApplication,
 - Using the `MessagingDelegate`, in the `didReceiveRegistrationToken` function, add the `.saveToken(_ fcmToken: _)` to save and use the token in the SDK
 
 ```swift
-func messaging(_ messaging: Messaging, 
+func messaging(_ messaging: Messaging,
                didReceiveRegistrationToken fcmToken: String?) {
     pushComponent.saveToken(fcmToken ?? "")
 }
@@ -125,7 +136,7 @@ To register inside the SDK you just need to add `SayTvSadk.register(digicelId:_,
 ```swift
 SayTvSdk.register(digicelId: 12,
                   avatar: "https://lorempixel.com/avatar.png",
-                  username: "davidtwo", 
+                  username: "davidtwo",
                   apiToken: "XXXXXXXXXXXXXXXXXXXX") { result in
     switch result {
     case .success(let response):
@@ -159,7 +170,7 @@ SayTvSdk.register(digicelId: 12,
 To login inside the SDK, you just need to add `SayTvSdk.login(digicelId:_, apiToken:_, completion: _)` where the completion is going to have the service call response
 
 ```swift
-SayTvSdk.login(digicelId: digicelId, 
+SayTvSdk.login(digicelId: digicelId,
                apiToken: "XXXXXXXXXXXXXXXXXXXX") { result in
     switch result {
     case .success(let response):
@@ -214,11 +225,12 @@ SayTvSdk.logoutUser { result in
 ```
 
 ## Chat
+
 > You must be registered or logged in before trying to use chat.
 
-You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `ChatComponent(`***view***`: _, name: _, image: _, startTime: _, endTime: _, `***chatId***`: _, theme: _, configuration: _, language: _, chatCustomText: _, completion: _)`, where the ***view*** is the UIView that is configured in your screen, the others parameters are optional except for the ***chatId*** that you need to subscribe to the chat. The start time must be a date after or equal to now to work properly.
+You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `ChatComponent(`**_view_**`: _, name: _, image: _, startTime: _, endTime: _, `**_chatId_**`: _, theme: _, configuration: _, language: _, chatCustomText: _, completion: _)`, where the **_view_** is the UIView that is configured in your screen, the others parameters are optional except for the **_chatId_** that you need to subscribe to the chat. The start time must be a date after or equal to now to work properly.
 
-```swift 
+```swift
 class ChatViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
@@ -259,7 +271,7 @@ class ChatViewController: UIViewController {
             activeQuizTheme: activeQuizTheme
         )
         let configuration = ChatConfiguration(
-            alignTextMessageLeft: false, 
+            alignTextMessageLeft: false,
             displayButtonBar: true,
             isFanzone: false,
             shouldDisplayQuizzes: true
@@ -275,9 +287,9 @@ class ChatViewController: UIViewController {
             startTime: startTime,
             endTime: endTime,
             chatId: chatId,
-            theme: theme, 
+            theme: theme,
             configuration: configuration,
-            language: .english, 
+            language: .english,
             chatCustomText: chatCustomText
         ) { result in
             switch result {
@@ -293,8 +305,9 @@ class ChatViewController: UIViewController {
 }
 ```
 
-When initialising a chat component SDK automatically subscribes user to the chat events. 
+When initialising a chat component SDK automatically subscribes user to the chat events.
 While subscription is done automatically by the SDK user needs to handle unsubscribe manually to be in charge of chat subscription status calling:
+
 ```
 SayTvSdk.unsubscribeActiveChat { result in
     switch result {
@@ -305,25 +318,24 @@ SayTvSdk.unsubscribeActiveChat { result in
     }
 }
 ```
-Yet there are some exceptions where SKD also unsubscribe user automatically from the chat:
-    - when user has been banned from the chat by admin,
-    - when user selects `pause` option button from the chat options (buttons above chat list - visible if proper chat component `ChatConfiguration` is set or default setup is used)
-    
-There could be only one active chat at a time in the SDK. 
+
+Yet there are some exceptions where SKD also unsubscribe user automatically from the chat: - when user has been banned from the chat by admin, - when user selects `pause` option button from the chat options (buttons above chat list - visible if proper chat component `ChatConfiguration` is set or default setup is used)
+
+There could be only one active chat at a time in the SDK.
 If the new chat is created (different chatId) without unsubscribing from old chat then unsubscribe from old chat will be performed automatically before subscribing to a new chat.
 This provides possibility to control subscribe status when recreating chat component in different scenarios so the SDK can store all chat data between subscribe and unsubscribe so if chat is multiple time recreated (for example on device orientation change) all the data of the chat are up to date and are removed only when unsubscribe is called. This improves data synchronisation when recreating the chat without unsubscribing.
 
-
 ## Header
+
 > You must be registered or logged in before trying to use chat.
 
-You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `HeaderComponent(`***containerView***`: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, language: _, isFanzone: _, shouldDisplayQuizzes: _, activeUsersThreshold: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
+You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `HeaderComponent(`**_containerView_**`: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, language: _, isFanzone: _, shouldDisplayQuizzes: _, activeUsersThreshold: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
 
 - In the SDK modally presented views supports status bar appearance customisation. In order to support this your project Info.plist needs to include `UIViewControllerBasedStatusBarAppearance` set to `true`. Other way SDK will use default project setup. This customisation is optional.
 
-- Header component supports dynamic height. It can be set either by autolayout with all edges aligned to your containing view so the view resizes automatically based on the header internal elements size or the height can be set with constant value with height constraint you set. If you set header height constraint with constant value remember to change constraint priority to `height` instead of `required` in order to support header collapsing functionality. 
+- Header component supports dynamic height. It can be set either by autolayout with all edges aligned to your containing view so the view resizes automatically based on the header internal elements size or the height can be set with constant value with height constraint you set. If you set header height constraint with constant value remember to change constraint priority to `height` instead of `required` in order to support header collapsing functionality.
 
-```swift 
+```swift
 class ChatViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
@@ -338,7 +350,7 @@ class ChatViewController: UIViewController {
                                 textColor: .brown,
                                 viewerCountTextColor: .blue,
                                 timeRemainingTextColor: .cyan,
-                                timeIntervalTextColor: .purple, 
+                                timeIntervalTextColor: .purple,
                                 loading: .white)
         let _ = HeaderComponent(containerView: containerView,
                                 chatId: chatId,
@@ -346,9 +358,9 @@ class ChatViewController: UIViewController {
                                 chatImage: image,
                                 startDate: startTime,
                                 endDate: endTime,
-                                theme: theme, 
+                                theme: theme,
                                 language: .english,
-                                isFanzone: nil, 
+                                isFanzone: nil,
                                 shouldDisplayQuizzes: true,
                                 activeUsersThreshold: 5) { result in
             switch result {
@@ -365,11 +377,13 @@ class ChatViewController: UIViewController {
 
 If header is used as a standalone `HeaderComponent` component you need to handle unsubscribe method manually the same way as unsubscribing in ChatComponent when header is removed or anytime you want to unsubscribe from the chat.
 To unsubscribe simply call:
+
 ```
 SayTvSdk.unsubscribeActiveChat()
 ```
 
 ## Get active users
+
 Get the active user in several chat ids
 
 ```swift
@@ -392,17 +406,18 @@ component.getActiveUsers { info in
 ```
 
 ## Dummy header
+
 > To get the active users in the chat, you need to use [Get active users](#get-active-users) before
 
 Heather that you can use without call any service call and just show the header view
 
 ```swift
 class HeaderTableViewCell: UITableViewCell {
-    
-    func setContent(name: String, 
-                    image: String, 
-                    startDate: Date, 
-                    endDate: Date, 
+
+    func setContent(name: String,
+                    image: String,
+                    startDate: Date,
+                    endDate: Date,
                     count: Int) {
         let _ = HeaderComponent(containerView: contentView,
                                 chatName: name,
@@ -411,16 +426,17 @@ class HeaderTableViewCell: UITableViewCell {
                                 endDate: endDate,
                                 activeUsers: count)
     }
-    
+
 }
 ```
 
 ## Full Chat
+
 > You must be registered or logged in before trying to use chat.
 
 You're going to need to select an **UIView**, could be a placed view or **view**'s UIViewController directly that will work as the container for the Full Chat that have the Header + Chat in one component. With that decided you will have to call the `FullChatComponent(containerView: _, chatId: _, chatName: _, chatImage: _, startDate: _, endDate: _, theme: _, language: _, isFanzone: _, chatCustomText: _, activeUsersThreshold: _, completion: _)`. All the values are needed. The start time must be a date after or equal to now to work properly.
 
-```swift 
+```swift
 class FullChatController: UIViewController {
 
     ...
@@ -461,7 +477,7 @@ class FullChatController: UIViewController {
             nextChatButtonTheme: .redTheme,
             activeQuizTheme: activeQuizTheme
         )
-        let theme = FullChatTheme(headerTheme: headerTheme, 
+        let theme = FullChatTheme(headerTheme: headerTheme,
                                   chatTheme: chatTheme)
         let chatCustomText = ChatCustomText(
             nextChat: "Finish chat",
@@ -472,10 +488,10 @@ class FullChatController: UIViewController {
                                   chatName: name,
                                   chatImage: image,
                                   startDate: startTime,
-                                  endDate: endTime, 
-                                  theme: theme, 
+                                  endDate: endTime,
+                                  theme: theme,
                                   language: .english,
-                                  isFanzone: nil, 
+                                  isFanzone: nil,
                                   chatCustomText: chatCustomText,
                                   activeUsersThreshold: 5) { result in
             switch result {
@@ -492,11 +508,12 @@ class FullChatController: UIViewController {
 ```
 
 ## Profile
+
 > You must be registered or logged in before trying to use chat.
 
-You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `ProfileComponent(userId: _, `***containerView***`: _, theme: _, language: _)`
+You are going to need to place an **UIView** anywhere you want on your screen, that will work as a container for the Chat that is going to show the chat screen, Once you have the **UIView** ready, you will have to call the `ProfileComponent(userId: _, `**_containerView_**`: _, theme: _, language: _)`
 
-```swift 
+```swift
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
@@ -510,9 +527,9 @@ class ProfileViewController: UIViewController {
                                  seeAllEarnedBadgesBackgroundColor: .yellow,
                                  profileBackgroundColor: .cyan,
                                  profileInfoLayoutBackground: .yellow)
-        let _ = ProfileComponent(userId: 1, 
-                                 containerView: containerView, 
-                                 theme: theme, 
+        let _ = ProfileComponent(userId: 1,
+                                 containerView: containerView,
+                                 theme: theme,
                                  language: .english)
     }
     ...
@@ -521,7 +538,7 @@ class ProfileViewController: UIViewController {
 
 You can also use your `ProfileComponent` without and '**id**' and it will get the id from the user that is already logged on the app:
 
-```swift 
+```swift
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
@@ -535,8 +552,8 @@ class ProfileViewController: UIViewController {
                                  seeAllEarnedBadgesBackgroundColor: .yellow,
                                  profileBackgroundColor: .cyan,
                                  profileInfoLayoutBackground: .yellow)
-        let _ = ProfileComponent(containerView: containerView, 
-                                 theme: theme, 
+        let _ = ProfileComponent(containerView: containerView,
+                                 theme: theme,
                                  language: .english)
     }
     ...
@@ -544,6 +561,7 @@ class ProfileViewController: UIViewController {
 ```
 
 ## Options
+
 - The `ChatComponent`, `HeaderComponent`, `FullChatComponent` and the `ProfileComponent` can act as an overlay just calling the next method:
 
 ```swift
@@ -568,43 +586,44 @@ profileComponent.profileActions { event in
 
 - SayTvSdk provides possibility to fetch list of active users for a desirable list of chats:
 
- ```swift
+```swift
 SayTvSdk.getActiveUsers(chatIds: ["CHAT_ID", "CHAT_ID"]) { result in
-    switch result {
-    case .success(let activeUsers):
-        // handle active users list
-    case .failure(let error):
-        // handle error response
-    }
+   switch result {
+   case .success(let activeUsers):
+       // handle active users list
+   case .failure(let error):
+       // handle error response
+   }
 }
 ```
- In response closure request returns array of type `[ChatActiveUsers]` with a list of chat active users that contains active chat id and number of active users. 
- In case chat is inactive it won't be included in API response.
 
- - The `ChatComponent`, `HeaderComponent` and `FullChatComponent` allow to check the active users in the chat in real time
+In response closure request returns array of type `[ChatActiveUsers]` with a list of chat active users that contains active chat id and number of active users.
+In case chat is inactive it won't be included in API response.
 
- ```swift
- component.getActivUsers { info in
-    // handle actives users info
+- The `ChatComponent`, `HeaderComponent` and `FullChatComponent` allow to check the active users in the chat in real time
+
+```swift
+component.getActivUsers { info in
+   // handle actives users info
 }
- ```
+```
 
 - Close component's observers with `removeObservers` method when the app is going to disappear from the controller to improve performance behavior of the message received for the `ChatComponent`, `HeaderComponent` and `FullChatComponent`
 
- ```swift
- class UIViewController {
-    ...
-    private var component: ChatComponent!
-    ...
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        component.removeObservers()
-    }
-    ...
- }
- ```
+```swift
+class UIViewController {
+   ...
+   private var component: ChatComponent!
+   ...
+   override func viewDidDisappear(_ animated: Bool) {
+       super.viewDidDisappear(animated)
+       component.removeObservers()
+   }
+   ...
+}
+```
 
-- Get selected url metada using the `selectedUrl` method on the `ChatComponent` and `FullChatComponent` 
+- Get selected url metada using the `selectedUrl` method on the `ChatComponent` and `FullChatComponent`
 
 ```swift
 chatComponent.selectedUrl { info in
@@ -627,6 +646,7 @@ class UIViewController {
 ```
 
 ### Themes
+
 - You can change the theme at runtime of the `ChatComponent` and the `HeaderComponent` using this after initialize the components:
 
 ```swift
@@ -660,7 +680,7 @@ let headerTheme = HeaderTheme(overlayBackgroundColor: .blue,
                               viewerCountTextColor: .blue,
                               timeRemainingTextColor: .cyan,
                               timeIntervalTextColor: .purple,
-                              activeQuizTheme: activeQuizTheme, 
+                              activeQuizTheme: activeQuizTheme,
                               loading: .white)
 let chatOptionButtonTheme = SayTvButtonTheme(enabledTitleColor: .blue,
                                              disabledTitleColor: .purple,
@@ -765,14 +785,14 @@ SayTvSdk.setProfileTheme(_ theme: theme)
 
 - You can change the quizzes theme in the `ChatTheme` declaring the `QuizTheme`, where its could use the following instances:
 
-    - ActiveQuizTheme: Could use the following instance:
-        - SayTvButtonTheme
-    - InfoPopupTheme
-    - QuizFinalResultsTheme
-    - QuizFormTheme: Could use the following instances:
-        - SayTvButtonTheme
-        - StatusBarTheme
-        - TextFieldTheme
+  - ActiveQuizTheme: Could use the following instance:
+    - SayTvButtonTheme
+  - InfoPopupTheme
+  - QuizFinalResultsTheme
+  - QuizFormTheme: Could use the following instances:
+    - SayTvButtonTheme
+    - StatusBarTheme
+    - TextFieldTheme
 
 ```swift
 var theme: QuizTheme {
@@ -870,7 +890,8 @@ var quizFinalResultsTheme: QuizFinalResultsTheme {
 }
 ```
 
--  Every component has a `language` parameter when is initialize
+- Every component has a `language` parameter when is initialize
+
 ```swift
 ...
 let component = Component(..., language: .english, ...) {
@@ -880,26 +901,30 @@ let component = Component(..., language: .english, ...) {
 ```
 
 - Add `ChatConfiguration` object as a parameter to modify the behavior of the chat
-    - `alignTextMessageLeft` Align the text of the message of the screen to the left
-    - `displayButtonBar` Show or hide the filter, quiz, etc options on top of the chat
-    - `isFanzone` Used when you wanna create a fanzone
+  - `alignTextMessageLeft` Align the text of the message of the screen to the left
+  - `displayButtonBar` Show or hide the filter, quiz, etc options on top of the chat
+  - `isFanzone` Used when you wanna create a fanzone
+
 ```swift
-ChatComponent(..., 
+ChatComponent(...,
               configuration: ChatConfiguration(alignTextMessageLeft: true,
                                                displayButtonBar: false,
-                                               isFanzone: true, 
+                                               isFanzone: true,
                                                shouldDisplayQuizzes: true)
             ,...)
 ```
 
 ### Is hidden
+
 - Add `isHidden` attributed to `ChatComponent` that hide the container view and executed extra behavior when is show again in the screen:
+
 ```swift
 let chatComponent = ChatComponent(....)
 chatComponent.isHidden = true
 ```
 
 ### Get logged user
+
 Add `getLoggedUser(completion: _)` action to `SaytvSdk` to get the logged user information, if the response is `nil` means there is no logged user on the SDK.
 
 ```swift
@@ -914,7 +939,9 @@ SayTvSdk.getLoggedUser { result in
 ```
 
 ### Analytics
+
 Add `analytics` method to get the analytics data that you need to send to the analytic server with the **name** of the event and its **parameters**, this is available on `ChatComponent` and `FullChatComponent`
+
 ```swift
 component.analytics { name, parameters in
     Analytics.logEvent(name, parameters: parameters)
@@ -922,8 +949,10 @@ component.analytics { name, parameters in
 ```
 
 ### Delete logged user
+
 Add `deleteLoggedUser(completion: _)` action to `SaytvSdk` to delete the logged user information, if the response is `nil` means there is no logged user on the SDK.
-```swift 
+
+```swift
 SayTvSdk.deleteLoggedUser { result in
     switch result {
     case .success(let success):
@@ -941,7 +970,9 @@ SayTvSdk.deleteLoggedUser { result in
 ## Known Issues
 
 ### Chat Initialisation start date and end date updates
+
 When intializing chat component with unique `chatId` backend is registering chat in the database with provided start date and end date:
+
 ```swift
 let name = "Custom Chat Name"
 let start = "14/07/2022 10:00:00"
@@ -956,6 +987,7 @@ ChatComponent(view: containerView, startTime: startTime, endTime: endTime, chatI
 ```
 
 If user is initializing chat component again with the same chatId but with different dates backend does not override passed dates and original one are used instead:
+
 ```swift
 let name = "Custom Chat Name"
 let start = "20/07/2022 8:00:00"
@@ -969,6 +1001,6 @@ ChatComponent(view: containerView, startTime: startTime, endTime: endTime, chatI
 }
 ```
 
-Chat can be initialised only once in database with provided dates and even when user starts chat component again but with different dates only original dates are used instead. 
+Chat can be initialised only once in database with provided dates and even when user starts chat component again but with different dates only original dates are used instead.
 
-If the dates changes then also `chatId` needs to be changed that is passed to chat component because we do not provide dates overriding mechanism. 
+If the dates changes then also `chatId` needs to be changed that is passed to chat component because we do not provide dates overriding mechanism.
