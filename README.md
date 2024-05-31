@@ -21,11 +21,11 @@ Table of contents
 
 ## What's New
 
-### 13.0.16
+### 13.0.17
 
-#### Updated
+#### Fix
 
-- Sentry to version 8.26.0
+- Add iPad validation when presenting an alert
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 

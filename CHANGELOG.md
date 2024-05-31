@@ -3,6 +3,12 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 13.0.17
+
+#### Fix
+
+- Add iPad validation when presenting an alert
+
 ### 13.0.16
 
 #### Updated
